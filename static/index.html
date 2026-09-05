@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CP-SAT 排工排产智能排程演示</title>
+<style>
+:root{
+  --bg:#0f1420; --panel:#171e2e; --panel2:#1e2740; --line:#2a3550;
+  --text:#e7ecf5; --muted:#93a2bd; --accent:#4e9ef5; --accent2:#4ec9a5;
+  --chip:#24304a; --danger:#e15759;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+a{color:var(--accent)}
+.wrap{max-width:1400px;margin:0 auto;padding:22px 26px 60px}
+.topbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.logo{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#06121f}
+h1{font-size:22px;margin:0}
+.sub{color:var(--muted);font-size:13px;margin-top:2px}
+.hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.badge{background:var(--chip);border:1px solid var(--line);color:var(--muted);padding:5px 11px;border-radius:999px;font-size:12px}
+.badge.ok{color:var(--accent2);border-color:#1f6b52}
+.badge.warn{color:#ffcc66;border-color:#6b5a1f}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+.controls{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;margin-top:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;color:var(--muted)}
+.field input,.field select{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:9px;padding:9px 11px;font-size:14px;outline:none;min-width:104px}
+.field input:focus,.field select:focus{border-color:var(--accent)}
+button{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:15px;font-weight:600;cursor:pointer;transition:filter .15s}
+button:hover{filter:brightness(1.1)}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.ghost{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .k{font-size:12px;color:var(--muted)}
+.kpi .v{font-size:23px;font-weight:700;margin-top:5px}
+.kpi .v.small{font-size:16px}
+.chartbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 10px}
+.seg{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:4px;display:flex;gap:4px}
+.seg button{background:transparent;color:var(--muted);border:none;padding:6px 13px;font-size:13px;border-radius:7px}
+.seg button.active{background:var(--accent);color:#fff}
+.chartbox{overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:14px;position:relative}
+#chart{display:block;width:100%}
+.hint{font-size:12px;color:var(--muted);margin-left:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+.lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.lg .sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.legend .lg b{color:var(--text)}
+#tooltip{position:fixed;pointer-events:none;background:#0b1017;border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:12px;box-shadow:0 8px 24px rgba(0,0,0,.4);display:none;z-index:50;max-width:280px}
+#tooltip .tt{font-weight:700;color:#fff;margin-bottom:4px}
+#tooltip .r{color:var(--muted);display:flex;justify-content:space-between;gap:16px}
+#tooltip .r b{color:var(--text);font-weight:600}
+.banner{background:#254a2f;border:1px solid #1f6b52;color:#cdeeda;padding:9px 14px;border-radius:10px;font-size:13px;margin-top:12px}
+footer{color:var(--muted);font-size:12px;margin-top:22px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="topbar">
+      <div class="logo">⏱</div>
+      <div>
+        <h1>CP-SAT 排工排产智能排程</h1>
+        <div class="sub">Google OR-Tools · 约束求解 (CP-SAT) · 多机台并行排程 · 甘特图可视化</div>
+      </div>
+      <div class="hdr-right">
+        <span class="badge" id="badge-solver">CP-SAT 9.15</span>
+        <span class="badge" id="badge-status">未求解</span>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field"><label>工单数</label><input id="in-jobs" type="number" min="2" max="20" value="6"></div>
+      <div class="field"><label>机器数</label><input id="in-machines" type="number" min="2" max="12" value="5"></div>
+      <div class="field"><label>工艺类型</label>
+        <select id="in-type"><option value="job">Job-Shop(各异路线)</option><option value="flow">Flow-Shop(统一路线)</option></select>
+      </div>
+      <div class="field"><label>优化目标</label>
+        <select id="in-objective">
+          <option value="makespan">最小化总完工</option>
+          <option value="completion">最小化完工总和</option>
+          <option value="tardiness">最小化总拖期</option>
+          <option value="weighted">最小化加权完工</option>
+        </select>
+      </div>
+      <div class="field"><label>随机种子</label><input id="in-seed" type="number" value="42"></div>
+      <div class="field"><label>求解上限(秒)</label><input id="in-maxtime" type="number" value="10" min="0.1" step="0.5"></div>
+      <button id="btn-solve">⚙ 求解</button>
+    </div>
+  </div>
+
+  <div id="static-banner" class="banner" style="display:none">静态演示模式 —— 当前展示为预解算结果; 如需在线调整参数求解, 请启动后端服务 <code>python app.py</code> 后刷新。</div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="chartbar">
+    <div class="seg" id="mode-seg">
+      <button data-mode="machine" class="active">按机器</button>
+      <button data-mode="job">按工单</button>
+    </div>
+    <div class="hint" id="canvas-hint">滚轮缩放 · 拖拽平移 · 悬停查看工序</div>
+  </div>
+  <div class="chartbox">
+    <svg id="chart"></svg>
+  </div>
+  <div class="legend" id="legend"></div>
+
+  <footer>
+    <b>说明</b>：每道工序需在指定机器加工固定时长; 同一工单内工序按顺序进行(先序约束), 同一机器同一时刻只能加工一道工序(独占约束)。
+    CP-SAT 通过区间变量 + <code>AddNoOverlap</code> + 先序约束建模, 在有限时间内求得该实例的(近)最优排程。调整上方参数并点击「求解」即可得到新的甘特图。
+  </footer>
+</div>
+<div id="tooltip"></div>
+
+<script>
+/* 静态演示数据注入点: build_static.py 会替换 __SCHEDULE__ 与 __STATIC__ */
+window.__SCHEDULE__ = null;
+window.__STATIC__ = false;
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var PALETTE = ["#4e79a7","#f28e2b","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7","#9c755f","#49b8c4","#b6992d","#d37295","#499894","#86bcb6","#7f7f7f","#c3c6c7"];
+
+  var state = { data:null, mode:"machine", scale:1, panX:0, hover:null, dragging:false, dragX0:0, pan0:0 };
+
+  var $ = function(id){ return document.getElementById(id); };
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function color(job){ return PALETTE[job % PALETTE.length]; }
+
+  function buildRows(d){
+    var rows = [];
+    if(state.mode === "machine"){
+      var mset = [];
+      for(var i=0;i<d.machines.length;i++){ mset.push(d.machines[i]); }
+      var maxM = 0;
+      for(var i=0;i<d.schedule.length;i++){ if(d.schedule[i].machine>maxM) maxM=d.schedule[i].machine; }
+      // union of listed machines and those used
+      var mm = {};
+      for(var i=0;i<mset.length;i++){ mm[mset[i]]=true; }
+      for(var i=0;i<d.schedule.length;i++){ mm[d.schedule[i].machine]=true; }
+      var keys = Object.keys(mm).map(Number).sort(function(a,b){return a-b;});
+      for(var i=0;i<keys.length;i++){
+        var m = keys[i];
+        rows.push({ id:"m"+m, label:"机器 M"+m, key:m });
+      }
+    } else {
+      for(var i=0;i<d.jobs.length;i++){
+        var j = d.jobs[i];
+        rows.push({ id:"j"+j.id, label:j.name, key:j.id });
+      }
+    }
+    return rows;
+  }
+
+  function rowIndexFor(rows, item){
+    if(state.mode==="machine"){
+      for(var i=0;i<rows.length;i++){ if(rows[i].key===item.machine) return i; }
+    } else {
+      for(var i=0;i<rows.length;i++){ if(rows[i].key===item.job) return i; }
+    }
+    return 0;
+  }
+
+  function draw(){
+    var d = state.data;
+    var svg = $("chart");
+    if(!d || !d.schedule || !d.schedule.length){ svg.innerHTML=""; return; }
+    var W = svg.clientWidth || 800;
+    var makespan = (d.statistics && (d.statistics.makespan || d.statistics.objective_value)) || 1;
+    var gutterX = 96, gutterY = 38, rowH = 40, rightPad = 40;
+    var rows = buildRows(d);
+    var H = gutterY + rows.length*rowH + 8;
+    svg.setAttribute("width", W);
+    svg.setAttribute("height", H);
+
+    // initial scale if not set/overflow
+    var plotW = W - gutterX - rightPad;
+    if(!state.scale || state.scale<=0){ state.scale = plotW / Math.max(1,makespan); }
+    // clamp pan so we keep some content visible
+    var minPan = gutterX - state.scale*makespan - 10;
+    var maxPan = plotW*0.6;
+    if(state.panX < minPan) state.panX = minPan;
+    if(state.panX > maxPan) state.panX = maxPan;
+    var plotLeft = gutterX + state.panX;
+    var px = function(t){ return plotLeft + t*state.scale; };
+
+    var parts = [];
+    // grid background rows
+    for(var r=0;r<rows.length;r++){
+      var y = gutterY + r*rowH;
+      parts.push('<rect x="'+gutterX+'" y="'+y+'" width="'+(W-gutterX-rightPad)+'" height="'+rowH+'" fill="'+(r%2? "#1a2335":"#151d2f")+'" />');
+    }
+    // vertical grid lines / time ticks
+    var steps=[1,2,5,10,20,25,50,100,150,200,250,500,1000,2000,5000];
+    var step = steps[steps.length-1];
+    for(var i=0;i<steps.length;i++){ if(steps[i]*state.scale>=60){ step=steps[i]; break; } }
+    var tickColor = "#2a3550";
+    for(var t=0;t<=makespan;t+=step){
+      var x = px(t);
+      if(x<gutterX-1 || x>W-4) continue;
+      parts.push('<line x1="'+x+'" y1="'+gutterY+'" x2="'+x+'" y2="'+(gutterY+rows.length*rowH)+'" stroke="'+tickColor+'" stroke-width="1" />');
+      parts.push('<text x="'+x+'" y="'+(gutterY-12)+'" fill="#93a2bd" font-size="11" text-anchor="middle">'+t+'</text>');
+    }
+    // row labels
+    for(var r=0;r<rows.length;r++){
+      var y = gutterY + r*rowH;
+      parts.push('<text x="'+(gutterX-10)+'" y="'+(y+rowH/2+4)+'" fill="#c7d2e6" font-size="13" text-anchor="end" font-weight="600">'+esc(rows[r].label)+'</text>');
+      // utilization (machine mode)
+      if(state.mode==="machine"){
+        var load=0; for(var i=0;i<d.schedule.length;i++){ if(d.schedule[i].machine===rows[r].key) load+=d.schedule[i].duration; }
+        var u = Math.round(100*load/Math.max(1,makespan));
+        parts.push('<text x="'+(W-6)+'" y="'+(y+rowH/2+4)+'" fill="#61718e" font-size="11" text-anchor="end">'+u+'%</text>');
+      }
+    }
+    // bars
+    for(var i=0;i<d.schedule.length;i++){
+      var it = d.schedule[i];
+      var rI = rowIndexFor(rows, it);
+      var y = gutterY + rI*rowH;
+      var x0 = px(it.start), w = Math.max(2,(it.end-it.start)*state.scale);
+      var c = color(it.job);
+      var label = it.job+"-"+(it.op+1);
+      parts.push('<g data-job="'+it.job+'" data-op="'+it.op+'">');
+      parts.push('<rect x="'+x0+'" y="'+(y+4)+'" width="'+w+'" height="'+(rowH-8)+'" rx="5" fill="'+c+'" opacity="0.92" stroke="rgba(0,0,0,0.25)" stroke-width="1" />');
+      if(w>26){
+        parts.push('<text x="'+(x0+w/2)+'" y="'+(y+rowH/2+4)+'" fill="#fff" font-size="12" text-anchor="middle" font-weight="700">'+esc(label)+'</text>');
+      }
+      parts.push('</g>');
+    }
+    // header line
+    parts.push('<line x1="'+gutterX+'" y1="'+gutterY+'" x2="'+(W-rightPad)+'" y2="'+gutterY+'" stroke="#2a3550"/>');
+    svg.innerHTML = parts.join("");
+
+    // attach interaction
+    bindChart(svg, d, rows);
+  }
+
+  function bindChart(svg, d, rows){
+    if(!svg._bound){ svg._bound = true;
+      svg.addEventListener("mousemove", function(e){
+        var t = targetBar(e);
+        if(t){ showTooltip(t, e); } else { hideTooltip(); }
+      });
+      svg.addEventListener("mouseleave", hideTooltip);
+      svg.addEventListener("wheel", function(e){ e.preventDefault(); var r = svg.getBoundingClientRect(); var mx = e.clientX - r.left; var minX = 96; if(mx<minX) mx=minX; var plotLeft = 96+state.panX; var tM = (mx - plotLeft)/state.scale; var factor = e.deltaY<0? 1.18 : 0.85; var ns = state.scale*factor; state.scale = Math.max(0.05, Math.min(40, ns)); state.panX = mx - 96 - tM*state.scale; draw(); }, {passive:false});
+      svg.addEventListener("mousedown", function(e){ var r=svg.getBoundingClientRect(); state.dragging=true; state.dragX0=e.clientX; state.pan0=state.panX; });
+      window.addEventListener("mousemove", function(e){ if(state.dragging){ state.panX = state.pan0 + (e.clientX - state.dragX0); draw(); } });
+      window.addEventListener("mouseup", function(){ state.dragging=false; });
+    }
+  }
+  function targetBar(e){
+    var g = e.target && e.target.closest ? e.target.closest("g[data-job]") : null;
+    if(!g) return null;
+    return { job:+g.getAttribute("data-job"), op:+g.getAttribute("data-op") };
+  }
+  function showTooltip(t, e){
+    var d = state.data; var it=null;
+    for(var i=0;i<d.schedule.length;i++){ if(d.schedule[i].job===t.job && d.schedule[i].op===t.op){ it=d.schedule[i]; break; } }
+    if(!it){ return; }
+    var tip = $("tooltip");
+    var jobName = "工单 " + it.job;
+    for(var j=0;j<d.jobs.length;j++){ if(d.jobs[j].id===it.job){ jobName = d.jobs[j].name; } }
+    tip.innerHTML =
+      '<div class="tt" style="color:'+color(it.job)+'">'+esc(jobName)+' · 工序 '+(it.op+1)+'</div>'+
+      '<div class="r"><span>机器</span><b>M'+it.machine+'</b></div>'+
+      '<div class="r"><span>开始</span><b>'+it.start+'</b></div>'+
+      '<div class="r"><span>结束</span><b>'+it.end+'</b></div>'+
+      '<div class="r"><span>时长</span><b>'+it.duration+'</b></div>';
+    tip.style.display="block";
+    var x = e.clientX + 14, y = e.clientY + 14;
+    tip.style.left = x+"px"; tip.style.top = y+"px";
+  }
+  function hideTooltip(){ $("tooltip").style.display="none"; }
+
+  function render(d){
+    if(!d) return;
+    state.data = d;
+    draw();
+    renderKpis(d);
+    renderLegend(d);
+    setBadge(d);
+  }
+
+  function renderKpis(d){
+    if(!d) return;
+    var st = d.statistics || {};
+    var makespan = st.makespan || st.objective_value || 0;
+    var totalComp = 0; for(var i=0;i<d.jobs.length;i++){ totalComp += d.jobs[i].completion||0; }
+    var boxes = [
+      ["求解状态", st.status || "-", ""],
+      ["总完工 Makespan", Math.round(makespan)+"", ""],
+      ["目标值", round2(st.objective_value)+"", "small"],
+      ["求解耗时", (st.solve_time_s||0)+" s", "small"],
+      ["工序数", (st.num_operations||0)+"", "small"],
+      ["工单完工总和", Math.round(totalComp)+"", "small"]
+    ];
+    var s = "";
+    for(var i=0;i<boxes.length;i++){ s += '<div class="kpi"><div class="k">'+boxes[i][0]+'</div><div class="v '+(boxes[i][2]||'')+'">'+esc(boxes[i][1])+'</div></div>'; }
+    $("kpis").innerHTML = s;
+  }
+  function round2(n){ if(n==null||isNaN(n)) return "-"; return Math.round(n*100)/100; }
+
+  function renderLegend(d){
+    if(!d) return;
+    var s="";
+    for(var i=0;i<d.jobs.length;i++){
+      var j=d.jobs[i];
+      s += '<div class="lg"><span class="sw" style="background:'+color(j.id)+'"></span><b>'+esc(j.name)+'</b><span>完工 '+j.completion+'</span></div>';
+    }
+    $("legend").innerHTML = s;
+  }
+
+  function setBadge(d){
+    var st = d.statistics||{};
+    var b = $("badge-status");
+    var ok = (st.status==="OPTIMAL");
+    b.textContent = (ok?"最优解 (OPTIMAL)":"解 ("+(st.status||"-")+")");
+    b.className = "badge "+(ok?"ok":"warn");
+  }
+
+  function params(){
+    return "jobs="+($("in-jobs").value)+"&machines="+($("in-machines").value)+"&type="+($("in-type").value)+"&objective="+($("in-objective").value)+"&seed="+($("in-seed").value)+"&max_time="+($("in-maxtime").value);
+  }
+
+  function solveClick(){
+    var btn = $("btn-solve");
+    btn.disabled = true; btn.textContent = "求解中…";
+    fetch("/api/solve?"+params()).then(function(r){ return r.json(); }).then(function(d){
+      btn.disabled=false; btn.textContent="⚙ 求解";
+      if(d.error){ alert("求解失败: "+d.error); return; }
+      render(d);
+    }).catch(function(err){
+      btn.disabled=false; btn.textContent="⚙ 求解";
+      if(window.__STATIC__){ alert("当前为静态演示(未启动后端), 无法在线求解。请运行 python app.py 后刷新。"); }
+      else { alert("后端求解失败: "+err); }
+    });
+  }
+
+  // mode seg
+  $("mode-seg").addEventListener("click", function(e){
+    var b = e.target.closest ? e.target.closest("button") : null; if(!b) return;
+    state.mode = b.getAttribute("data-mode");
+    var bs = $("mode-seg").querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].className = (bs[i]===b? "active":""); }
+    if(state.data){ state.scale=0; state.panX=0; draw(); }
+  });
+
+  // solve button / enter
+  $("btn-solve").addEventListener("click", solveClick);
+  ["in-jobs","in-machines","in-seed","in-maxtime"].forEach(function(id){ $("in-jobs").addEventListener? null:null; });
+  document.addEventListener("keydown", function(e){ if(e.key==="Enter" && /INPUT|SELECT/.test(document.activeElement.tagName)){ solveClick(); } });
+
+  // resize
+  window.addEventListener("resize", function(){ if(state.data) draw(); });
+
+  // boot
+  (function boot(){
+    if(window.__STATIC__){
+      $("static-banner").style.display="block";
+      if(window.__SCHEDULE__){ render(window.__SCHEDULE__); }
+    } else {
+      solveClick();
+    }
+  })();
+})();
+</script>
+</body>
+</html>

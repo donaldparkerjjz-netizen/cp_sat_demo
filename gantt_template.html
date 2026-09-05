@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>织造后整链 CP-SAT 排产甘特图</title>
+<style>
+:root{--bg:#0f1420;--panel:#171e2e;--panel2:#1e2740;--line:#2a3550;--text:#e7ecf5;--muted:#93a2bd;--accent:#4e9ef5;--accent2:#4ec9a5}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:1400px;margin:0 auto;padding:22px 26px 60px}
+.topbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+h1{font-size:21px;margin:0}
+.sub{color:var(--muted);font-size:13px;margin-top:2px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+.badge{background:var(--panel2);border:1px solid var(--line);color:var(--accent2);padding:5px 11px;border-radius:999px;font-size:12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .k{font-size:12px;color:var(--muted)}
+.kpi .v{font-size:22px;font-weight:700;margin-top:5px}
+.chartbox{overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:14px;position:relative}
+.hint{font-size:12px;color:var(--muted);margin-left:auto}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.lg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.lg .sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.lg b{color:var(--text)}
+footer{color:var(--muted);font-size:12px;margin-top:22px;line-height:1.7}
+#tooltip{position:fixed;pointer-events:none;background:#0b1017;border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:12px;display:none;z-index:50;max-width:300px}
+#tooltip .tt{font-weight:700;color:#fff;margin-bottom:4px}
+#tooltip .r{color:var(--muted);display:flex;justify-content:space-between;gap:16px}
+#tooltip .r b{color:var(--text);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="topbar">
+      <h1>🏭 织造后整链 CP-SAT 排产甘特图</h1>
+      <div class="sub" id="meta-sub"></div>
+      <div class="badge" style="margin-left:auto">CP-SAT 后整链 (落布→水洗→涂层→验布)</div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="chartbar" style="display:flex;align-items:center;gap:12px">
+      <div class="sub">各工序甘特图（横轴=日期，悬停查看批次）</div>
+      <div class="hint">滚轮缩放 · 拖拽平移</div>
+    </div>
+    <div class="chartbox"><svg id="chart"></svg></div>
+    <div class="legend" id="legend"></div>
+  </div>
+  <footer>
+    数据：益丰生产管理表单260604.xlsx · <b>落布预测</b>（6月，45 个落布批次）。模型：每批次依次经 <b>水洗→涂层→验布</b>，同机互斥(AddNoOverlap)、工序先后、落布后释放；目标=最小化总完工。
+  </footer>
+</div>
+<div id="tooltip"></div>
+<script>
+window.__SCHEDULE__ = null;
+</script>
+<script>
+(function(){
+  "use strict";
+  var PALETTE=["#4e79a7","#f28e2b","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7","#9c755f","#49b8c4","#b6992d","#d37295","#499894","#86bcb6","#7f7f7f","#c3c6c7"];
+  var state={scale:1,panX:0,drag:false,d0:0,p0:0};
+  var $=function(id){return document.getElementById(id);};
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function color(i){return PALETTE[i%PALETTE.length];}
+
+  function buildRows(d){
+    // rows = machines (3 finishing machines)
+    var rows=[];
+    for(var i=0;i<d.machines.length;i++){ rows.push({label:d.machines[i]}); }
+    return rows;
+  }
+  function draw(){
+    var d=window.__SCHEDULE__; var svg=$("chart");
+    if(!d||!d.schedule||!d.schedule.length){ svg.innerHTML=""; return; }
+    var W=svg.clientWidth||900; var gutterX=96,gutterY=40,rowH=52,rightPad=40;
+    var ref = d.meta.reference;
+    // x axis in minutes over [minRelease, makespan]
+    var mk = d.statistics.makespan_min;
+    var start=0;
+    var rows=buildRows(d);
+    var H=gutterY+rows.length*rowH+12;
+    svg.setAttribute("width",W); svg.setAttribute("height",H);
+    var plotW=W-gutterX-rightPad;
+    if(!state.scale||state.scale<=0){ state.scale=plotW/(mk||1); }
+    var minPan=gutterX-state.scale*mk-10, maxPan=plotW*0.6;
+    if(state.panX<minPan)state.panX=minPan; if(state.panX>maxPan)state.panX=maxPan;
+    var left=gutterX+state.panX; var px=function(t){return left+t*state.scale;};
+    var parts=[];
+    // grid + time axis (days)
+    var steps=[30,60,180,360,720,1440,2880,4320,7200,14400];
+    var step=steps[steps.length-1];
+    for(var i=0;i<steps.length;i++){ if(steps[i]*state.scale>=60){step=steps[i];break;} }
+    for(var t=0;t<=mk;t+=step){
+      var x=px(t); if(x<gutterX-1||x>W-4)continue;
+      parts.push('<line x1="'+x+'" y1="'+gutterY+'" x2="'+x+'" y2="'+(gutterY+rows.length*rowH)+'" stroke="#2a3550"/>');
+      var day=Math.floor(t/1440);
+      parts.push('<text x="'+x+'" y="'+(gutterY-14)+'" fill="#93a2bd" font-size="11" text-anchor="middle">D'+day+'</text>');
+    }
+    // rows
+    for(var r=0;r<rows.length;r++){
+      var y=gutterY+r*rowH;
+      parts.push('<text x="'+(gutterX-10)+'" y="'+(y+rowH/2+4)+'" fill="#c7d2e6" font-size="13" text-anchor="end" font-weight="600">'+esc(rows[r].label)+'</text>');
+    }
+    // bars: for each job, for each machine, place bar
+    for(var r=0;r<rows.length;r++){
+      for(var j=0;j<d.schedule.length;j++){
+        var item=d.schedule[j];
+        var job=d.jobs[item.job];
+        var op=null;
+        for(var k=0;k<job.operations.length;k++){ if(job.operations[k].machine===r){op=job.operations[k];break;} }
+        if(!op)continue;
+        var x0=px(op.start); var w=Math.max(3,(op.end-op.start)*state.scale);
+        var c=color(item.job);
+        var y=gutterY+r*rowH;
+        parts.push('<g data-job="'+item.job+'" data-machine="'+r+'">');
+        parts.push('<rect x="'+x0+'" y="'+(y+6)+'" width="'+w+'" height="'+(rowH-12)+'" rx="5" fill="'+c+'" opacity="0.9" stroke="rgba(0,0,0,0.25)"/>');
+        if(w>30){ parts.push('<text x="'+(x0+w/2)+'" y="'+(y+rowH/2+4)+'" fill="#fff" font-size="11" text-anchor="middle" font-weight="700">'+esc(item.product)+'</text>'); }
+        parts.push('</g>');
+      }
+    }
+    svg.innerHTML=parts.join("");
+    bind(svg,d);
+  }
+  function bind(svg,d){
+    if(svg._b)return; svg._b=true;
+    svg.addEventListener("mousemove",function(e){
+      var g=e.target&&e.target.closest?e.target.closest("g[data-job]"):null;
+      if(!g){$("tooltip").style.display="none";return;}
+      var job=+g.getAttribute("data-job"); var j=d.jobs[job]; var item=d.schedule[job];
+      var op=null; for(var k=0;k<j.operations.length;k++){ if(j.operations[k].machine===+g.getAttribute("data-machine")){op=j.operations[k];break;} }
+      var tip=$("tooltip");
+      tip.innerHTML='<div class="tt" style="color:'+color(job)+'">'+esc(j.product)+' · 落布 '+esc(item.date)+'</div>'+
+        '<div class="r"><span>织机</span><b>'+esc(j.loom)+'</b></div>'+
+        '<div class="r"><span>长度</span><b>'+j.qty+' m</b></div>'+
+        '<div class="r"><span>工序</span><b>'+esc(d.machines[op.machine])+'</b></div>'+
+        '<div class="r"><span>开始</span><b>D'+Math.floor(op.start/1440)+' '+Math.round((op.start%1440)/60)+'h</b></div>'+
+        '<div class="r"><span>结束</span><b>D'+Math.floor(op.end/1440)+' '+Math.round((op.end%1440)/60)+'h</b></div>'+
+        '<div class="r"><span>时长</span><b>'+Math.round(op.duration)+' min</b></div>';
+      tip.style.display="block"; tip.style.left=(e.clientX+14)+"px"; tip.style.top=(e.clientY+14)+"px";
+    });
+    svg.addEventListener("mouseleave",function(){$("tooltip").style.display="none";});
+    svg.addEventListener("wheel",function(e){e.preventDefault();var r=svg.getBoundingClientRect();var mx=e.clientX-r.left;if(mx<96)mx=96;var left=96+state.panX;var tM=(mx-left)/state.scale;var f=e.deltaY<0?1.15:0.87;state.scale=Math.max(0.02,Math.min(20,state.scale*f));state.panX=mx-96-tM*state.scale;draw();},{passive:false});
+    svg.addEventListener("mousedown",function(e){state.drag=true;state.d0=e.clientX;state.p0=state.panX;});
+    window.addEventListener("mousemove",function(e){if(state.drag){state.panX=state.p0+(e.clientX-state.d0);draw();}});
+    window.addEventListener("mouseup",function(){state.drag=false;});
+  }
+  function render(d){
+    var st=d.statistics||{};
+    $("meta-sub").textContent="数据: "+d.meta.data+" · 单位: 分钟(轴按天) · 共 "+d.meta.batches+" 个落布批次 / "+d.meta.total_qty_m+" 米";
+    var boxes=[["求解状态",st.status],["完工 Makespan",(st.makespan_h||0)+" h"],["总流转时间",Math.round(st.total_flow_time_min||0)+" min"],["批次",st.num_jobs],["总米数",d.meta.total_qty_m+" m"]];
+    var s=""; for(var i=0;i<boxes.length;i++){s+='<div class="kpi"><div class="k">'+boxes[i][0]+'</div><div class="v">'+esc(boxes[i][1])+'</div></div>';}
+    $("kpis").innerHTML=s;
+    // legend by product
+    var seen={}; var lg="";
+    for(var i=0;i<d.schedule.length;i++){ var p=d.schedule[i].product; if(seen[p])continue; seen[p]=1; lg+='<div class="lg"><span class="sw" style="background:'+color(i)+'"></span><b>'+esc(p)+'</b></div>'; }
+    $("legend").innerHTML=lg;
+    draw();
+  }
+  window.addEventListener("resize",function(){draw();});
+  render(window.__SCHEDULE__);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1669 @@
+{
+  "title": "整经/织造/水洗 数据对账报告",
+  "data_source": "益丰生产管理表单260604.xlsx",
+  "q1_product_status": {
+    "master_product_count": 19,
+    "linkage_product_count": 16,
+    "status_count": {
+      "未建档": 6,
+      "完整串联": 11,
+      "缺水洗品番": 1,
+      "未投产": 1
+    },
+    "product_rows": [
+      {
+        "flow_id": "FLOW-PH555120",
+        "product_id": "PH555120",
+        "link_status": "未建档",
+        "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少经轴/织造/水洗品番映射，无法串联。",
+        "warp_beam_sku": null,
+        "weaving_sku": null,
+        "washing_sku": null,
+        "in_weave_plan": true,
+        "in_process_master": false
+      },
+      {
+        "flow_id": "FLOW-NW44463N",
+        "product_id": "NW44463N",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WN446",
+        "weaving_sku": "RN446",
+        "washing_sku": "SN446",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-NW44493N",
+        "product_id": "NW44493N",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WN449",
+        "weaving_sku": "RN449",
+        "washing_sku": "SN449",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-PH54512B",
+        "product_id": "PH54512B",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WP550",
+        "weaving_sku": "RP550",
+        "washing_sku": "SP550",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-PH54462M",
+        "product_id": "PH54462M",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WP545",
+        "weaving_sku": "RP545",
+        "washing_sku": "SP545",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-NW445340",
+        "product_id": "NW445340",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WN453",
+        "weaving_sku": "RN453",
+        "washing_sku": "SN453",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-PH44553M",
+        "product_id": "PH44553M",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WP455",
+        "weaving_sku": "RP455",
+        "washing_sku": "SP455",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-NW345920",
+        "product_id": "NW345920",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WN359",
+        "weaving_sku": "RN359",
+        "washing_sku": "SN359",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-PH55463N",
+        "product_id": "PH55463N",
+        "link_status": "缺水洗品番",
+        "reason": "工艺汇总背番号中该产品未给出水洗品番(水洗名称为空)。",
+        "warp_beam_sku": "WP546",
+        "weaving_sku": "RP547",
+        "washing_sku": null,
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-PH555140",
+        "product_id": "PH555140",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WP551",
+        "weaving_sku": "RP551",
+        "washing_sku": "SP552",
+        "in_weave_plan": false,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-PH54513N",
+        "product_id": "PH54513N",
+        "link_status": "未建档",
+        "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少经轴/织造/水洗品番映射，无法串联。",
+        "warp_beam_sku": null,
+        "weaving_sku": null,
+        "washing_sku": null,
+        "in_weave_plan": true,
+        "in_process_master": false
+      },
+      {
+        "flow_id": "FLOW-PH44513C",
+        "product_id": "PH44513C",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WP451",
+        "weaving_sku": "RP451",
+        "washing_sku": "SP451",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-NW44493C",
+        "product_id": "NW44493C",
+        "link_status": "未建档",
+        "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少经轴/织造/水洗品番映射，无法串联。",
+        "warp_beam_sku": null,
+        "weaving_sku": null,
+        "washing_sku": null,
+        "in_weave_plan": true,
+        "in_process_master": false
+      },
+      {
+        "flow_id": "FLOW-PH545140",
+        "product_id": "PH545140",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WP551",
+        "weaving_sku": "RP551",
+        "washing_sku": "SP552",
+        "in_weave_plan": true,
+        "in_process_master": true
+      },
+      {
+        "flow_id": "FLOW-PH83412N",
+        "product_id": "PH83412N",
+        "link_status": "未建档",
+        "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少经轴/织造/水洗品番映射，无法串联。",
+        "warp_beam_sku": null,
+        "weaving_sku": null,
+        "washing_sku": null,
+        "in_weave_plan": true,
+        "in_process_master": false
+      },
+      {
+        "flow_id": "FLOW-NW73413N",
+        "product_id": "NW73413N",
+        "link_status": "未建档",
+        "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少经轴/织造/水洗品番映射，无法串联。",
+        "warp_beam_sku": null,
+        "weaving_sku": null,
+        "washing_sku": null,
+        "in_weave_plan": true,
+        "in_process_master": false
+      },
+      {
+        "flow_id": "FLOW-PH545320",
+        "product_id": "PH545320",
+        "link_status": "未建档",
+        "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少经轴/织造/水洗品番映射，无法串联。",
+        "warp_beam_sku": null,
+        "weaving_sku": null,
+        "washing_sku": null,
+        "in_weave_plan": true,
+        "in_process_master": false
+      },
+      {
+        "flow_id": "FLOW-PH54513L",
+        "product_id": "PH54513L",
+        "link_status": "未投产",
+        "reason": "未在工艺汇总背番号建档，且无织造计划记录(无排产需求)。",
+        "warp_beam_sku": null,
+        "weaving_sku": null,
+        "washing_sku": null,
+        "in_weave_plan": false,
+        "in_process_master": false
+      },
+      {
+        "flow_id": "FLOW-PH54463M",
+        "product_id": "PH54463M",
+        "link_status": "完整串联",
+        "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+        "warp_beam_sku": "WP546",
+        "weaving_sku": "RP546",
+        "washing_sku": "SP546",
+        "in_weave_plan": false,
+        "in_process_master": true
+      }
+    ],
+    "explain": "①基础资料 共 19 个产品。先用 工艺汇总背番号 建立 经轴/织造/水洗 品番映射，共串联 16 条(15 完整 + 1 缺水洗品番 PH55463N)；再对这 16 条之外的 ①基础资料 产品逐一对账：6 个 未建档(存在织造计划但未在工艺汇总背番号中建档，缺品番映射，无法串联)；1 个 未投产(PH54513L：未建档且无织造计划)。注意：成功数 15 是相对 16 条工艺链路而言，不是相对 19 个产品(19 个产品另有 未建档/未投产)。"
+  },
+  "q2_task_beam_table": {
+    "task_count": 5,
+    "mapping": [
+      {
+        "task_id": "WARP-WP551-2026-04-03",
+        "plan_date": "2026-04-03",
+        "warp_beam_sku": "WP551",
+        "plan_meters": 4800.0,
+        "plan_count": 1.0,
+        "beam_instance_ids": [
+          "BEAM-WP551-2026-04-03-01"
+        ],
+        "beam_instance_count": 1,
+        "target_loom_ids": [
+          "LOOM-502",
+          "LOOM-603"
+        ],
+        "plan_src_cell": "O118",
+        "count_src_cell": "O121"
+      },
+      {
+        "task_id": "WARP-WP550-2026-06-15",
+        "plan_date": "2026-06-15",
+        "warp_beam_sku": "WP550",
+        "plan_meters": 9660.0,
+        "plan_count": 2.0,
+        "beam_instance_ids": [
+          "BEAM-WP550-2026-06-15-01",
+          "BEAM-WP550-2026-06-15-02"
+        ],
+        "beam_instance_count": 2,
+        "target_loom_ids": [
+          "LOOM-305",
+          "LOOM-306",
+          "LOOM-505",
+          "LOOM-506"
+        ],
+        "plan_src_cell": "CJ127",
+        "count_src_cell": "CJ130"
+      },
+      {
+        "task_id": "WARP-WP550-2026-06-16",
+        "plan_date": "2026-06-16",
+        "warp_beam_sku": "WP550",
+        "plan_meters": 9660.0,
+        "plan_count": 2.0,
+        "beam_instance_ids": [
+          "BEAM-WP550-2026-06-16-01",
+          "BEAM-WP550-2026-06-16-02"
+        ],
+        "beam_instance_count": 2,
+        "target_loom_ids": [
+          "LOOM-305",
+          "LOOM-306",
+          "LOOM-505",
+          "LOOM-506"
+        ],
+        "plan_src_cell": "CK127",
+        "count_src_cell": "CK130"
+      },
+      {
+        "task_id": "WARP-WP550-2026-06-17",
+        "plan_date": "2026-06-17",
+        "warp_beam_sku": "WP550",
+        "plan_meters": 4830.0,
+        "plan_count": 1.0,
+        "beam_instance_ids": [
+          "BEAM-WP550-2026-06-17-01"
+        ],
+        "beam_instance_count": 1,
+        "target_loom_ids": [
+          "LOOM-305",
+          "LOOM-306",
+          "LOOM-505",
+          "LOOM-506"
+        ],
+        "plan_src_cell": "CL127",
+        "count_src_cell": "CL130"
+      },
+      {
+        "task_id": "WARP-WP451-2026-06-18",
+        "plan_date": "2026-06-18",
+        "warp_beam_sku": "WP451",
+        "plan_meters": 4500.0,
+        "plan_count": 1.0,
+        "beam_instance_ids": [
+          "BEAM-WP451-2026-06-18-01"
+        ],
+        "beam_instance_count": 1,
+        "target_loom_ids": [
+          "LOOM-504"
+        ],
+        "plan_src_cell": "CM145",
+        "count_src_cell": "CM148"
+      }
+    ],
+    "instance_total": 7,
+    "instance_virtual": 7
+  },
+  "q3_time_source": {
+    "summary": {
+      "来源表计划(非CP-SAT约束)": 6,
+      "CP-SAT求解结果": 14
+    },
+    "detail": {
+      "整经": {
+        "bar_count": 5,
+        "time_source": {
+          "来源表计划(非CP-SAT约束)": 5
+        },
+        "data_source": {
+          "来源表(整经计划/整经预测辅助表)": 5
+        },
+        "is_cp_sat": false,
+        "explain": "来源表计划(非CP-SAT约束)，属推导/展示时间，CP-SAT并未为其分配约束。"
+      },
+      "织造": {
+        "bar_count": 14,
+        "time_source": {
+          "CP-SAT求解结果": 14
+        },
+        "data_source": {
+          "排程求解结果": 14
+        },
+        "is_cp_sat": true,
+        "explain": "CP-SAT真实求解结果(织造动线由求解器给出起止时间)。"
+      },
+      "水洗": {
+        "bar_count": 1,
+        "time_source": {
+          "来源表计划(非CP-SAT约束)": 1
+        },
+        "data_source": {
+          "来源表(水洗计划)": 1
+        },
+        "is_cp_sat": false,
+        "explain": "来源表计划(非CP-SAT约束)，属推导/展示时间，CP-SAT并未为其分配约束。"
+      }
+    },
+    "conclusion": "三道工序中只有【织造】时间是 CP-SAT 真实求解结果；【整经】与【水洗】时间为来源表计划(展示用)，属于推导/展示时间，不是CP-SAT约束结果。因此整经/水洗的起止时间仅用于展示前后衔接，不描述为CP-SAT已排或已约束。"
+  },
+  "q4_flow_linkage": {
+    "flow_rows": [
+      {
+        "flow_id": "FLOW-PH54463M",
+        "product_id": "PH54463M",
+        "warp_beam_sku": "WP546",
+        "weaving_sku": "RP546",
+        "washing_sku": "SP546",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH54462M",
+        "product_id": "PH54462M",
+        "warp_beam_sku": "WP545",
+        "weaving_sku": "RP545",
+        "washing_sku": "SP545",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH54513B",
+        "product_id": "PH54513B",
+        "warp_beam_sku": "WP551",
+        "weaving_sku": "RP551",
+        "washing_sku": "SP551",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH545140",
+        "product_id": "PH545140",
+        "warp_beam_sku": "WP551",
+        "weaving_sku": "RP551",
+        "washing_sku": "SP552",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH555140",
+        "product_id": "PH555140",
+        "warp_beam_sku": "WP551",
+        "weaving_sku": "RP551",
+        "washing_sku": "SP552",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH54512B",
+        "product_id": "PH54512B",
+        "warp_beam_sku": "WP550",
+        "weaving_sku": "RP550",
+        "washing_sku": "SP550",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH55463N",
+        "product_id": "PH55463N",
+        "warp_beam_sku": "WP546",
+        "weaving_sku": "RP547",
+        "washing_sku": null,
+        "status": "缺水洗品番",
+        "stop_node": "织造",
+        "stop_reason": "缺水洗品番：工艺串联在织造节点终止，需补充对应品番后方可进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH44553M",
+        "product_id": "PH44553M",
+        "warp_beam_sku": "WP455",
+        "weaving_sku": "RP455",
+        "washing_sku": "SP455",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH44513C",
+        "product_id": "PH44513C",
+        "warp_beam_sku": "WP451",
+        "weaving_sku": "RP451",
+        "washing_sku": "SP451",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-PH44513D",
+        "product_id": "PH44513D",
+        "warp_beam_sku": "WP451",
+        "weaving_sku": "RP451",
+        "washing_sku": "SP451",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-NW345920",
+        "product_id": "NW345920",
+        "warp_beam_sku": "WN359",
+        "weaving_sku": "RN359",
+        "washing_sku": "SN359",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-NW73413C",
+        "product_id": "NW73413C",
+        "warp_beam_sku": "WN741",
+        "weaving_sku": "RN741",
+        "washing_sku": "SN741",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-NW445320",
+        "product_id": "NW445320",
+        "warp_beam_sku": "WN452",
+        "weaving_sku": "RN452",
+        "washing_sku": "SN452",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-NW445340",
+        "product_id": "NW445340",
+        "warp_beam_sku": "WN453",
+        "weaving_sku": "RN453",
+        "washing_sku": "SN453",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-NW44493N",
+        "product_id": "NW44493N",
+        "warp_beam_sku": "WN449",
+        "weaving_sku": "RN449",
+        "washing_sku": "SN449",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      },
+      {
+        "flow_id": "FLOW-NW44463N",
+        "product_id": "NW44463N",
+        "warp_beam_sku": "WN446",
+        "weaving_sku": "RN446",
+        "washing_sku": "SN446",
+        "status": "完整串联",
+        "stop_node": "水洗",
+        "stop_reason": "正常进入水洗。"
+      }
+    ],
+    "missing_washing_bar_count": 1,
+    "missing_washing_example": [
+      {
+        "product_id": "PH55463N",
+        "weaving_sku": "RP547",
+        "washing_sku": "",
+        "reason": "该产品缺水洗品番(水洗名称为空)，工艺串联在织造节点终止。"
+      }
+    ]
+  },
+  "q5_inventory_verify": {
+    "formula": "库存 = 前日库存 + 当日整经完成量 - 当日织造上轴需求(米)",
+    "non_zero_examples": [
+      {
+        "beam": "WP550",
+        "formula": "库存(当日) = 前日库存(源表) + 整经完成量(当日) - 织造上轴需求(当日)",
+        "initial_inventory_note": "源表 初始库存 字段在各经轴块的空行；此处以源表『库存』行作为前日库存基准逐日复算。",
+        "steps": [
+          {
+            "date": "2026-04-01",
+            "prev_inventory": 0.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 0.0,
+            "source_inventory": 14400.0,
+            "match": false
+          },
+          {
+            "date": "2026-04-02",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-03",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-04",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-05",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-06",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-07",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-08",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-09",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-10",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-11",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-12",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-13",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-14",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-15",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-16",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-17",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-18",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-19",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-20",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-21",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-22",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-23",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-24",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-25",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-26",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-27",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-28",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-29",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-04-30",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-01",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-02",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-03",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-04",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-05",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-06",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-07",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-08",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-09",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-10",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-11",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-12",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-13",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-14",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-15",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-16",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-17",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-18",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-19",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-20",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-21",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-22",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-23",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-24",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-25",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-26",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-27",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-28",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-29",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-30",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-05-31",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-01",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-02",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-03",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-04",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-05",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-06",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-07",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-08",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-09",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-10",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-11",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-12",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-13",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-14",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 14400.0,
+            "source_inventory": 14400.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-15",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 9660.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24060.0,
+            "source_inventory": 14400.0,
+            "match": false
+          },
+          {
+            "date": "2026-06-16",
+            "prev_inventory": 14400.0,
+            "warp_complete_m": 9660.0,
+            "weave_mount_demand_m": 4687.5,
+            "computed_inventory": 19372.5,
+            "source_inventory": 19372.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-17",
+            "prev_inventory": 19372.5,
+            "warp_complete_m": 4830.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24202.5,
+            "source_inventory": 29032.5,
+            "match": false
+          },
+          {
+            "date": "2026-06-18",
+            "prev_inventory": 29032.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 29032.5,
+            "source_inventory": 33862.5,
+            "match": false
+          },
+          {
+            "date": "2026-06-19",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-20",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-21",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-22",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-23",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-24",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-25",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-26",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-27",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-28",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 33862.5,
+            "source_inventory": 33862.5,
+            "match": true
+          },
+          {
+            "date": "2026-06-29",
+            "prev_inventory": 33862.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 4687.5,
+            "computed_inventory": 29175.0,
+            "source_inventory": 29175.0,
+            "match": true
+          },
+          {
+            "date": "2026-06-30",
+            "prev_inventory": 29175.0,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 4687.5,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-01",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-02",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-03",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-04",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-05",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-06",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-07",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-08",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-09",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-10",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-11",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-12",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-13",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-14",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-15",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-16",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-17",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-18",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-19",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-20",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-21",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-22",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-23",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-24",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-25",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-26",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-27",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-28",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-29",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-30",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-07-31",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-08-01",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          },
+          {
+            "date": "2026-08-02",
+            "prev_inventory": 24487.5,
+            "warp_complete_m": 0.0,
+            "weave_mount_demand_m": 0.0,
+            "computed_inventory": 24487.5,
+            "source_inventory": 24487.5,
+            "match": true
+          }
+        ]
+      }
+    ],
+    "note": "整经完成量/织造上轴需求 取自整经计划经轴库存推移；以源表『库存』行做前日基准逐日复算。"
+  }
+}

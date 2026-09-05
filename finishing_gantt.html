@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>织造后整链 CP-SAT 排产甘特图</title>
+<style>
+:root{--bg:#0f1420;--panel:#171e2e;--panel2:#1e2740;--line:#2a3550;--text:#e7ecf5;--muted:#93a2bd;--accent:#4e9ef5;--accent2:#4ec9a5}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:1400px;margin:0 auto;padding:22px 26px 60px}
+.topbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+h1{font-size:21px;margin:0}
+.sub{color:var(--muted);font-size:13px;margin-top:2px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+.badge{background:var(--panel2);border:1px solid var(--line);color:var(--accent2);padding:5px 11px;border-radius:999px;font-size:12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .k{font-size:12px;color:var(--muted)}
+.kpi .v{font-size:22px;font-weight:700;margin-top:5px}
+.chartbox{overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:14px;position:relative}
+.hint{font-size:12px;color:var(--muted);margin-left:auto}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.lg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.lg .sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.lg b{color:var(--text)}
+footer{color:var(--muted);font-size:12px;margin-top:22px;line-height:1.7}
+#tooltip{position:fixed;pointer-events:none;background:#0b1017;border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:12px;display:none;z-index:50;max-width:300px}
+#tooltip .tt{font-weight:700;color:#fff;margin-bottom:4px}
+#tooltip .r{color:var(--muted);display:flex;justify-content:space-between;gap:16px}
+#tooltip .r b{color:var(--text);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="topbar">
+      <h1>🏭 织造后整链 CP-SAT 排产甘特图</h1>
+      <div class="sub" id="meta-sub"></div>
+      <div class="badge" style="margin-left:auto">CP-SAT 后整链 (落布→水洗→涂层→验布)</div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="chartbar" style="display:flex;align-items:center;gap:12px">
+      <div class="sub">各工序甘特图（横轴=日期，悬停查看批次）</div>
+      <div class="hint">滚轮缩放 · 拖拽平移</div>
+    </div>
+    <div class="chartbox"><svg id="chart"></svg></div>
+    <div class="legend" id="legend"></div>
+  </div>
+  <footer>
+    数据：益丰生产管理表单260604.xlsx · <b>落布预测</b>（6月，45 个落布批次）。模型：每批次依次经 <b>水洗→涂层→验布</b>，同机互斥(AddNoOverlap)、工序先后、落布后释放；目标=最小化总完工。
+  </footer>
+</div>
+<div id="tooltip"></div>
+<script>
+window.__SCHEDULE__ = {"meta": {"title": "织造后整链 CP-SAT 排产 (落布→水洗→涂层→验布→入库)", "data": "益丰生产管理表单260604.xlsx(落布预测)", "reference": "2026-06-01", "unit": "分钟", "batches": 45, "total_qty_m": 32114.0}, "statistics": {"status": "OPTIMAL", "num_operations": 135, "num_jobs": 45, "num_machines": 3, "solve_time_s": 0.043, "objective_value": 42048.0, "makespan_min": 42048, "makespan_h": 700.8, "total_flow_time_min": 11249}, "machines": ["水洗机", "涂层机", "验布机"], "jobs": [{"id": 0, "name": "NW44493N@#303", "product": "NW44493N", "loom": "#303", "date": "2026-06-01", "qty": 100.0, "release_min": 0, "operations": [{"job": 0, "op": 0, "machine": 0, "start": 0, "end": 6, "duration": 6}, {"job": 0, "op": 1, "machine": 1, "start": 6, "end": 14, "duration": 8}, {"job": 0, "op": 2, "machine": 2, "start": 14, "end": 25, "duration": 11}], "completion": 25}, {"id": 1, "name": "PH555120@#304", "product": "PH555120", "loom": "#304", "date": "2026-06-03", "qty": 50.0, "release_min": 2880, "operations": [{"job": 1, "op": 0, "machine": 0, "start": 2880, "end": 2883, "duration": 3}, {"job": 1, "op": 1, "machine": 1, "start": 2883, "end": 2887, "duration": 4}, {"job": 1, "op": 2, "machine": 2, "start": 2887, "end": 2893, "duration": 6}], "completion": 2893}, {"id": 2, "name": "PH555120@#304", "product": "PH555120", "loom": "#304", "date": "2026-06-05", "qty": 555.0, "release_min": 5760, "operations": [{"job": 2, "op": 0, "machine": 0, "start": 5800, "end": 5834, "duration": 34}, {"job": 2, "op": 1, "machine": 1, "start": 5834, "end": 5879, "duration": 45}, {"job": 2, "op": 2, "machine": 2, "start": 6002, "end": 6060, "duration": 58}], "completion": 6060}, {"id": 3, "name": "PH54512B@#305", "product": "PH54512B", "loom": "#305", "date": "2026-06-10", "qty": 600.0, "release_min": 12960, "operations": [{"job": 3, "op": 0, "machine": 0, "start": 13020, "end": 13056, "duration": 36}, {"job": 3, "op": 1, "machine": 1, "start": 13100, "end": 13148, "duration": 48}, {"job": 3, "op": 2, "machine": 2, "start": 13203, "end": 13265, "duration": 62}], "completion": 13265}, {"id": 4, "name": "PH54512B@#305", "product": "PH54512B", "loom": "#305", "date": "2026-06-11", "qty": 600.0, "release_min": 14400, "operations": [{"job": 4, "op": 0, "machine": 0, "start": 14400, "end": 14436, "duration": 36}, {"job": 4, "op": 1, "machine": 1, "start": 14436, "end": 14484, "duration": 48}, {"job": 4, "op": 2, "machine": 2, "start": 14484, "end": 14546, "duration": 62}], "completion": 14546}, {"id": 5, "name": "PH54512B@#305", "product": "PH54512B", "loom": "#305", "date": "2026-06-12", "qty": 450.0, "release_min": 15840, "operations": [{"job": 5, "op": 0, "machine": 0, "start": 15840, "end": 15867, "duration": 27}, {"job": 5, "op": 1, "machine": 1, "start": 15867, "end": 15903, "duration": 36}, {"job": 5, "op": 2, "machine": 2, "start": 15903, "end": 15950, "duration": 47}], "completion": 15950}, {"id": 6, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-10", "qty": 800.0, "release_min": 12960, "operations": [{"job": 6, "op": 0, "machine": 0, "start": 13056, "end": 13104, "duration": 48}, {"job": 6, "op": 1, "machine": 1, "start": 13148, "end": 13212, "duration": 64}, {"job": 6, "op": 2, "machine": 2, "start": 13265, "end": 13348, "duration": 83}], "completion": 13348}, {"id": 7, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-12", "qty": 820.0, "release_min": 15840, "operations": [{"job": 7, "op": 0, "machine": 0, "start": 15867, "end": 15917, "duration": 50}, {"job": 7, "op": 1, "machine": 1, "start": 16059, "end": 16125, "duration": 66}, {"job": 7, "op": 2, "machine": 2, "start": 16125, "end": 16210, "duration": 85}], "completion": 16210}, {"id": 8, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-14", "qty": 1100.0, "release_min": 18720, "operations": [{"job": 8, "op": 0, "machine": 0, "start": 18781, "end": 18847, "duration": 66}, {"job": 8, "op": 1, "machine": 1, "start": 18862, "end": 18950, "duration": 88}, {"job": 8, "op": 2, "machine": 2, "start": 18966, "end": 19080, "duration": 114}], "completion": 19080}, {"id": 9, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-16", "qty": 505.0, "release_min": 21600, "operations": [{"job": 9, "op": 0, "machine": 0, "start": 21661, "end": 21692, "duration": 31}, {"job": 9, "op": 1, "machine": 1, "start": 21692, "end": 21733, "duration": 41}, {"job": 9, "op": 2, "machine": 2, "start": 21733, "end": 21785, "duration": 52}], "completion": 21785}, {"id": 10, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-18", "qty": 700.0, "release_min": 24480, "operations": [{"job": 10, "op": 0, "machine": 0, "start": 24541, "end": 24583, "duration": 42}, {"job": 10, "op": 1, "machine": 1, "start": 24622, "end": 24678, "duration": 56}, {"job": 10, "op": 2, "machine": 2, "start": 24806, "end": 24878, "duration": 72}], "completion": 24878}, {"id": 11, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-22", "qty": 700.0, "release_min": 30240, "operations": [{"job": 11, "op": 0, "machine": 0, "start": 30240, "end": 30282, "duration": 42}, {"job": 11, "op": 1, "machine": 1, "start": 30282, "end": 30338, "duration": 56}, {"job": 11, "op": 2, "machine": 2, "start": 30338, "end": 30410, "duration": 72}], "completion": 30410}, {"id": 12, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-24", "qty": 700.0, "release_min": 33120, "operations": [{"job": 12, "op": 0, "machine": 0, "start": 33162, "end": 33204, "duration": 42}, {"job": 12, "op": 1, "machine": 1, "start": 33218, "end": 33274, "duration": 56}, {"job": 12, "op": 2, "machine": 2, "start": 33459, "end": 33531, "duration": 72}], "completion": 33531}, {"id": 13, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-26", "qty": 700.0, "release_min": 36000, "operations": [{"job": 13, "op": 0, "machine": 0, "start": 36000, "end": 36042, "duration": 42}, {"job": 13, "op": 1, "machine": 1, "start": 36042, "end": 36098, "duration": 56}, {"job": 13, "op": 2, "machine": 2, "start": 36226, "end": 36298, "duration": 72}], "completion": 36298}, {"id": 14, "name": "PH54512B@#306", "product": "PH54512B", "loom": "#306", "date": "2026-06-28", "qty": 700.0, "release_min": 38880, "operations": [{"job": 14, "op": 0, "machine": 0, "start": 38941, "end": 38983, "duration": 42}, {"job": 14, "op": 1, "machine": 1, "start": 38983, "end": 39039, "duration": 56}, {"job": 14, "op": 2, "machine": 2, "start": 39039, "end": 39111, "duration": 72}], "completion": 39111}, {"id": 15, "name": "NW445340@#401", "product": "NW445340", "loom": "#401", "date": "2026-06-03", "qty": 50.0, "release_min": 2880, "operations": [{"job": 15, "op": 0, "machine": 0, "start": 2883, "end": 2886, "duration": 3}, {"job": 15, "op": 1, "machine": 1, "start": 2887, "end": 2891, "duration": 4}, {"job": 15, "op": 2, "machine": 2, "start": 2893, "end": 2899, "duration": 6}], "completion": 2899}, {"id": 16, "name": "NW445340@#401", "product": "NW445340", "loom": "#401", "date": "2026-06-09", "qty": 500.0, "release_min": 11520, "operations": [{"job": 16, "op": 0, "machine": 0, "start": 11572, "end": 11602, "duration": 30}, {"job": 16, "op": 1, "machine": 1, "start": 11688, "end": 11728, "duration": 40}, {"job": 16, "op": 2, "machine": 2, "start": 11729, "end": 11781, "duration": 52}], "completion": 11781}, {"id": 17, "name": "PH44553M@#403", "product": "PH44553M", "loom": "#403", "date": "2026-06-11", "qty": 800.0, "release_min": 14400, "operations": [{"job": 17, "op": 0, "machine": 0, "start": 14472, "end": 14520, "duration": 48}, {"job": 17, "op": 1, "machine": 1, "start": 14532, "end": 14596, "duration": 64}, {"job": 17, "op": 2, "machine": 2, "start": 14608, "end": 14691, "duration": 83}], "completion": 14691}, {"id": 18, "name": "PH44553M@#403", "product": "PH44553M", "loom": "#403", "date": "2026-06-14", "qty": 1010.0, "release_min": 18720, "operations": [{"job": 18, "op": 0, "machine": 0, "start": 18720, "end": 18781, "duration": 61}, {"job": 18, "op": 1, "machine": 1, "start": 18781, "end": 18862, "duration": 81}, {"job": 18, "op": 2, "machine": 2, "start": 18862, "end": 18966, "duration": 104}], "completion": 18966}, {"id": 19, "name": "PH44553M@#403", "product": "PH44553M", "loom": "#403", "date": "2026-06-16", "qty": 1010.0, "release_min": 21600, "operations": [{"job": 19, "op": 0, "machine": 0, "start": 21600, "end": 21661, "duration": 61}, {"job": 19, "op": 1, "machine": 1, "start": 21733, "end": 21814, "duration": 81}, {"job": 19, "op": 2, "machine": 2, "start": 21814, "end": 21918, "duration": 104}], "completion": 21918}, {"id": 20, "name": "PH44553M@#403", "product": "PH44553M", "loom": "#403", "date": "2026-06-18", "qty": 1010.0, "release_min": 24480, "operations": [{"job": 20, "op": 0, "machine": 0, "start": 24480, "end": 24541, "duration": 61}, {"job": 20, "op": 1, "machine": 1, "start": 24541, "end": 24622, "duration": 81}, {"job": 20, "op": 2, "machine": 2, "start": 24622, "end": 24726, "duration": 104}], "completion": 24726}, {"id": 21, "name": "PH44553M@#403", "product": "PH44553M", "loom": "#403", "date": "2026-06-24", "qty": 1010.0, "release_min": 33120, "operations": [{"job": 21, "op": 0, "machine": 0, "start": 33204, "end": 33265, "duration": 61}, {"job": 21, "op": 1, "machine": 1, "start": 33274, "end": 33355, "duration": 81}, {"job": 21, "op": 2, "machine": 2, "start": 33355, "end": 33459, "duration": 104}], "completion": 33459}, {"id": 22, "name": "PH44553M@#403", "product": "PH44553M", "loom": "#403", "date": "2026-06-27", "qty": 1010.0, "release_min": 37440, "operations": [{"job": 22, "op": 0, "machine": 0, "start": 37440, "end": 37501, "duration": 61}, {"job": 22, "op": 1, "machine": 1, "start": 37501, "end": 37582, "duration": 81}, {"job": 22, "op": 2, "machine": 2, "start": 37582, "end": 37686, "duration": 104}], "completion": 37686}, {"id": 23, "name": "PH44553M@#403", "product": "PH44553M", "loom": "#403", "date": "2026-06-29", "qty": 1010.0, "release_min": 40320, "operations": [{"job": 23, "op": 0, "machine": 0, "start": 40320, "end": 40381, "duration": 61}, {"job": 23, "op": 1, "machine": 1, "start": 40381, "end": 40462, "duration": 81}, {"job": 23, "op": 2, "machine": 2, "start": 40462, "end": 40566, "duration": 104}], "completion": 40566}, {"id": 24, "name": "PH55463N@#406", "product": "PH55463N", "loom": "#406", "date": "2026-06-04", "qty": 100.0, "release_min": 4320, "operations": [{"job": 24, "op": 0, "machine": 0, "start": 4320, "end": 4326, "duration": 6}, {"job": 24, "op": 1, "machine": 1, "start": 4326, "end": 4334, "duration": 8}, {"job": 24, "op": 2, "machine": 2, "start": 4334, "end": 4345, "duration": 11}], "completion": 4345}, {"id": 25, "name": "PH55463N@#406", "product": "PH55463N", "loom": "#406", "date": "2026-06-09", "qty": 854.0, "release_min": 11520, "operations": [{"job": 25, "op": 0, "machine": 0, "start": 11520, "end": 11572, "duration": 52}, {"job": 25, "op": 1, "machine": 1, "start": 11572, "end": 11641, "duration": 69}, {"job": 25, "op": 2, "machine": 2, "start": 11641, "end": 11729, "duration": 88}], "completion": 11729}, {"id": 26, "name": "PH54513N@#503", "product": "PH54513N", "loom": "#503", "date": "2026-06-01", "qty": 150.0, "release_min": 0, "operations": [{"job": 26, "op": 0, "machine": 0, "start": 6, "end": 15, "duration": 9}, {"job": 26, "op": 1, "machine": 1, "start": 15, "end": 27, "duration": 12}, {"job": 26, "op": 2, "machine": 2, "start": 27, "end": 43, "duration": 16}], "completion": 43}, {"id": 27, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-05", "qty": 663.0, "release_min": 5760, "operations": [{"job": 27, "op": 0, "machine": 0, "start": 5760, "end": 5800, "duration": 40}, {"job": 27, "op": 1, "machine": 1, "start": 5879, "end": 5933, "duration": 54}, {"job": 27, "op": 2, "machine": 2, "start": 5933, "end": 6002, "duration": 69}], "completion": 6002}, {"id": 28, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-10", "qty": 1000.0, "release_min": 12960, "operations": [{"job": 28, "op": 0, "machine": 0, "start": 12960, "end": 13020, "duration": 60}, {"job": 28, "op": 1, "machine": 1, "start": 13020, "end": 13100, "duration": 80}, {"job": 28, "op": 2, "machine": 2, "start": 13100, "end": 13203, "duration": 103}], "completion": 13203}, {"id": 29, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-12", "qty": 1010.0, "release_min": 15840, "operations": [{"job": 29, "op": 0, "machine": 0, "start": 15917, "end": 15978, "duration": 61}, {"job": 29, "op": 1, "machine": 1, "start": 15978, "end": 16059, "duration": 81}, {"job": 29, "op": 2, "machine": 2, "start": 16210, "end": 16314, "duration": 104}], "completion": 16314}, {"id": 30, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-15", "qty": 1100.0, "release_min": 20160, "operations": [{"job": 30, "op": 0, "machine": 0, "start": 20160, "end": 20226, "duration": 66}, {"job": 30, "op": 1, "machine": 1, "start": 20226, "end": 20314, "duration": 88}, {"job": 30, "op": 2, "machine": 2, "start": 20314, "end": 20428, "duration": 114}], "completion": 20428}, {"id": 31, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-17", "qty": 630.0, "release_min": 23040, "operations": [{"job": 31, "op": 0, "machine": 0, "start": 23040, "end": 23078, "duration": 38}, {"job": 31, "op": 1, "machine": 1, "start": 23078, "end": 23129, "duration": 51}, {"job": 31, "op": 2, "machine": 2, "start": 23129, "end": 23194, "duration": 65}], "completion": 23194}, {"id": 32, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-23", "qty": 1010.0, "release_min": 31680, "operations": [{"job": 32, "op": 0, "machine": 0, "start": 31680, "end": 31741, "duration": 61}, {"job": 32, "op": 1, "machine": 1, "start": 31741, "end": 31822, "duration": 81}, {"job": 32, "op": 2, "machine": 2, "start": 31822, "end": 31926, "duration": 104}], "completion": 31926}, {"id": 33, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-25", "qty": 1010.0, "release_min": 34560, "operations": [{"job": 33, "op": 0, "machine": 0, "start": 34560, "end": 34621, "duration": 61}, {"job": 33, "op": 1, "machine": 1, "start": 34621, "end": 34702, "duration": 81}, {"job": 33, "op": 2, "machine": 2, "start": 34702, "end": 34806, "duration": 104}], "completion": 34806}, {"id": 34, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-28", "qty": 1010.0, "release_min": 38880, "operations": [{"job": 34, "op": 0, "machine": 0, "start": 38880, "end": 38941, "duration": 61}, {"job": 34, "op": 1, "machine": 1, "start": 39039, "end": 39120, "duration": 81}, {"job": 34, "op": 2, "machine": 2, "start": 39120, "end": 39224, "duration": 104}], "completion": 39224}, {"id": 35, "name": "PH44513C@#504", "product": "PH44513C", "loom": "#504", "date": "2026-06-30", "qty": 1010.0, "release_min": 41760, "operations": [{"job": 35, "op": 0, "machine": 0, "start": 41802, "end": 41863, "duration": 61}, {"job": 35, "op": 1, "machine": 1, "start": 41863, "end": 41944, "duration": 81}, {"job": 35, "op": 2, "machine": 2, "start": 41944, "end": 42048, "duration": 104}], "completion": 42048}, {"id": 36, "name": "PH54512B@#505", "product": "PH54512B", "loom": "#505", "date": "2026-06-16", "qty": 700.0, "release_min": 21600, "operations": [{"job": 36, "op": 0, "machine": 0, "start": 21692, "end": 21734, "duration": 42}, {"job": 36, "op": 1, "machine": 1, "start": 21814, "end": 21870, "duration": 56}, {"job": 36, "op": 2, "machine": 2, "start": 21918, "end": 21990, "duration": 72}], "completion": 21990}, {"id": 37, "name": "PH54512B@#505", "product": "PH54512B", "loom": "#505", "date": "2026-06-18", "qty": 700.0, "release_min": 24480, "operations": [{"job": 37, "op": 0, "machine": 0, "start": 24583, "end": 24625, "duration": 42}, {"job": 37, "op": 1, "machine": 1, "start": 24678, "end": 24734, "duration": 56}, {"job": 37, "op": 2, "machine": 2, "start": 24734, "end": 24806, "duration": 72}], "completion": 24806}, {"id": 38, "name": "PH54512B@#505", "product": "PH54512B", "loom": "#505", "date": "2026-06-23", "qty": 700.0, "release_min": 31680, "operations": [{"job": 38, "op": 0, "machine": 0, "start": 31741, "end": 31783, "duration": 42}, {"job": 38, "op": 1, "machine": 1, "start": 31822, "end": 31878, "duration": 56}, {"job": 38, "op": 2, "machine": 2, "start": 31926, "end": 31998, "duration": 72}], "completion": 31998}, {"id": 39, "name": "PH54512B@#505", "product": "PH54512B", "loom": "#505", "date": "2026-06-24", "qty": 700.0, "release_min": 33120, "operations": [{"job": 39, "op": 0, "machine": 0, "start": 33120, "end": 33162, "duration": 42}, {"job": 39, "op": 1, "machine": 1, "start": 33162, "end": 33218, "duration": 56}, {"job": 39, "op": 2, "machine": 2, "start": 33218, "end": 33290, "duration": 72}], "completion": 33290}, {"id": 40, "name": "PH54512B@#505", "product": "PH54512B", "loom": "#505", "date": "2026-06-26", "qty": 700.0, "release_min": 36000, "operations": [{"job": 40, "op": 0, "machine": 0, "start": 36042, "end": 36084, "duration": 42}, {"job": 40, "op": 1, "machine": 1, "start": 36098, "end": 36154, "duration": 56}, {"job": 40, "op": 2, "machine": 2, "start": 36154, "end": 36226, "duration": 72}], "completion": 36226}, {"id": 41, "name": "PH54512B@#505", "product": "PH54512B", "loom": "#505", "date": "2026-06-28", "qty": 700.0, "release_min": 38880, "operations": [{"job": 41, "op": 0, "machine": 0, "start": 38983, "end": 39025, "duration": 42}, {"job": 41, "op": 1, "machine": 1, "start": 39120, "end": 39176, "duration": 56}, {"job": 41, "op": 2, "machine": 2, "start": 39224, "end": 39296, "duration": 72}], "completion": 39296}, {"id": 42, "name": "PH54512B@#505", "product": "PH54512B", "loom": "#505", "date": "2026-06-30", "qty": 700.0, "release_min": 41760, "operations": [{"job": 42, "op": 0, "machine": 0, "start": 41760, "end": 41802, "duration": 42}, {"job": 42, "op": 1, "machine": 1, "start": 41802, "end": 41858, "duration": 56}, {"job": 42, "op": 2, "machine": 2, "start": 41858, "end": 41930, "duration": 72}], "completion": 41930}, {"id": 43, "name": "PH54512B@#506", "product": "PH54512B", "loom": "#506", "date": "2026-06-09", "qty": 577.0, "release_min": 11520, "operations": [{"job": 43, "op": 0, "machine": 0, "start": 11602, "end": 11637, "duration": 35}, {"job": 43, "op": 1, "machine": 1, "start": 11641, "end": 11688, "duration": 47}, {"job": 43, "op": 2, "machine": 2, "start": 11781, "end": 11841, "duration": 60}], "completion": 11841}, {"id": 44, "name": "PH54512B@#506", "product": "PH54512B", "loom": "#506", "date": "2026-06-11", "qty": 600.0, "release_min": 14400, "operations": [{"job": 44, "op": 0, "machine": 0, "start": 14436, "end": 14472, "duration": 36}, {"job": 44, "op": 1, "machine": 1, "start": 14484, "end": 14532, "duration": 48}, {"job": 44, "op": 2, "machine": 2, "start": 14546, "end": 14608, "duration": 62}], "completion": 14608}], "schedule": [{"job": 0, "product": "NW44493N", "loom": "#303", "date": "2026-06-01", "release_min": 0}, {"job": 1, "product": "PH555120", "loom": "#304", "date": "2026-06-03", "release_min": 2880}, {"job": 2, "product": "PH555120", "loom": "#304", "date": "2026-06-05", "release_min": 5760}, {"job": 3, "product": "PH54512B", "loom": "#305", "date": "2026-06-10", "release_min": 12960}, {"job": 4, "product": "PH54512B", "loom": "#305", "date": "2026-06-11", "release_min": 14400}, {"job": 5, "product": "PH54512B", "loom": "#305", "date": "2026-06-12", "release_min": 15840}, {"job": 6, "product": "PH54512B", "loom": "#306", "date": "2026-06-10", "release_min": 12960}, {"job": 7, "product": "PH54512B", "loom": "#306", "date": "2026-06-12", "release_min": 15840}, {"job": 8, "product": "PH54512B", "loom": "#306", "date": "2026-06-14", "release_min": 18720}, {"job": 9, "product": "PH54512B", "loom": "#306", "date": "2026-06-16", "release_min": 21600}, {"job": 10, "product": "PH54512B", "loom": "#306", "date": "2026-06-18", "release_min": 24480}, {"job": 11, "product": "PH54512B", "loom": "#306", "date": "2026-06-22", "release_min": 30240}, {"job": 12, "product": "PH54512B", "loom": "#306", "date": "2026-06-24", "release_min": 33120}, {"job": 13, "product": "PH54512B", "loom": "#306", "date": "2026-06-26", "release_min": 36000}, {"job": 14, "product": "PH54512B", "loom": "#306", "date": "2026-06-28", "release_min": 38880}, {"job": 15, "product": "NW445340", "loom": "#401", "date": "2026-06-03", "release_min": 2880}, {"job": 16, "product": "NW445340", "loom": "#401", "date": "2026-06-09", "release_min": 11520}, {"job": 17, "product": "PH44553M", "loom": "#403", "date": "2026-06-11", "release_min": 14400}, {"job": 18, "product": "PH44553M", "loom": "#403", "date": "2026-06-14", "release_min": 18720}, {"job": 19, "product": "PH44553M", "loom": "#403", "date": "2026-06-16", "release_min": 21600}, {"job": 20, "product": "PH44553M", "loom": "#403", "date": "2026-06-18", "release_min": 24480}, {"job": 21, "product": "PH44553M", "loom": "#403", "date": "2026-06-24", "release_min": 33120}, {"job": 22, "product": "PH44553M", "loom": "#403", "date": "2026-06-27", "release_min": 37440}, {"job": 23, "product": "PH44553M", "loom": "#403", "date": "2026-06-29", "release_min": 40320}, {"job": 24, "product": "PH55463N", "loom": "#406", "date": "2026-06-04", "release_min": 4320}, {"job": 25, "product": "PH55463N", "loom": "#406", "date": "2026-06-09", "release_min": 11520}, {"job": 26, "product": "PH54513N", "loom": "#503", "date": "2026-06-01", "release_min": 0}, {"job": 27, "product": "PH44513C", "loom": "#504", "date": "2026-06-05", "release_min": 5760}, {"job": 28, "product": "PH44513C", "loom": "#504", "date": "2026-06-10", "release_min": 12960}, {"job": 29, "product": "PH44513C", "loom": "#504", "date": "2026-06-12", "release_min": 15840}, {"job": 30, "product": "PH44513C", "loom": "#504", "date": "2026-06-15", "release_min": 20160}, {"job": 31, "product": "PH44513C", "loom": "#504", "date": "2026-06-17", "release_min": 23040}, {"job": 32, "product": "PH44513C", "loom": "#504", "date": "2026-06-23", "release_min": 31680}, {"job": 33, "product": "PH44513C", "loom": "#504", "date": "2026-06-25", "release_min": 34560}, {"job": 34, "product": "PH44513C", "loom": "#504", "date": "2026-06-28", "release_min": 38880}, {"job": 35, "product": "PH44513C", "loom": "#504", "date": "2026-06-30", "release_min": 41760}, {"job": 36, "product": "PH54512B", "loom": "#505", "date": "2026-06-16", "release_min": 21600}, {"job": 37, "product": "PH54512B", "loom": "#505", "date": "2026-06-18", "release_min": 24480}, {"job": 38, "product": "PH54512B", "loom": "#505", "date": "2026-06-23", "release_min": 31680}, {"job": 39, "product": "PH54512B", "loom": "#505", "date": "2026-06-24", "release_min": 33120}, {"job": 40, "product": "PH54512B", "loom": "#505", "date": "2026-06-26", "release_min": 36000}, {"job": 41, "product": "PH54512B", "loom": "#505", "date": "2026-06-28", "release_min": 38880}, {"job": 42, "product": "PH54512B", "loom": "#505", "date": "2026-06-30", "release_min": 41760}, {"job": 43, "product": "PH54512B", "loom": "#506", "date": "2026-06-09", "release_min": 11520}, {"job": 44, "product": "PH54512B", "loom": "#506", "date": "2026-06-11", "release_min": 14400}], "analysis": {"machine_load": {"水洗机": {"total_load_min": 1935, "makespan_min": 42048, "utilization_pct": 4.6}, "涂层机": {"total_load_min": 2576, "makespan_min": 42048, "utilization_pct": 6.1}, "验布机": {"total_load_min": 3317, "makespan_min": 42048, "utilization_pct": 7.9}}, "num_batches": 45, "total_qty_m": 32114.0}};
+</script>
+<script>
+(function(){
+  "use strict";
+  var PALETTE=["#4e79a7","#f28e2b","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7","#9c755f","#49b8c4","#b6992d","#d37295","#499894","#86bcb6","#7f7f7f","#c3c6c7"];
+  var state={scale:1,panX:0,drag:false,d0:0,p0:0};
+  var $=function(id){return document.getElementById(id);};
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function color(i){return PALETTE[i%PALETTE.length];}
+
+  function buildRows(d){
+    // rows = machines (3 finishing machines)
+    var rows=[];
+    for(var i=0;i<d.machines.length;i++){ rows.push({label:d.machines[i]}); }
+    return rows;
+  }
+  function draw(){
+    var d=window.__SCHEDULE__; var svg=$("chart");
+    if(!d||!d.schedule||!d.schedule.length){ svg.innerHTML=""; return; }
+    var W=svg.clientWidth||900; var gutterX=96,gutterY=40,rowH=52,rightPad=40;
+    var ref = d.meta.reference;
+    // x axis in minutes over [minRelease, makespan]
+    var mk = d.statistics.makespan_min;
+    var start=0;
+    var rows=buildRows(d);
+    var H=gutterY+rows.length*rowH+12;
+    svg.setAttribute("width",W); svg.setAttribute("height",H);
+    var plotW=W-gutterX-rightPad;
+    if(!state.scale||state.scale<=0){ state.scale=plotW/(mk||1); }
+    var minPan=gutterX-state.scale*mk-10, maxPan=plotW*0.6;
+    if(state.panX<minPan)state.panX=minPan; if(state.panX>maxPan)state.panX=maxPan;
+    var left=gutterX+state.panX; var px=function(t){return left+t*state.scale;};
+    var parts=[];
+    // grid + time axis (days)
+    var steps=[30,60,180,360,720,1440,2880,4320,7200,14400];
+    var step=steps[steps.length-1];
+    for(var i=0;i<steps.length;i++){ if(steps[i]*state.scale>=60){step=steps[i];break;} }
+    for(var t=0;t<=mk;t+=step){
+      var x=px(t); if(x<gutterX-1||x>W-4)continue;
+      parts.push('<line x1="'+x+'" y1="'+gutterY+'" x2="'+x+'" y2="'+(gutterY+rows.length*rowH)+'" stroke="#2a3550"/>');
+      var day=Math.floor(t/1440);
+      parts.push('<text x="'+x+'" y="'+(gutterY-14)+'" fill="#93a2bd" font-size="11" text-anchor="middle">D'+day+'</text>');
+    }
+    // rows
+    for(var r=0;r<rows.length;r++){
+      var y=gutterY+r*rowH;
+      parts.push('<text x="'+(gutterX-10)+'" y="'+(y+rowH/2+4)+'" fill="#c7d2e6" font-size="13" text-anchor="end" font-weight="600">'+esc(rows[r].label)+'</text>');
+    }
+    // bars: for each job, for each machine, place bar
+    for(var r=0;r<rows.length;r++){
+      for(var j=0;j<d.schedule.length;j++){
+        var item=d.schedule[j];
+        var job=d.jobs[item.job];
+        var op=null;
+        for(var k=0;k<job.operations.length;k++){ if(job.operations[k].machine===r){op=job.operations[k];break;} }
+        if(!op)continue;
+        var x0=px(op.start); var w=Math.max(3,(op.end-op.start)*state.scale);
+        var c=color(item.job);
+        var y=gutterY+r*rowH;
+        parts.push('<g data-job="'+item.job+'" data-machine="'+r+'">');
+        parts.push('<rect x="'+x0+'" y="'+(y+6)+'" width="'+w+'" height="'+(rowH-12)+'" rx="5" fill="'+c+'" opacity="0.9" stroke="rgba(0,0,0,0.25)"/>');
+        if(w>30){ parts.push('<text x="'+(x0+w/2)+'" y="'+(y+rowH/2+4)+'" fill="#fff" font-size="11" text-anchor="middle" font-weight="700">'+esc(item.product)+'</text>'); }
+        parts.push('</g>');
+      }
+    }
+    svg.innerHTML=parts.join("");
+    bind(svg,d);
+  }
+  function bind(svg,d){
+    if(svg._b)return; svg._b=true;
+    svg.addEventListener("mousemove",function(e){
+      var g=e.target&&e.target.closest?e.target.closest("g[data-job]"):null;
+      if(!g){$("tooltip").style.display="none";return;}
+      var job=+g.getAttribute("data-job"); var j=d.jobs[job]; var item=d.schedule[job];
+      var op=null; for(var k=0;k<j.operations.length;k++){ if(j.operations[k].machine===+g.getAttribute("data-machine")){op=j.operations[k];break;} }
+      var tip=$("tooltip");
+      tip.innerHTML='<div class="tt" style="color:'+color(job)+'">'+esc(j.product)+' · 落布 '+esc(item.date)+'</div>'+
+        '<div class="r"><span>织机</span><b>'+esc(j.loom)+'</b></div>'+
+        '<div class="r"><span>长度</span><b>'+j.qty+' m</b></div>'+
+        '<div class="r"><span>工序</span><b>'+esc(d.machines[op.machine])+'</b></div>'+
+        '<div class="r"><span>开始</span><b>D'+Math.floor(op.start/1440)+' '+Math.round((op.start%1440)/60)+'h</b></div>'+
+        '<div class="r"><span>结束</span><b>D'+Math.floor(op.end/1440)+' '+Math.round((op.end%1440)/60)+'h</b></div>'+
+        '<div class="r"><span>时长</span><b>'+Math.round(op.duration)+' min</b></div>';
+      tip.style.display="block"; tip.style.left=(e.clientX+14)+"px"; tip.style.top=(e.clientY+14)+"px";
+    });
+    svg.addEventListener("mouseleave",function(){$("tooltip").style.display="none";});
+    svg.addEventListener("wheel",function(e){e.preventDefault();var r=svg.getBoundingClientRect();var mx=e.clientX-r.left;if(mx<96)mx=96;var left=96+state.panX;var tM=(mx-left)/state.scale;var f=e.deltaY<0?1.15:0.87;state.scale=Math.max(0.02,Math.min(20,state.scale*f));state.panX=mx-96-tM*state.scale;draw();},{passive:false});
+    svg.addEventListener("mousedown",function(e){state.drag=true;state.d0=e.clientX;state.p0=state.panX;});
+    window.addEventListener("mousemove",function(e){if(state.drag){state.panX=state.p0+(e.clientX-state.d0);draw();}});
+    window.addEventListener("mouseup",function(){state.drag=false;});
+  }
+  function render(d){
+    var st=d.statistics||{};
+    $("meta-sub").textContent="数据: "+d.meta.data+" · 单位: 分钟(轴按天) · 共 "+d.meta.batches+" 个落布批次 / "+d.meta.total_qty_m+" 米";
+    var boxes=[["求解状态",st.status],["完工 Makespan",(st.makespan_h||0)+" h"],["总流转时间",Math.round(st.total_flow_time_min||0)+" min"],["批次",st.num_jobs],["总米数",d.meta.total_qty_m+" m"]];
+    var s=""; for(var i=0;i<boxes.length;i++){s+='<div class="kpi"><div class="k">'+boxes[i][0]+'</div><div class="v">'+esc(boxes[i][1])+'</div></div>';}
+    $("kpis").innerHTML=s;
+    // legend by product
+    var seen={}; var lg="";
+    for(var i=0;i<d.schedule.length;i++){ var p=d.schedule[i].product; if(seen[p])continue; seen[p]=1; lg+='<div class="lg"><span class="sw" style="background:'+color(i)+'"></span><b>'+esc(p)+'</b></div>'; }
+    $("legend").innerHTML=lg;
+    draw();
+  }
+  window.addEventListener("resize",function(){draw();});
+  render(window.__SCHEDULE__);
+})();
+</script>
+</body>
+</html>

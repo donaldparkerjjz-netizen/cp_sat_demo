@@ -1,0 +1,2192 @@
+{
+  "generated_by": "weaving_demo/equipment.py",
+  "equipment_type_legend": {
+    "LOOM": "织造/织机",
+    "WASH": "水洗/水洗机",
+    "WAR": "整经/整经机"
+  },
+  "equipment": [
+    {
+      "equipment_id": "LOOM-101",
+      "process_type": "织造",
+      "display_code": "#101织机",
+      "equipment_name": "织机 101",
+      "source_code": "#101",
+      "source_sheet": "②织机状态",
+      "source_cell": "B10",
+      "source_value": "#101",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#101"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-102",
+      "process_type": "织造",
+      "display_code": "#102织机",
+      "equipment_name": "织机 102",
+      "source_code": "#102",
+      "source_sheet": "②织机状态",
+      "source_cell": "B11",
+      "source_value": "#102",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#102"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-103",
+      "process_type": "织造",
+      "display_code": "#103织机",
+      "equipment_name": "织机 103",
+      "source_code": "#103",
+      "source_sheet": "②织机状态",
+      "source_cell": "B12",
+      "source_value": "#103",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#103"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-104",
+      "process_type": "织造",
+      "display_code": "#104织机",
+      "equipment_name": "织机 104",
+      "source_code": "#104",
+      "source_sheet": "②织机状态",
+      "source_cell": "B13",
+      "source_value": "#104",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#104"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-105",
+      "process_type": "织造",
+      "display_code": "#105织机",
+      "equipment_name": "织机 105",
+      "source_code": "#105",
+      "source_sheet": "②织机状态",
+      "source_cell": "B14",
+      "source_value": "#105",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#105"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-106",
+      "process_type": "织造",
+      "display_code": "#106织机",
+      "equipment_name": "织机 106",
+      "source_code": "#106",
+      "source_sheet": "②织机状态",
+      "source_cell": "B15",
+      "source_value": "#106",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#106"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-107",
+      "process_type": "织造",
+      "display_code": "#107织机",
+      "equipment_name": "织机 107",
+      "source_code": "#107",
+      "source_sheet": "②织机状态",
+      "source_cell": "B16",
+      "source_value": "#107",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#107"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-108",
+      "process_type": "织造",
+      "display_code": "#108织机",
+      "equipment_name": "织机 108",
+      "source_code": "#108",
+      "source_sheet": "②织机状态",
+      "source_cell": "B17",
+      "source_value": "#108",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#108"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-109",
+      "process_type": "织造",
+      "display_code": "#109织机",
+      "equipment_name": "织机 109",
+      "source_code": "#109",
+      "source_sheet": "②织机状态",
+      "source_cell": "B18",
+      "source_value": "#109",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#109"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-110",
+      "process_type": "织造",
+      "display_code": "#110织机",
+      "equipment_name": "织机 110",
+      "source_code": "#110",
+      "source_sheet": "②织机状态",
+      "source_cell": "B19",
+      "source_value": "#110",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#110"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-111",
+      "process_type": "织造",
+      "display_code": "#111织机",
+      "equipment_name": "织机 111",
+      "source_code": "#111",
+      "source_sheet": "②织机状态",
+      "source_cell": "B20",
+      "source_value": "#111",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#111"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-112",
+      "process_type": "织造",
+      "display_code": "#112织机",
+      "equipment_name": "织机 112",
+      "source_code": "#112",
+      "source_sheet": "②织机状态",
+      "source_cell": "B21",
+      "source_value": "#112",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#112"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-201",
+      "process_type": "织造",
+      "display_code": "#201织机",
+      "equipment_name": "织机 201",
+      "source_code": "#201",
+      "source_sheet": "②织机状态",
+      "source_cell": "B22",
+      "source_value": "#201",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#201"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-202",
+      "process_type": "织造",
+      "display_code": "#202织机",
+      "equipment_name": "织机 202",
+      "source_code": "#202",
+      "source_sheet": "②织机状态",
+      "source_cell": "B23",
+      "source_value": "#202",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#202"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-203",
+      "process_type": "织造",
+      "display_code": "#203织机",
+      "equipment_name": "织机 203",
+      "source_code": "#203",
+      "source_sheet": "②织机状态",
+      "source_cell": "B24",
+      "source_value": "#203",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#203"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-204",
+      "process_type": "织造",
+      "display_code": "#204织机",
+      "equipment_name": "织机 204",
+      "source_code": "#204",
+      "source_sheet": "②织机状态",
+      "source_cell": "B25",
+      "source_value": "#204",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#204"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-205",
+      "process_type": "织造",
+      "display_code": "#205织机",
+      "equipment_name": "织机 205",
+      "source_code": "#205",
+      "source_sheet": "②织机状态",
+      "source_cell": "B26",
+      "source_value": "#205",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#205"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-206",
+      "process_type": "织造",
+      "display_code": "#206织机",
+      "equipment_name": "织机 206",
+      "source_code": "#206",
+      "source_sheet": "②织机状态",
+      "source_cell": "B27",
+      "source_value": "#206",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#206"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-207",
+      "process_type": "织造",
+      "display_code": "#207织机",
+      "equipment_name": "织机 207",
+      "source_code": "#207",
+      "source_sheet": "②织机状态",
+      "source_cell": "B28",
+      "source_value": "#207",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#207"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-208",
+      "process_type": "织造",
+      "display_code": "#208织机",
+      "equipment_name": "织机 208",
+      "source_code": "#208",
+      "source_sheet": "②织机状态",
+      "source_cell": "B29",
+      "source_value": "#208",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#208"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-209",
+      "process_type": "织造",
+      "display_code": "#209织机",
+      "equipment_name": "织机 209",
+      "source_code": "#209",
+      "source_sheet": "②织机状态",
+      "source_cell": "B30",
+      "source_value": "#209",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#209"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-210",
+      "process_type": "织造",
+      "display_code": "#210织机",
+      "equipment_name": "织机 210",
+      "source_code": "#210",
+      "source_sheet": "②织机状态",
+      "source_cell": "B31",
+      "source_value": "#210",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#210"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-211",
+      "process_type": "织造",
+      "display_code": "#211织机",
+      "equipment_name": "织机 211",
+      "source_code": "#211",
+      "source_sheet": "②织机状态",
+      "source_cell": "B32",
+      "source_value": "#211",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#211"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-212",
+      "process_type": "织造",
+      "display_code": "#212织机",
+      "equipment_name": "织机 212",
+      "source_code": "#212",
+      "source_sheet": "②织机状态",
+      "source_cell": "B33",
+      "source_value": "#212",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#212"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-301",
+      "process_type": "织造",
+      "display_code": "#301织机",
+      "equipment_name": "织机 301",
+      "source_code": "#301",
+      "source_sheet": "②织机状态",
+      "source_cell": "B34",
+      "source_value": "#301",
+      "equipment_type": "织机",
+      "status": "AB",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#301"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-302",
+      "process_type": "织造",
+      "display_code": "#302织机",
+      "equipment_name": "织机 302",
+      "source_code": "#302",
+      "source_sheet": "②织机状态",
+      "source_cell": "B35",
+      "source_value": "#302",
+      "equipment_type": "织机",
+      "status": "YFSS",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#302"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-303",
+      "process_type": "织造",
+      "display_code": "#303织机",
+      "equipment_name": "织机 303",
+      "source_code": "#303",
+      "source_sheet": "②织机状态",
+      "source_cell": "B36",
+      "source_value": "#303",
+      "equipment_type": "织机",
+      "status": "待确认/不可用",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#303"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-304",
+      "process_type": "织造",
+      "display_code": "#304织机",
+      "equipment_name": "织机 304",
+      "source_code": "#304",
+      "source_sheet": "②织机状态",
+      "source_cell": "B37",
+      "source_value": "#304",
+      "equipment_type": "织机",
+      "status": "AB",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#304"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-305",
+      "process_type": "织造",
+      "display_code": "#305织机",
+      "equipment_name": "织机 305",
+      "source_code": "#305",
+      "source_sheet": "②织机状态",
+      "source_cell": "B38",
+      "source_value": "#305",
+      "equipment_type": "织机",
+      "status": "TG 爬坡",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#305"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-306",
+      "process_type": "织造",
+      "display_code": "#306织机",
+      "equipment_name": "织机 306",
+      "source_code": "#306",
+      "source_sheet": "②织机状态",
+      "source_cell": "B39",
+      "source_value": "#306",
+      "equipment_type": "织机",
+      "status": "TG 爬坡",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#306"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-307",
+      "process_type": "织造",
+      "display_code": "#307织机",
+      "equipment_name": "织机 307",
+      "source_code": "#307",
+      "source_sheet": "②织机状态",
+      "source_cell": "B40",
+      "source_value": "#307",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#307"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-308",
+      "process_type": "织造",
+      "display_code": "#308织机",
+      "equipment_name": "织机 308",
+      "source_code": "#308",
+      "source_sheet": "②织机状态",
+      "source_cell": "B41",
+      "source_value": "#308",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#308"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-309",
+      "process_type": "织造",
+      "display_code": "#309织机",
+      "equipment_name": "织机 309",
+      "source_code": "#309",
+      "source_sheet": "②织机状态",
+      "source_cell": "B42",
+      "source_value": "#309",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#309"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-310",
+      "process_type": "织造",
+      "display_code": "#310织机",
+      "equipment_name": "织机 310",
+      "source_code": "#310",
+      "source_sheet": "②织机状态",
+      "source_cell": "B43",
+      "source_value": "#310",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#310"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-311",
+      "process_type": "织造",
+      "display_code": "#311织机",
+      "equipment_name": "织机 311",
+      "source_code": "#311",
+      "source_sheet": "②织机状态",
+      "source_cell": "B44",
+      "source_value": "#311",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#311"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-312",
+      "process_type": "织造",
+      "display_code": "#312织机",
+      "equipment_name": "织机 312",
+      "source_code": "#312",
+      "source_sheet": "②织机状态",
+      "source_cell": "B45",
+      "source_value": "#312",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#312"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-401",
+      "process_type": "织造",
+      "display_code": "#401织机",
+      "equipment_name": "织机 401",
+      "source_code": "#401",
+      "source_sheet": "②织机状态",
+      "source_cell": "B46",
+      "source_value": "#401",
+      "equipment_type": "织机",
+      "status": "YFSS 量产",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#401"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-402",
+      "process_type": "织造",
+      "display_code": "#402织机",
+      "equipment_name": "织机 402",
+      "source_code": "#402",
+      "source_sheet": "②织机状态",
+      "source_cell": "B47",
+      "source_value": "#402",
+      "equipment_type": "织机",
+      "status": "待确认/不可用",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#402"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-403",
+      "process_type": "织造",
+      "display_code": "#403织机",
+      "equipment_name": "织机 403",
+      "source_code": "#403",
+      "source_sheet": "②织机状态",
+      "source_cell": "B48",
+      "source_value": "#403",
+      "equipment_type": "织机",
+      "status": "YFSS 量产",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#403"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-404",
+      "process_type": "织造",
+      "display_code": "#404织机",
+      "equipment_name": "织机 404",
+      "source_code": "#404",
+      "source_sheet": "②织机状态",
+      "source_cell": "B49",
+      "source_value": "#404",
+      "equipment_type": "织机",
+      "status": "待确认/不可用",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#404"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-405",
+      "process_type": "织造",
+      "display_code": "#405织机",
+      "equipment_name": "织机 405",
+      "source_code": "#405",
+      "source_sheet": "②织机状态",
+      "source_cell": "B50",
+      "source_value": "#405",
+      "equipment_type": "织机",
+      "status": "AB开发用",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [
+        "PH1111111"
+      ],
+      "aliases": [
+        "#405"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-406",
+      "process_type": "织造",
+      "display_code": "#406织机",
+      "equipment_name": "织机 406",
+      "source_code": "#406",
+      "source_sheet": "②织机状态",
+      "source_cell": "B51",
+      "source_value": "#406",
+      "equipment_type": "织机",
+      "status": "AB",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#406"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-407",
+      "process_type": "织造",
+      "display_code": "#407织机",
+      "equipment_name": "织机 407",
+      "source_code": "#407",
+      "source_sheet": "②织机状态",
+      "source_cell": "B52",
+      "source_value": "#407",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#407"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-408",
+      "process_type": "织造",
+      "display_code": "#408织机",
+      "equipment_name": "织机 408",
+      "source_code": "#408",
+      "source_sheet": "②织机状态",
+      "source_cell": "B53",
+      "source_value": "#408",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#408"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-409",
+      "process_type": "织造",
+      "display_code": "#409织机",
+      "equipment_name": "织机 409",
+      "source_code": "#409",
+      "source_sheet": "②织机状态",
+      "source_cell": "B54",
+      "source_value": "#409",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#409"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-410",
+      "process_type": "织造",
+      "display_code": "#410织机",
+      "equipment_name": "织机 410",
+      "source_code": "#410",
+      "source_sheet": "②织机状态",
+      "source_cell": "B55",
+      "source_value": "#410",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#410"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-411",
+      "process_type": "织造",
+      "display_code": "#411织机",
+      "equipment_name": "织机 411",
+      "source_code": "#411",
+      "source_sheet": "②织机状态",
+      "source_cell": "B56",
+      "source_value": "#411",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#411"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-412",
+      "process_type": "织造",
+      "display_code": "#412织机",
+      "equipment_name": "织机 412",
+      "source_code": "#412",
+      "source_sheet": "②织机状态",
+      "source_cell": "B57",
+      "source_value": "#412",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#412"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-501",
+      "process_type": "织造",
+      "display_code": "#501织机",
+      "equipment_name": "织机 501",
+      "source_code": "#501",
+      "source_sheet": "②织机状态",
+      "source_cell": "B58",
+      "source_value": "#501",
+      "equipment_type": "织机",
+      "status": "YFSS 量产",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#501"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-502",
+      "process_type": "织造",
+      "display_code": "#502织机",
+      "equipment_name": "织机 502",
+      "source_code": "#502",
+      "source_sheet": "②织机状态",
+      "source_cell": "B59",
+      "source_value": "#502",
+      "equipment_type": "织机",
+      "status": "YFSS 量产",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#502"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-503",
+      "process_type": "织造",
+      "display_code": "#503织机",
+      "equipment_name": "织机 503",
+      "source_code": "#503",
+      "source_sheet": "②织机状态",
+      "source_cell": "B60",
+      "source_value": "#503",
+      "equipment_type": "织机",
+      "status": "YFSS 量产",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#503"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-504",
+      "process_type": "织造",
+      "display_code": "#504织机",
+      "equipment_name": "织机 504",
+      "source_code": "#504",
+      "source_sheet": "②织机状态",
+      "source_cell": "B61",
+      "source_value": "#504",
+      "equipment_type": "织机",
+      "status": "YFSS 量产",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#504"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-505",
+      "process_type": "织造",
+      "display_code": "#505织机",
+      "equipment_name": "织机 505",
+      "source_code": "#505",
+      "source_sheet": "②织机状态",
+      "source_cell": "B62",
+      "source_value": "#505",
+      "equipment_type": "织机",
+      "status": "YFSS 量产",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#505"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-506",
+      "process_type": "织造",
+      "display_code": "#506织机",
+      "equipment_name": "织机 506",
+      "source_code": "#506",
+      "source_sheet": "②织机状态",
+      "source_cell": "B63",
+      "source_value": "#506",
+      "equipment_type": "织机",
+      "status": "TG 爬坡",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#506"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-507",
+      "process_type": "织造",
+      "display_code": "#507织机",
+      "equipment_name": "织机 507",
+      "source_code": "#507",
+      "source_sheet": "②织机状态",
+      "source_cell": "B64",
+      "source_value": "#507",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#507"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-508",
+      "process_type": "织造",
+      "display_code": "#508织机",
+      "equipment_name": "织机 508",
+      "source_code": "#508",
+      "source_sheet": "②织机状态",
+      "source_cell": "B65",
+      "source_value": "#508",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#508"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-509",
+      "process_type": "织造",
+      "display_code": "#509织机",
+      "equipment_name": "织机 509",
+      "source_code": "#509",
+      "source_sheet": "②织机状态",
+      "source_cell": "B66",
+      "source_value": "#509",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#509"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-510",
+      "process_type": "织造",
+      "display_code": "#510织机",
+      "equipment_name": "织机 510",
+      "source_code": "#510",
+      "source_sheet": "②织机状态",
+      "source_cell": "B67",
+      "source_value": "#510",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#510"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-511",
+      "process_type": "织造",
+      "display_code": "#511织机",
+      "equipment_name": "织机 511",
+      "source_code": "#511",
+      "source_sheet": "②织机状态",
+      "source_cell": "B68",
+      "source_value": "#511",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#511"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-512",
+      "process_type": "织造",
+      "display_code": "#512织机",
+      "equipment_name": "织机 512",
+      "source_code": "#512",
+      "source_sheet": "②织机状态",
+      "source_cell": "B69",
+      "source_value": "#512",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#512"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-601",
+      "process_type": "织造",
+      "display_code": "#601织机",
+      "equipment_name": "织机 601",
+      "source_code": "#601",
+      "source_sheet": "②织机状态",
+      "source_cell": "B70",
+      "source_value": "#601",
+      "equipment_type": "织机",
+      "status": "YFSS",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#601"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-602",
+      "process_type": "织造",
+      "display_code": "#602织机",
+      "equipment_name": "织机 602",
+      "source_code": "#602",
+      "source_sheet": "②织机状态",
+      "source_cell": "B71",
+      "source_value": "#602",
+      "equipment_type": "织机",
+      "status": "YFSS",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#602"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-603",
+      "process_type": "织造",
+      "display_code": "#603织机",
+      "equipment_name": "织机 603",
+      "source_code": "#603",
+      "source_sheet": "②织机状态",
+      "source_cell": "B72",
+      "source_value": "#603",
+      "equipment_type": "织机",
+      "status": "YFSS",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#603"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-604",
+      "process_type": "织造",
+      "display_code": "#604织机",
+      "equipment_name": "织机 604",
+      "source_code": "#604",
+      "source_sheet": "②织机状态",
+      "source_cell": "B73",
+      "source_value": "#604",
+      "equipment_type": "织机",
+      "status": "待确认/不可用",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#604"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-605",
+      "process_type": "织造",
+      "display_code": "#605织机",
+      "equipment_name": "织机 605",
+      "source_code": "#605",
+      "source_sheet": "②织机状态",
+      "source_cell": "B74",
+      "source_value": "#605",
+      "equipment_type": "织机",
+      "status": "待确认/不可用",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#605"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-606",
+      "process_type": "织造",
+      "display_code": "#606织机",
+      "equipment_name": "织机 606",
+      "source_code": "#606",
+      "source_sheet": "②织机状态",
+      "source_cell": "B75",
+      "source_value": "#606",
+      "equipment_type": "织机",
+      "status": "AB",
+      "capacity_value": 400.0,
+      "capacity_unit": "米/天",
+      "compatible_products": [],
+      "aliases": [
+        "#606"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-607",
+      "process_type": "织造",
+      "display_code": "#607织机",
+      "equipment_name": "织机 607",
+      "source_code": "#607",
+      "source_sheet": "②织机状态",
+      "source_cell": "B76",
+      "source_value": "#607",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#607"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-608",
+      "process_type": "织造",
+      "display_code": "#608织机",
+      "equipment_name": "织机 608",
+      "source_code": "#608",
+      "source_sheet": "②织机状态",
+      "source_cell": "B77",
+      "source_value": "#608",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#608"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-609",
+      "process_type": "织造",
+      "display_code": "#609织机",
+      "equipment_name": "织机 609",
+      "source_code": "#609",
+      "source_sheet": "②织机状态",
+      "source_cell": "B78",
+      "source_value": "#609",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#609"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-610",
+      "process_type": "织造",
+      "display_code": "#610织机",
+      "equipment_name": "织机 610",
+      "source_code": "#610",
+      "source_sheet": "②织机状态",
+      "source_cell": "B79",
+      "source_value": "#610",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#610"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-611",
+      "process_type": "织造",
+      "display_code": "#611织机",
+      "equipment_name": "织机 611",
+      "source_code": "#611",
+      "source_sheet": "②织机状态",
+      "source_cell": "B80",
+      "source_value": "#611",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#611"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-612",
+      "process_type": "织造",
+      "display_code": "#612织机",
+      "equipment_name": "织机 612",
+      "source_code": "#612",
+      "source_sheet": "②织机状态",
+      "source_cell": "B81",
+      "source_value": "#612",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#612"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-701",
+      "process_type": "织造",
+      "display_code": "#701织机",
+      "equipment_name": "织机 701",
+      "source_code": "#701",
+      "source_sheet": "②织机状态",
+      "source_cell": "B82",
+      "source_value": "#701",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#701"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-702",
+      "process_type": "织造",
+      "display_code": "#702织机",
+      "equipment_name": "织机 702",
+      "source_code": "#702",
+      "source_sheet": "②织机状态",
+      "source_cell": "B83",
+      "source_value": "#702",
+      "equipment_type": "织机",
+      "status": "待确认/不可用",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#702"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-703",
+      "process_type": "织造",
+      "display_code": "#703织机",
+      "equipment_name": "织机 703",
+      "source_code": "#703",
+      "source_sheet": "②织机状态",
+      "source_cell": "B84",
+      "source_value": "#703",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#703"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-704",
+      "process_type": "织造",
+      "display_code": "#704织机",
+      "equipment_name": "织机 704",
+      "source_code": "#704",
+      "source_sheet": "②织机状态",
+      "source_cell": "B85",
+      "source_value": "#704",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#704"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-705",
+      "process_type": "织造",
+      "display_code": "#705织机",
+      "equipment_name": "织机 705",
+      "source_code": "#705",
+      "source_sheet": "②织机状态",
+      "source_cell": "B86",
+      "source_value": "#705",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#705"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-706",
+      "process_type": "织造",
+      "display_code": "#706织机",
+      "equipment_name": "织机 706",
+      "source_code": "#706",
+      "source_sheet": "②织机状态",
+      "source_cell": "B87",
+      "source_value": "#706",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#706"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-707",
+      "process_type": "织造",
+      "display_code": "#707织机",
+      "equipment_name": "织机 707",
+      "source_code": "#707",
+      "source_sheet": "②织机状态",
+      "source_cell": "B88",
+      "source_value": "#707",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#707"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-708",
+      "process_type": "织造",
+      "display_code": "#708织机",
+      "equipment_name": "织机 708",
+      "source_code": "#708",
+      "source_sheet": "②织机状态",
+      "source_cell": "B89",
+      "source_value": "#708",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#708"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-709",
+      "process_type": "织造",
+      "display_code": "#709织机",
+      "equipment_name": "织机 709",
+      "source_code": "#709",
+      "source_sheet": "②织机状态",
+      "source_cell": "B90",
+      "source_value": "#709",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#709"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-710",
+      "process_type": "织造",
+      "display_code": "#710织机",
+      "equipment_name": "织机 710",
+      "source_code": "#710",
+      "source_sheet": "②织机状态",
+      "source_cell": "B91",
+      "source_value": "#710",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#710"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-711",
+      "process_type": "织造",
+      "display_code": "#711织机",
+      "equipment_name": "织机 711",
+      "source_code": "#711",
+      "source_sheet": "②织机状态",
+      "source_cell": "B92",
+      "source_value": "#711",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#711"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-712",
+      "process_type": "织造",
+      "display_code": "#712织机",
+      "equipment_name": "织机 712",
+      "source_code": "#712",
+      "source_sheet": "②织机状态",
+      "source_cell": "B93",
+      "source_value": "#712",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#712"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-801",
+      "process_type": "织造",
+      "display_code": "#801织机",
+      "equipment_name": "织机 801",
+      "source_code": "#801",
+      "source_sheet": "②织机状态",
+      "source_cell": "B94",
+      "source_value": "#801",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#801"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-802",
+      "process_type": "织造",
+      "display_code": "#802织机",
+      "equipment_name": "织机 802",
+      "source_code": "#802",
+      "source_sheet": "②织机状态",
+      "source_cell": "B95",
+      "source_value": "#802",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#802"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-803",
+      "process_type": "织造",
+      "display_code": "#803织机",
+      "equipment_name": "织机 803",
+      "source_code": "#803",
+      "source_sheet": "②织机状态",
+      "source_cell": "B96",
+      "source_value": "#803",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#803"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-804",
+      "process_type": "织造",
+      "display_code": "#804织机",
+      "equipment_name": "织机 804",
+      "source_code": "#804",
+      "source_sheet": "②织机状态",
+      "source_cell": "B97",
+      "source_value": "#804",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#804"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-805",
+      "process_type": "织造",
+      "display_code": "#805织机",
+      "equipment_name": "织机 805",
+      "source_code": "#805",
+      "source_sheet": "②织机状态",
+      "source_cell": "B98",
+      "source_value": "#805",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#805"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-806",
+      "process_type": "织造",
+      "display_code": "#806织机",
+      "equipment_name": "织机 806",
+      "source_code": "#806",
+      "source_sheet": "②织机状态",
+      "source_cell": "B99",
+      "source_value": "#806",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#806"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-807",
+      "process_type": "织造",
+      "display_code": "#807织机",
+      "equipment_name": "织机 807",
+      "source_code": "#807",
+      "source_sheet": "②织机状态",
+      "source_cell": "B100",
+      "source_value": "#807",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#807"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-808",
+      "process_type": "织造",
+      "display_code": "#808织机",
+      "equipment_name": "织机 808",
+      "source_code": "#808",
+      "source_sheet": "②织机状态",
+      "source_cell": "B101",
+      "source_value": "#808",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#808"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-809",
+      "process_type": "织造",
+      "display_code": "#809织机",
+      "equipment_name": "织机 809",
+      "source_code": "#809",
+      "source_sheet": "②织机状态",
+      "source_cell": "B102",
+      "source_value": "#809",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#809"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-810",
+      "process_type": "织造",
+      "display_code": "#810织机",
+      "equipment_name": "织机 810",
+      "source_code": "#810",
+      "source_sheet": "②织机状态",
+      "source_cell": "B103",
+      "source_value": "#810",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#810"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-811",
+      "process_type": "织造",
+      "display_code": "#811织机",
+      "equipment_name": "织机 811",
+      "source_code": "#811",
+      "source_sheet": "②织机状态",
+      "source_cell": "B104",
+      "source_value": "#811",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#811"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-812",
+      "process_type": "织造",
+      "display_code": "#812织机",
+      "equipment_name": "织机 812",
+      "source_code": "#812",
+      "source_sheet": "②织机状态",
+      "source_cell": "B105",
+      "source_value": "#812",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#812"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-901",
+      "process_type": "织造",
+      "display_code": "#901织机",
+      "equipment_name": "织机 901",
+      "source_code": "#901",
+      "source_sheet": "②织机状态",
+      "source_cell": "B106",
+      "source_value": "#901",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#901"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-902",
+      "process_type": "织造",
+      "display_code": "#902织机",
+      "equipment_name": "织机 902",
+      "source_code": "#902",
+      "source_sheet": "②织机状态",
+      "source_cell": "B107",
+      "source_value": "#902",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#902"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-903",
+      "process_type": "织造",
+      "display_code": "#903织机",
+      "equipment_name": "织机 903",
+      "source_code": "#903",
+      "source_sheet": "②织机状态",
+      "source_cell": "B108",
+      "source_value": "#903",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#903"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-904",
+      "process_type": "织造",
+      "display_code": "#904织机",
+      "equipment_name": "织机 904",
+      "source_code": "#904",
+      "source_sheet": "②织机状态",
+      "source_cell": "B109",
+      "source_value": "#904",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#904"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-905",
+      "process_type": "织造",
+      "display_code": "#905织机",
+      "equipment_name": "织机 905",
+      "source_code": "#905",
+      "source_sheet": "②织机状态",
+      "source_cell": "B110",
+      "source_value": "#905",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#905"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-906",
+      "process_type": "织造",
+      "display_code": "#906织机",
+      "equipment_name": "织机 906",
+      "source_code": "#906",
+      "source_sheet": "②织机状态",
+      "source_cell": "B111",
+      "source_value": "#906",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#906"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-907",
+      "process_type": "织造",
+      "display_code": "#907织机",
+      "equipment_name": "织机 907",
+      "source_code": "#907",
+      "source_sheet": "②织机状态",
+      "source_cell": "B112",
+      "source_value": "#907",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#907"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-908",
+      "process_type": "织造",
+      "display_code": "#908织机",
+      "equipment_name": "织机 908",
+      "source_code": "#908",
+      "source_sheet": "②织机状态",
+      "source_cell": "B113",
+      "source_value": "#908",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#908"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-909",
+      "process_type": "织造",
+      "display_code": "#909织机",
+      "equipment_name": "织机 909",
+      "source_code": "#909",
+      "source_sheet": "②织机状态",
+      "source_cell": "B114",
+      "source_value": "#909",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#909"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-910",
+      "process_type": "织造",
+      "display_code": "#910织机",
+      "equipment_name": "织机 910",
+      "source_code": "#910",
+      "source_sheet": "②织机状态",
+      "source_cell": "B115",
+      "source_value": "#910",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#910"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-911",
+      "process_type": "织造",
+      "display_code": "#911织机",
+      "equipment_name": "织机 911",
+      "source_code": "#911",
+      "source_sheet": "②织机状态",
+      "source_cell": "B116",
+      "source_value": "#911",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#911"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "LOOM-912",
+      "process_type": "织造",
+      "display_code": "#912织机",
+      "equipment_name": "织机 912",
+      "source_code": "#912",
+      "source_sheet": "②织机状态",
+      "source_cell": "B117",
+      "source_value": "#912",
+      "equipment_type": "织机",
+      "status": "未安排",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "#912"
+      ],
+      "id_source": "来源表(②织机状态)",
+      "data_quality": "ok"
+    },
+    {
+      "equipment_id": "WASH-01",
+      "process_type": "水洗",
+      "display_code": "1号水洗机",
+      "equipment_name": "水洗机 1",
+      "source_code": "1号水洗机",
+      "source_sheet": "水洗计划(每天)",
+      "source_cell": "B3",
+      "source_value": "1号水洗机",
+      "equipment_type": "水洗机",
+      "status": "排产计划中",
+      "capacity_value": null,
+      "capacity_unit": null,
+      "compatible_products": [],
+      "aliases": [
+        "1号水洗机"
+      ],
+      "id_source": "来源表(水洗计划/水洗效率表头)",
+      "data_quality": "ok"
+    }
+  ]
+}

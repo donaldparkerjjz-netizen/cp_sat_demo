@@ -1,0 +1,107 @@
+{
+  "generated_by": "weaving_demo/warping.py",
+  "count": 5,
+  "note": "整经任务按计划池管理，warping_machine_id 兼容字段保留为空且不要求补充。",
+  "warp_tasks": [
+    {
+      "task_id": "WARP-WP551-2026-04-03",
+      "warp_beam_sku": "WP551",
+      "plan_date": "2026-04-03",
+      "plan_meters": 4800.0,
+      "plan_count": 1.0,
+      "target_loom_id": [
+        "LOOM-502",
+        "LOOM-603"
+      ],
+      "warping_machine_id": "",
+      "machine_placeholder": "整经计划池",
+      "machine_status": "按计划池管理",
+      "warping_resource_mode": "计划池",
+      "data_source": "来源表(整经计划/整经预测辅助表)",
+      "is_derived": false,
+      "plan_src_cell": "O118",
+      "count_src_cell": "O121"
+    },
+    {
+      "task_id": "WARP-WP550-2026-06-15",
+      "warp_beam_sku": "WP550",
+      "plan_date": "2026-06-15",
+      "plan_meters": 9660.0,
+      "plan_count": 2.0,
+      "target_loom_id": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "warping_machine_id": "",
+      "machine_placeholder": "整经计划池",
+      "machine_status": "按计划池管理",
+      "warping_resource_mode": "计划池",
+      "data_source": "来源表(整经计划/整经预测辅助表)",
+      "is_derived": false,
+      "plan_src_cell": "CJ127",
+      "count_src_cell": "CJ130"
+    },
+    {
+      "task_id": "WARP-WP550-2026-06-16",
+      "warp_beam_sku": "WP550",
+      "plan_date": "2026-06-16",
+      "plan_meters": 9660.0,
+      "plan_count": 2.0,
+      "target_loom_id": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "warping_machine_id": "",
+      "machine_placeholder": "整经计划池",
+      "machine_status": "按计划池管理",
+      "warping_resource_mode": "计划池",
+      "data_source": "来源表(整经计划/整经预测辅助表)",
+      "is_derived": false,
+      "plan_src_cell": "CK127",
+      "count_src_cell": "CK130"
+    },
+    {
+      "task_id": "WARP-WP550-2026-06-17",
+      "warp_beam_sku": "WP550",
+      "plan_date": "2026-06-17",
+      "plan_meters": 4830.0,
+      "plan_count": 1.0,
+      "target_loom_id": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "warping_machine_id": "",
+      "machine_placeholder": "整经计划池",
+      "machine_status": "按计划池管理",
+      "warping_resource_mode": "计划池",
+      "data_source": "来源表(整经计划/整经预测辅助表)",
+      "is_derived": false,
+      "plan_src_cell": "CL127",
+      "count_src_cell": "CL130"
+    },
+    {
+      "task_id": "WARP-WP451-2026-06-18",
+      "warp_beam_sku": "WP451",
+      "plan_date": "2026-06-18",
+      "plan_meters": 4500.0,
+      "plan_count": 1.0,
+      "target_loom_id": [
+        "LOOM-504"
+      ],
+      "warping_machine_id": "",
+      "machine_placeholder": "整经计划池",
+      "machine_status": "按计划池管理",
+      "warping_resource_mode": "计划池",
+      "data_source": "来源表(整经计划/整经预测辅助表)",
+      "is_derived": false,
+      "plan_src_cell": "CM145",
+      "count_src_cell": "CM148"
+    }
+  ]
+}

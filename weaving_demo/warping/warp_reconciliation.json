@@ -1,0 +1,564 @@
+{
+  "master_product_count": 19,
+  "full_count": 11,
+  "broken_count": 8,
+  "product_rows": [
+    {
+      "flow_id": "FLOW-PH555120",
+      "product_id": "PH555120",
+      "link_status": "未建档",
+      "status": "未建档",
+      "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少背番号、经轴品番、织造品番和水洗品番映射。",
+      "product_back_sku": null,
+      "warp_beam_sku": null,
+      "weaving_sku": null,
+      "washing_sku": null,
+      "target_loom_ids": [
+        "LOOM-304",
+        "LOOM-405"
+      ],
+      "missing_fields": [
+        "product_back_sku",
+        "warp_beam_sku",
+        "weaving_sku",
+        "washing_sku"
+      ],
+      "mapping_state": "待建档",
+      "mapping_source": "①基础资料/织造计划待补映射",
+      "mapping_confidence": "缺失，不推断",
+      "terminal_process": "织造待映射",
+      "publishable": false,
+      "in_weave_plan": true,
+      "in_process_master": false
+    },
+    {
+      "flow_id": "FLOW-NW44463N",
+      "product_id": "NW44463N",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "N446",
+      "warp_beam_sku": "WN446",
+      "weaving_sku": "RN446",
+      "washing_sku": "SN446",
+      "target_loom_ids": [
+        "LOOM-302"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-NW44493N",
+      "product_id": "NW44493N",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "N449",
+      "warp_beam_sku": "WN449",
+      "weaving_sku": "RN449",
+      "washing_sku": "SN449",
+      "target_loom_ids": [
+        "LOOM-303"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-PH54512B",
+      "product_id": "PH54512B",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "P550",
+      "warp_beam_sku": "WP550",
+      "weaving_sku": "RP550",
+      "washing_sku": "SP550",
+      "target_loom_ids": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-PH54462M",
+      "product_id": "PH54462M",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "P545",
+      "warp_beam_sku": "WP545",
+      "weaving_sku": "RP545",
+      "washing_sku": "SP545",
+      "target_loom_ids": [
+        "LOOM-501",
+        "LOOM-602"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-NW445340",
+      "product_id": "NW445340",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "N453",
+      "warp_beam_sku": "WN453",
+      "weaving_sku": "RN453",
+      "washing_sku": "SN453",
+      "target_loom_ids": [
+        "LOOM-401"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-PH44553M",
+      "product_id": "PH44553M",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "P455",
+      "warp_beam_sku": "WP455",
+      "weaving_sku": "RP455",
+      "washing_sku": "SP455",
+      "target_loom_ids": [
+        "LOOM-403"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-NW345920",
+      "product_id": "NW345920",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "N359",
+      "warp_beam_sku": "WN359",
+      "weaving_sku": "RN359",
+      "washing_sku": "SN359",
+      "target_loom_ids": [
+        "LOOM-404"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-PH55463N",
+      "product_id": "PH55463N",
+      "link_status": "缺水洗品番",
+      "status": "缺水洗品番",
+      "reason": "工艺汇总背番号中该产品未给出水洗品番(水洗名称为空)。",
+      "product_back_sku": "P547",
+      "warp_beam_sku": "WP546",
+      "weaving_sku": "RP547",
+      "washing_sku": null,
+      "target_loom_ids": [
+        "LOOM-406"
+      ],
+      "missing_fields": [
+        "washing_sku"
+      ],
+      "mapping_state": "来源表缺字段",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "织造",
+      "publishable": false,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-PH555140",
+      "product_id": "PH555140",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "P552",
+      "warp_beam_sku": "WP551",
+      "weaving_sku": "RP551",
+      "washing_sku": "SP552",
+      "target_loom_ids": [],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": false,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-PH54513N",
+      "product_id": "PH54513N",
+      "link_status": "未建档",
+      "status": "未建档",
+      "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少背番号、经轴品番、织造品番和水洗品番映射。",
+      "product_back_sku": null,
+      "warp_beam_sku": null,
+      "weaving_sku": null,
+      "washing_sku": null,
+      "target_loom_ids": [
+        "LOOM-503"
+      ],
+      "missing_fields": [
+        "product_back_sku",
+        "warp_beam_sku",
+        "weaving_sku",
+        "washing_sku"
+      ],
+      "mapping_state": "待建档",
+      "mapping_source": "①基础资料/织造计划待补映射",
+      "mapping_confidence": "缺失，不推断",
+      "terminal_process": "织造待映射",
+      "publishable": false,
+      "in_weave_plan": true,
+      "in_process_master": false
+    },
+    {
+      "flow_id": "FLOW-PH44513C",
+      "product_id": "PH44513C",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "P452",
+      "warp_beam_sku": "WP451",
+      "weaving_sku": "RP451",
+      "washing_sku": "SP451",
+      "target_loom_ids": [
+        "LOOM-504"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-NW44493C",
+      "product_id": "NW44493C",
+      "link_status": "未建档",
+      "status": "未建档",
+      "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少背番号、经轴品番、织造品番和水洗品番映射。",
+      "product_back_sku": null,
+      "warp_beam_sku": null,
+      "weaving_sku": null,
+      "washing_sku": null,
+      "target_loom_ids": [
+        "LOOM-601"
+      ],
+      "missing_fields": [
+        "product_back_sku",
+        "warp_beam_sku",
+        "weaving_sku",
+        "washing_sku"
+      ],
+      "mapping_state": "待建档",
+      "mapping_source": "①基础资料/织造计划待补映射",
+      "mapping_confidence": "缺失，不推断",
+      "terminal_process": "织造待映射",
+      "publishable": false,
+      "in_weave_plan": true,
+      "in_process_master": false
+    },
+    {
+      "flow_id": "FLOW-PH545140",
+      "product_id": "PH545140",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "P552",
+      "warp_beam_sku": "WP551",
+      "weaving_sku": "RP551",
+      "washing_sku": "SP552",
+      "target_loom_ids": [
+        "LOOM-502",
+        "LOOM-603"
+      ],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": true,
+      "in_process_master": true
+    },
+    {
+      "flow_id": "FLOW-PH83412N",
+      "product_id": "PH83412N",
+      "link_status": "未建档",
+      "status": "未建档",
+      "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少背番号、经轴品番、织造品番和水洗品番映射。",
+      "product_back_sku": null,
+      "warp_beam_sku": null,
+      "weaving_sku": null,
+      "washing_sku": null,
+      "target_loom_ids": [
+        "LOOM-604"
+      ],
+      "missing_fields": [
+        "product_back_sku",
+        "warp_beam_sku",
+        "weaving_sku",
+        "washing_sku"
+      ],
+      "mapping_state": "待建档",
+      "mapping_source": "①基础资料/织造计划待补映射",
+      "mapping_confidence": "缺失，不推断",
+      "terminal_process": "织造待映射",
+      "publishable": false,
+      "in_weave_plan": true,
+      "in_process_master": false
+    },
+    {
+      "flow_id": "FLOW-NW73413N",
+      "product_id": "NW73413N",
+      "link_status": "未建档",
+      "status": "未建档",
+      "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少背番号、经轴品番、织造品番和水洗品番映射。",
+      "product_back_sku": null,
+      "warp_beam_sku": null,
+      "weaving_sku": null,
+      "washing_sku": null,
+      "target_loom_ids": [
+        "LOOM-402",
+        "LOOM-605"
+      ],
+      "missing_fields": [
+        "product_back_sku",
+        "warp_beam_sku",
+        "weaving_sku",
+        "washing_sku"
+      ],
+      "mapping_state": "待建档",
+      "mapping_source": "①基础资料/织造计划待补映射",
+      "mapping_confidence": "缺失，不推断",
+      "terminal_process": "织造待映射",
+      "publishable": false,
+      "in_weave_plan": true,
+      "in_process_master": false
+    },
+    {
+      "flow_id": "FLOW-PH545320",
+      "product_id": "PH545320",
+      "link_status": "未建档",
+      "status": "未建档",
+      "reason": "存在织造计划但未在工艺汇总背番号中建档，缺少背番号、经轴品番、织造品番和水洗品番映射。",
+      "product_back_sku": null,
+      "warp_beam_sku": null,
+      "weaving_sku": null,
+      "washing_sku": null,
+      "target_loom_ids": [
+        "LOOM-606"
+      ],
+      "missing_fields": [
+        "product_back_sku",
+        "warp_beam_sku",
+        "weaving_sku",
+        "washing_sku"
+      ],
+      "mapping_state": "待建档",
+      "mapping_source": "①基础资料/织造计划待补映射",
+      "mapping_confidence": "缺失，不推断",
+      "terminal_process": "织造待映射",
+      "publishable": false,
+      "in_weave_plan": true,
+      "in_process_master": false
+    },
+    {
+      "flow_id": "FLOW-PH54513L",
+      "product_id": "PH54513L",
+      "link_status": "未投产",
+      "status": "未投产",
+      "reason": "未在工艺汇总背番号建档，且无织造计划记录(无排产需求)。",
+      "product_back_sku": null,
+      "warp_beam_sku": null,
+      "weaving_sku": null,
+      "washing_sku": null,
+      "target_loom_ids": [],
+      "missing_fields": [
+        "product_back_sku",
+        "warp_beam_sku",
+        "weaving_sku",
+        "washing_sku"
+      ],
+      "mapping_state": "未投产",
+      "mapping_source": "①基础资料/织造计划待补映射",
+      "mapping_confidence": "缺失，不推断",
+      "terminal_process": "需求",
+      "publishable": false,
+      "in_weave_plan": false,
+      "in_process_master": false
+    },
+    {
+      "flow_id": "FLOW-PH54463M",
+      "product_id": "PH54463M",
+      "link_status": "完整串联",
+      "status": "完整串联",
+      "reason": "经轴/织造/水洗品番齐全且经轴在整经主档中有计划。",
+      "product_back_sku": "P546",
+      "warp_beam_sku": "WP546",
+      "weaving_sku": "RP546",
+      "washing_sku": "SP546",
+      "target_loom_ids": [],
+      "missing_fields": [],
+      "mapping_state": "来源表完整",
+      "mapping_source": "工艺汇总背番号",
+      "mapping_confidence": "来源表",
+      "terminal_process": "水洗",
+      "publishable": true,
+      "in_weave_plan": false,
+      "in_process_master": true
+    }
+  ],
+  "status_count": {
+    "未建档": 6,
+    "完整串联": 11,
+    "缺水洗品番": 1,
+    "未投产": 1
+  },
+  "task_instance_table": [
+    {
+      "task_id": "WARP-WP551-2026-04-03",
+      "plan_date": "2026-04-03",
+      "warp_beam_sku": "WP551",
+      "plan_meters": 4800.0,
+      "plan_count": 1.0,
+      "beam_instance_ids": [
+        "BEAM-WP551-2026-04-03-01"
+      ],
+      "beam_instance_count": 1,
+      "target_loom_ids": [
+        "LOOM-502",
+        "LOOM-603"
+      ],
+      "plan_src_cell": "O118",
+      "count_src_cell": "O121"
+    },
+    {
+      "task_id": "WARP-WP550-2026-06-15",
+      "plan_date": "2026-06-15",
+      "warp_beam_sku": "WP550",
+      "plan_meters": 9660.0,
+      "plan_count": 2.0,
+      "beam_instance_ids": [
+        "BEAM-WP550-2026-06-15-01",
+        "BEAM-WP550-2026-06-15-02"
+      ],
+      "beam_instance_count": 2,
+      "target_loom_ids": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "plan_src_cell": "CJ127",
+      "count_src_cell": "CJ130"
+    },
+    {
+      "task_id": "WARP-WP550-2026-06-16",
+      "plan_date": "2026-06-16",
+      "warp_beam_sku": "WP550",
+      "plan_meters": 9660.0,
+      "plan_count": 2.0,
+      "beam_instance_ids": [
+        "BEAM-WP550-2026-06-16-01",
+        "BEAM-WP550-2026-06-16-02"
+      ],
+      "beam_instance_count": 2,
+      "target_loom_ids": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "plan_src_cell": "CK127",
+      "count_src_cell": "CK130"
+    },
+    {
+      "task_id": "WARP-WP550-2026-06-17",
+      "plan_date": "2026-06-17",
+      "warp_beam_sku": "WP550",
+      "plan_meters": 4830.0,
+      "plan_count": 1.0,
+      "beam_instance_ids": [
+        "BEAM-WP550-2026-06-17-01"
+      ],
+      "beam_instance_count": 1,
+      "target_loom_ids": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "plan_src_cell": "CL127",
+      "count_src_cell": "CL130"
+    },
+    {
+      "task_id": "WARP-WP451-2026-06-18",
+      "plan_date": "2026-06-18",
+      "warp_beam_sku": "WP451",
+      "plan_meters": 4500.0,
+      "plan_count": 1.0,
+      "beam_instance_ids": [
+        "BEAM-WP451-2026-06-18-01"
+      ],
+      "beam_instance_count": 1,
+      "target_loom_ids": [
+        "LOOM-504"
+      ],
+      "plan_src_cell": "CM145",
+      "count_src_cell": "CM148"
+    }
+  ],
+  "note": "以①基础资料19个产品为唯一产品口径；缺失映射保持为空并标记待建档，不按名称相似度自动补值。"
+}

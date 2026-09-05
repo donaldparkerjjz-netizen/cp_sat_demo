@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>减振车间 APS 排产甘特图</title>
+<style>
+:root{--bg:#0f1420;--panel:#171e2e;--panel2:#1e2740;--line:#2a3550;--text:#e7ecf5;--muted:#93a2bd;--accent:#4e9ef5;--accent2:#4ec9a5}
+*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",system-ui,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:1400px;margin:0 auto;padding:22px 26px 60px}
+h1{font-size:21px;margin:0}.sub{color:var(--muted);font-size:13px;margin-top:2px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.badge{background:var(--panel2);border:1px solid var(--line);color:var(--accent2);padding:5px 11px;border-radius:999px;font-size:12px;margin-left:auto}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px 15px}.kpi .k{font-size:12px;color:var(--muted)}.kpi .v{font-size:22px;font-weight:700;margin-top:5px}
+.chartbox{overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}.lg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}.lg .sw{width:12px;height:12px;border-radius:3px}.lg b{color:var(--text)}
+footer{color:var(--muted);font-size:12px;margin-top:22px;line-height:1.7}
+#tip{position:fixed;pointer-events:none;background:#0b1017;border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:12px;display:none;z-index:50;max-width:300px}
+#tip .tt{font-weight:700;margin-bottom:4px}#tip .r{color:var(--muted);display:flex;justify-content:space-between;gap:16px}#tip .r b{color:var(--text)}
+</style></head><body><div class="wrap">
+<div class="card">
+  <div class="topbar" style="display:flex;align-items:center;gap:14px">
+    <h1>🏭 减振车间 APS 智能排产甘特图</h1>
+    <div class="badge">CP-SAT 约束求解 · OPTIMAL</div>
+  </div>
+  <div class="sub" id="meta"></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="hint" style="font-size:12px;color:var(--muted);margin-bottom:6px">悬停查看订单详情 · 黄色 ▲ = 换模/清机预留</div>
+  <div class="chartbox"><svg id="chart"></svg></div>
+  <div class="legend" id="legend"></div>
+</div>
+<footer>参考《益丰生产管理表单》结构 · 减振车间约束: 产品-机台适配 / 单日单班唯一 / 产能上限 / 返工专线 / 换模预留; 软目标: 优先级 / 工价均衡 / 换模最小化 / 利用率。</footer>
+</div>
+<div id="tip"></div>
+<script>window.__APS__=null;</script>
+<script>
+(function(){
+"use strict";
+var PALETTE=["#4e79a7","#f28e2b","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7"];
+var $=function(id){return document.getElementById(id);};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function color(i){return PALETTE[i%PALETTE.length];}
+function draw(){
+  var d=window.__APS__; var svg=$("chart"); if(!d)return;
+  var W=svg.clientWidth||1100; var T=d.meta.num_slots, SPD=d.meta.shifts_per_day, M=d.machines;
+  var CW=Math.max(48,(W-240-30)/T), CH=56, ML=210, MT=48;
+  var H=MT+M.length*CH+20; svg.setAttribute("width",W); svg.setAttribute("height",H);
+  var occ={}; for(var s=0;s<d.schedule.length;s++){occ[d.schedule[s].machine+"_"+d.schedule[s].slot]=d.schedule[s];}
+  var prod=[],pcol={}; for(var s=0;s<d.schedule.length;s++){if(prod.indexOf(d.schedule[s].product)<0){prod.push(d.schedule[s].product);pcol[d.schedule[s].product]=color(prod.length-1);}}
+  var p=[];
+  for(var t=0;t<T;t++){var x=ML+t*CW;var sh=(t%2==0?"白":"夜");var dt=(Math.floor(t/SPD)+1)+""+sh+"("+(t+1)+")";
+    p.push('<rect x="'+x+'" y="'+(MT-CH)+'" width="'+CW+'" height="'+CH+'" fill="#1e2740" stroke="#2a3550"/>');
+    p.push('<text x="'+(x+CW/2)+'" y="'+(MT-CH+20)+'" fill="#93a2bd" font-size="11" text-anchor="middle">'+(Math.floor(t/SPD)+1)+'天'+sh+'</text>');
+    p.push('<text x="'+(x+CW/2)+'" y="'+(MT-CH+38)+'" fill="#61718e" font-size="10" text-anchor="middle">槽'+(t+1)+'</text>');
+  }
+  for(var mi=0;mi<M.length;mi++){var m=M[mi],y=MT+mi*CH;
+    p.push('<text x="'+(ML-12)+'" y="'+(y+CH/2+5)+'" fill="#c7d2e6" font-size="14" text-anchor="end" font-weight="600">'+esc(m)+'</text>');
+    for(var t=0;t<T;t++){var s=occ[m+"_"+t],x=ML+t*CW;
+      if(s){var c=pcol[s.product];p.push('<g data-m="'+m+'" data-t="'+t+'">');
+        p.push('<rect x="'+(x+3)+'" y="'+(y+3)+'" width="'+(CW-6)+'" height="'+(CH-6)+'" rx="7" fill="'+c+'" stroke="rgba(0,0,0,0.25)"/>');
+        p.push('<text x="'+(x+CW/2)+'" y="'+(y+CH/2-4)+'" fill="#fff" font-size="12" text-anchor="middle" font-weight="700">'+esc(s.job)+'</text>');
+        p.push('<text x="'+(x+CW/2)+'" y="'+(y+CH/2+15)+'" fill="#fff" font-size="11" text-anchor="middle">'+esc(s.product)+'</text></g>');
+      } else { p.push('<rect x="'+(x+3)+'" y="'+(y+3)+'" width="'+(CW-6)+'" height="'+(CH-6)+'" rx="6" fill="#1a2335"/>'); }
+    }
+    for(var t=0;t<T-1;t++){var a=occ[m+"_"+t],b=occ[m+"_"+(t+1)];
+      if(a&&b&&a.product!==b.product){var x=ML+(t+1)*CW;p.push('<path d="M'+x+' '+(y+CH/2-7)+' L'+(x-8)+' '+(y+CH/2)+' L'+x+' '+(y+CH/2+7)+' Z" fill="#ffcc66"/>');}
+    }
+  }
+  svg.innerHTML=p.join("");
+  // tooltip
+  svg.onmousemove=function(e){var g=e.target.closest?e.target.closest("g[data-m]"):null;if(!g){$("tip").style.display="none";return;}
+    var m=g.getAttribute("data-m"),t=+g.getAttribute("data-t"),s=occ[m+"_"+t];
+    var job=null;for(var j=0;j<d.jobs.length;j++){if(d.jobs[j].id===s.job)job=d.jobs[j];}
+    var tip=$("tip");tip.innerHTML='<div class="tt" style="color:'+ (job?(pcol[job.product]||"#fff"):"#fff")+'">'+esc(s.job)+' · '+esc(s.product)+'</div>'+
+      '<div class="r"><span>机台</span><b>'+esc(m)+'</b></div>'+
+      '<div class="r"><span>数量</span><b>'+ (job?job.qty:"-") +' 片</b></div>'+
+      '<div class="r"><span>优先级</span><b>'+(job?job.priority:"-")+'</b></div>'+
+      '<div class="r"><span>交期</span><b>槽'+(job?job.due:"-")+'</b></div>'+
+      '<div class="r"><span>类型</span><b>'+(job?(job.type==="rework"?"返工":"正常"):"-")+'</b></div>'+
+      '<div class="r"><span>计件工资</span><b>'+ (job?job.wage:"-") +' 元</b></div>';
+    tip.style.display="block";tip.style.left=(e.clientX+14)+"px";tip.style.top=(e.clientY+14)+"px";
+  };
+  svg.onmouseleave=function(){$("tip").style.display="none";};
+  renderMeta(d,prod,pcol);
+}
+function renderMeta(d,prod,pcol){
+  var an=d.analysis; $("meta").textContent=d.meta.data_source+" · "+d.meta.days+"天×"+d.meta.shifts_per_day+"班="+d.meta.num_slots+"槽 · "+d.meta.num_machines+"机台 · "+d.meta.num_orders+"订单";
+  var boxes=[["求解状态",d.meta.status],["订单数",d.meta.num_orders],["换模次数",an.changeovers],["工资极差(元)",an.wage_spread]];
+  var k="";for(var i=0;i<boxes.length;i++){k+='<div class="kpi"><div class="k">'+boxes[i][0]+'</div><div class="v">'+esc(boxes[i][1])+'</div></div>';}
+  $("kpis").innerHTML=k;
+  var l="";for(var i=0;i<prod.length;i++){l+='<div class="lg"><span class="sw" style="background:'+pcol[prod[i]]+'"></span><b>'+esc(prod[i])+'</b></div>';}
+  $("legend").innerHTML=l;
+}
+window.addEventListener("resize",draw);
+draw();
+})();
+</script></body></html>

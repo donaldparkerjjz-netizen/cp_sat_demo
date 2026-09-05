@@ -1,0 +1,37 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Vendored dependencies (install from requirements.txt)
+libs/
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+frontend/.env.local
+frontend/.env.*.local
+
+# Runtime state and uploaded/imported source files
+.runtime/
+weaving_demo/runtime_data/
+
+# Customer source workbooks (keep generated demo data only)
+*.xlsx
+*.xls
+
+# Logs and local process artifacts
+*.log
+*.pid
+weaving_demo/start_all_log.txt
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

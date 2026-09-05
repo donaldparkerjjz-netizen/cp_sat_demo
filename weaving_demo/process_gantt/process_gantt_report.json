@@ -1,0 +1,15 @@
+{
+  "warp_task_count": 5,
+  "warp_beam_sku_count": 12,
+  "target_loom_count": 30,
+  "weave_task_count": 14,
+  "wash_task_count": 0,
+  "wash_unmatched_count": 1,
+  "virtual_beam_count": 7,
+  "machine_pending_count": 0,
+  "master_product_count": 19,
+  "chain_full_count": 11,
+  "chain_broken_count": 8,
+  "process_master_chain_full_count": 15,
+  "process_master_chain_broken_count": 1
+}

@@ -1,0 +1,279 @@
+{
+  "generated_by": "weaving_demo/warping.py",
+  "count": 16,
+  "chain": [
+    {
+      "flow_id": "FLOW-PH54463M",
+      "product_id": "PH54463M",
+      "customer": "YFSS",
+      "product_back_sku": "P546",
+      "warp_beam_sku": "WP546",
+      "weaving_sku": "RP546",
+      "washing_sku": "SP546",
+      "target_loom_ids": [
+        "LOOM-406"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH54462M",
+      "product_id": "PH54462M",
+      "customer": "YFSS",
+      "product_back_sku": "P545",
+      "warp_beam_sku": "WP545",
+      "weaving_sku": "RP545",
+      "washing_sku": "SP545",
+      "target_loom_ids": [
+        "LOOM-501",
+        "LOOM-602"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH54513B",
+      "product_id": "PH54513B",
+      "customer": "TG",
+      "product_back_sku": "P551",
+      "warp_beam_sku": "WP551",
+      "weaving_sku": "RP551",
+      "washing_sku": "SP551",
+      "target_loom_ids": [
+        "LOOM-502",
+        "LOOM-603"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [
+        "2026-04-03"
+      ],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH545140",
+      "product_id": "PH545140",
+      "customer": "YFSS",
+      "product_back_sku": "P552",
+      "warp_beam_sku": "WP551",
+      "weaving_sku": "RP551",
+      "washing_sku": "SP552",
+      "target_loom_ids": [
+        "LOOM-502",
+        "LOOM-603"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [
+        "2026-04-03"
+      ],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH555140",
+      "product_id": "PH555140",
+      "customer": "ALV",
+      "product_back_sku": "P552",
+      "warp_beam_sku": "WP551",
+      "weaving_sku": "RP551",
+      "washing_sku": "SP552",
+      "target_loom_ids": [
+        "LOOM-502",
+        "LOOM-603"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [
+        "2026-04-03"
+      ],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH54512B",
+      "product_id": "PH54512B",
+      "customer": "TG",
+      "product_back_sku": "P550",
+      "warp_beam_sku": "WP550",
+      "weaving_sku": "RP550",
+      "washing_sku": "SP550",
+      "target_loom_ids": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17"
+      ],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH55463N",
+      "product_id": "PH55463N",
+      "customer": "ALV",
+      "product_back_sku": "P547",
+      "warp_beam_sku": "WP546",
+      "weaving_sku": "RP547",
+      "washing_sku": null,
+      "target_loom_ids": [
+        "LOOM-406"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "缺水洗品番",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH44553M",
+      "product_id": "PH44553M",
+      "customer": "YFSS",
+      "product_back_sku": "P455",
+      "warp_beam_sku": "WP455",
+      "weaving_sku": "RP455",
+      "washing_sku": "SP455",
+      "target_loom_ids": [
+        "LOOM-403"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH44513C",
+      "product_id": "PH44513C",
+      "customer": "YFSS",
+      "product_back_sku": "P452",
+      "warp_beam_sku": "WP451",
+      "weaving_sku": "RP451",
+      "washing_sku": "SP451",
+      "target_loom_ids": [
+        "LOOM-504"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [
+        "2026-06-18"
+      ],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-PH44513D",
+      "product_id": "PH44513D",
+      "customer": "#N/A",
+      "product_back_sku": "P451",
+      "warp_beam_sku": "WP451",
+      "weaving_sku": "RP451",
+      "washing_sku": "SP451",
+      "target_loom_ids": [
+        "LOOM-504"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [
+        "2026-06-18"
+      ],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-NW345920",
+      "product_id": "NW345920",
+      "customer": "TG",
+      "product_back_sku": "N359",
+      "warp_beam_sku": "WN359",
+      "weaving_sku": "RN359",
+      "washing_sku": "SN359",
+      "target_loom_ids": [
+        "LOOM-404"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-NW73413C",
+      "product_id": "NW73413C",
+      "customer": "AB",
+      "product_back_sku": "N741",
+      "warp_beam_sku": "WN741",
+      "weaving_sku": "RN741",
+      "washing_sku": "SN741",
+      "target_loom_ids": [],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-NW445320",
+      "product_id": "NW445320",
+      "customer": "TG",
+      "product_back_sku": "N452",
+      "warp_beam_sku": "WN452",
+      "weaving_sku": "RN452",
+      "washing_sku": "SN452",
+      "target_loom_ids": [],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-NW445340",
+      "product_id": "NW445340",
+      "customer": "#N/A",
+      "product_back_sku": "N453",
+      "warp_beam_sku": "WN453",
+      "weaving_sku": "RN453",
+      "washing_sku": "SN453",
+      "target_loom_ids": [
+        "LOOM-401"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-NW44493N",
+      "product_id": "NW44493N",
+      "customer": "#N/A",
+      "product_back_sku": "N449",
+      "warp_beam_sku": "WN449",
+      "weaving_sku": "RN449",
+      "washing_sku": "SN449",
+      "target_loom_ids": [
+        "LOOM-303"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    },
+    {
+      "flow_id": "FLOW-NW44463N",
+      "product_id": "NW44463N",
+      "customer": "#N/A",
+      "product_back_sku": "N446",
+      "warp_beam_sku": "WN446",
+      "weaving_sku": "RN446",
+      "washing_sku": "SN446",
+      "target_loom_ids": [
+        "LOOM-302"
+      ],
+      "beam_in_master": true,
+      "beam_plan_dates": [],
+      "link_status": "完整串联",
+      "data_source": "来源表(工艺汇总背番号)"
+    }
+  ]
+}

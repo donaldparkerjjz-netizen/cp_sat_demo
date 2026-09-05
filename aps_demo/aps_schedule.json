@@ -1,0 +1,609 @@
+{
+  "meta": {
+    "title": "减振车间 APS 排产",
+    "data_source": "demo(参考益丰表单)",
+    "unit": "班次槽位(12h)",
+    "days": 7,
+    "shifts_per_day": 2,
+    "num_slots": 14,
+    "num_machines": 8,
+    "num_orders": 16,
+    "status": "OPTIMAL"
+  },
+  "machines": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "MR1",
+    "MR2"
+  ],
+  "jobs": [
+    {
+      "id": "O01",
+      "product": "P1",
+      "qty": 5200,
+      "n_shifts": 2,
+      "due": 6,
+      "priority": 5,
+      "type": "normal",
+      "machine": "M1",
+      "slots": [
+        1,
+        5
+      ],
+      "completion": 5,
+      "tardiness": 0,
+      "wage": 624000
+    },
+    {
+      "id": "O02",
+      "product": "P2",
+      "qty": 6800,
+      "n_shifts": 4,
+      "due": 9,
+      "priority": 6,
+      "type": "normal",
+      "machine": "M2",
+      "slots": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "completion": 5,
+      "tardiness": 0,
+      "wage": 1020000
+    },
+    {
+      "id": "O03",
+      "product": "P3",
+      "qty": 3600,
+      "n_shifts": 2,
+      "due": 4,
+      "priority": 4,
+      "type": "normal",
+      "machine": "M3",
+      "slots": [
+        0,
+        1
+      ],
+      "completion": 1,
+      "tardiness": 0,
+      "wage": 648000
+    },
+    {
+      "id": "O04",
+      "product": "P1",
+      "qty": 8000,
+      "n_shifts": 4,
+      "due": 11,
+      "priority": 8,
+      "type": "normal",
+      "machine": "M4",
+      "slots": [
+        7,
+        9,
+        10,
+        11
+      ],
+      "completion": 11,
+      "tardiness": 0,
+      "wage": 960000
+    },
+    {
+      "id": "O05",
+      "product": "P4",
+      "qty": 4800,
+      "n_shifts": 2,
+      "due": 5,
+      "priority": 5,
+      "type": "normal",
+      "machine": "M4",
+      "slots": [
+        3,
+        5
+      ],
+      "completion": 5,
+      "tardiness": 0,
+      "wage": 480000
+    },
+    {
+      "id": "O06",
+      "product": "P5",
+      "qty": 6000,
+      "n_shifts": 3,
+      "due": 7,
+      "priority": 3,
+      "type": "normal",
+      "machine": "M6",
+      "slots": [
+        3,
+        4,
+        7
+      ],
+      "completion": 7,
+      "tardiness": 0,
+      "wage": 780000
+    },
+    {
+      "id": "O07",
+      "product": "P6",
+      "qty": 3000,
+      "n_shifts": 2,
+      "due": 5,
+      "priority": 7,
+      "type": "normal",
+      "machine": "M6",
+      "slots": [
+        0,
+        1
+      ],
+      "completion": 1,
+      "tardiness": 0,
+      "wage": 600000
+    },
+    {
+      "id": "O08",
+      "product": "P3",
+      "qty": 5400,
+      "n_shifts": 3,
+      "due": 12,
+      "priority": 9,
+      "type": "normal",
+      "machine": "M5",
+      "slots": [
+        3,
+        7,
+        12
+      ],
+      "completion": 12,
+      "tardiness": 0,
+      "wage": 972000
+    },
+    {
+      "id": "O09",
+      "product": "P2",
+      "qty": 4400,
+      "n_shifts": 2,
+      "due": 13,
+      "priority": 2,
+      "type": "normal",
+      "machine": "M1",
+      "slots": [
+        9,
+        10
+      ],
+      "completion": 10,
+      "tardiness": 0,
+      "wage": 660000
+    },
+    {
+      "id": "O10",
+      "product": "P1",
+      "qty": 2600,
+      "n_shifts": 1,
+      "due": 2,
+      "priority": 10,
+      "type": "normal",
+      "machine": "M2",
+      "slots": [
+        0
+      ],
+      "completion": 0,
+      "tardiness": 0,
+      "wage": 312000
+    },
+    {
+      "id": "O11",
+      "product": "P5",
+      "qty": 4000,
+      "n_shifts": 2,
+      "due": 10,
+      "priority": 4,
+      "type": "normal",
+      "machine": "M3",
+      "slots": [
+        5,
+        10
+      ],
+      "completion": 10,
+      "tardiness": 0,
+      "wage": 520000
+    },
+    {
+      "id": "O12",
+      "product": "P4",
+      "qty": 2400,
+      "n_shifts": 1,
+      "due": 3,
+      "priority": 6,
+      "type": "normal",
+      "machine": "M3",
+      "slots": [
+        3
+      ],
+      "completion": 3,
+      "tardiness": 0,
+      "wage": 240000
+    },
+    {
+      "id": "O13",
+      "product": "P6",
+      "qty": 1500,
+      "n_shifts": 1,
+      "due": 4,
+      "priority": 3,
+      "type": "normal",
+      "machine": "M5",
+      "slots": [
+        1
+      ],
+      "completion": 1,
+      "tardiness": 0,
+      "wage": 300000
+    },
+    {
+      "id": "R01",
+      "product": "P3",
+      "qty": 1800,
+      "n_shifts": 1,
+      "due": 6,
+      "priority": 5,
+      "type": "rework",
+      "machine": "MR1",
+      "slots": [
+        0
+      ],
+      "completion": 0,
+      "tardiness": 0,
+      "wage": 324000
+    },
+    {
+      "id": "R02",
+      "product": "P1",
+      "qty": 2600,
+      "n_shifts": 1,
+      "due": 9,
+      "priority": 5,
+      "type": "rework",
+      "machine": "MR2",
+      "slots": [
+        4
+      ],
+      "completion": 4,
+      "tardiness": 0,
+      "wage": 312000
+    },
+    {
+      "id": "R03",
+      "product": "P5",
+      "qty": 2000,
+      "n_shifts": 1,
+      "due": 12,
+      "priority": 5,
+      "type": "rework",
+      "machine": "MR2",
+      "slots": [
+        11
+      ],
+      "completion": 11,
+      "tardiness": 0,
+      "wage": 260000
+    }
+  ],
+  "schedule": [
+    {
+      "job": "O01",
+      "product": "P1",
+      "machine": "M1",
+      "slot": 1,
+      "qty_shift": 2600,
+      "priority": 5
+    },
+    {
+      "job": "O01",
+      "product": "P1",
+      "machine": "M1",
+      "slot": 5,
+      "qty_shift": 2600,
+      "priority": 5
+    },
+    {
+      "job": "O02",
+      "product": "P2",
+      "machine": "M2",
+      "slot": 2,
+      "qty_shift": 1700,
+      "priority": 6
+    },
+    {
+      "job": "O02",
+      "product": "P2",
+      "machine": "M2",
+      "slot": 3,
+      "qty_shift": 1700,
+      "priority": 6
+    },
+    {
+      "job": "O02",
+      "product": "P2",
+      "machine": "M2",
+      "slot": 4,
+      "qty_shift": 1700,
+      "priority": 6
+    },
+    {
+      "job": "O02",
+      "product": "P2",
+      "machine": "M2",
+      "slot": 5,
+      "qty_shift": 1700,
+      "priority": 6
+    },
+    {
+      "job": "O03",
+      "product": "P3",
+      "machine": "M3",
+      "slot": 0,
+      "qty_shift": 1800,
+      "priority": 4
+    },
+    {
+      "job": "O03",
+      "product": "P3",
+      "machine": "M3",
+      "slot": 1,
+      "qty_shift": 1800,
+      "priority": 4
+    },
+    {
+      "job": "O04",
+      "product": "P1",
+      "machine": "M4",
+      "slot": 7,
+      "qty_shift": 2000,
+      "priority": 8
+    },
+    {
+      "job": "O04",
+      "product": "P1",
+      "machine": "M4",
+      "slot": 9,
+      "qty_shift": 2000,
+      "priority": 8
+    },
+    {
+      "job": "O04",
+      "product": "P1",
+      "machine": "M4",
+      "slot": 10,
+      "qty_shift": 2000,
+      "priority": 8
+    },
+    {
+      "job": "O04",
+      "product": "P1",
+      "machine": "M4",
+      "slot": 11,
+      "qty_shift": 2000,
+      "priority": 8
+    },
+    {
+      "job": "O05",
+      "product": "P4",
+      "machine": "M4",
+      "slot": 3,
+      "qty_shift": 2400,
+      "priority": 5
+    },
+    {
+      "job": "O05",
+      "product": "P4",
+      "machine": "M4",
+      "slot": 5,
+      "qty_shift": 2400,
+      "priority": 5
+    },
+    {
+      "job": "O06",
+      "product": "P5",
+      "machine": "M6",
+      "slot": 3,
+      "qty_shift": 2000,
+      "priority": 3
+    },
+    {
+      "job": "O06",
+      "product": "P5",
+      "machine": "M6",
+      "slot": 4,
+      "qty_shift": 2000,
+      "priority": 3
+    },
+    {
+      "job": "O06",
+      "product": "P5",
+      "machine": "M6",
+      "slot": 7,
+      "qty_shift": 2000,
+      "priority": 3
+    },
+    {
+      "job": "O07",
+      "product": "P6",
+      "machine": "M6",
+      "slot": 0,
+      "qty_shift": 1500,
+      "priority": 7
+    },
+    {
+      "job": "O07",
+      "product": "P6",
+      "machine": "M6",
+      "slot": 1,
+      "qty_shift": 1500,
+      "priority": 7
+    },
+    {
+      "job": "O08",
+      "product": "P3",
+      "machine": "M5",
+      "slot": 3,
+      "qty_shift": 1800,
+      "priority": 9
+    },
+    {
+      "job": "O08",
+      "product": "P3",
+      "machine": "M5",
+      "slot": 7,
+      "qty_shift": 1800,
+      "priority": 9
+    },
+    {
+      "job": "O08",
+      "product": "P3",
+      "machine": "M5",
+      "slot": 12,
+      "qty_shift": 1800,
+      "priority": 9
+    },
+    {
+      "job": "O09",
+      "product": "P2",
+      "machine": "M1",
+      "slot": 9,
+      "qty_shift": 2200,
+      "priority": 2
+    },
+    {
+      "job": "O09",
+      "product": "P2",
+      "machine": "M1",
+      "slot": 10,
+      "qty_shift": 2200,
+      "priority": 2
+    },
+    {
+      "job": "O10",
+      "product": "P1",
+      "machine": "M2",
+      "slot": 0,
+      "qty_shift": 2600,
+      "priority": 10
+    },
+    {
+      "job": "O11",
+      "product": "P5",
+      "machine": "M3",
+      "slot": 5,
+      "qty_shift": 2000,
+      "priority": 4
+    },
+    {
+      "job": "O11",
+      "product": "P5",
+      "machine": "M3",
+      "slot": 10,
+      "qty_shift": 2000,
+      "priority": 4
+    },
+    {
+      "job": "O12",
+      "product": "P4",
+      "machine": "M3",
+      "slot": 3,
+      "qty_shift": 2400,
+      "priority": 6
+    },
+    {
+      "job": "O13",
+      "product": "P6",
+      "machine": "M5",
+      "slot": 1,
+      "qty_shift": 1500,
+      "priority": 3
+    },
+    {
+      "job": "R01",
+      "product": "P3",
+      "machine": "MR1",
+      "slot": 0,
+      "qty_shift": 1800,
+      "priority": 5
+    },
+    {
+      "job": "R02",
+      "product": "P1",
+      "machine": "MR2",
+      "slot": 4,
+      "qty_shift": 2600,
+      "priority": 5
+    },
+    {
+      "job": "R03",
+      "product": "P5",
+      "machine": "MR2",
+      "slot": 11,
+      "qty_shift": 2000,
+      "priority": 5
+    }
+  ],
+  "analysis": {
+    "machine_util": {
+      "M1": {
+        "used_slots": 4,
+        "capacity_slots": 14,
+        "utilization_pct": 28.6,
+        "wage": 12840.0
+      },
+      "M2": {
+        "used_slots": 5,
+        "capacity_slots": 14,
+        "utilization_pct": 35.7,
+        "wage": 13320.0
+      },
+      "M3": {
+        "used_slots": 5,
+        "capacity_slots": 14,
+        "utilization_pct": 35.7,
+        "wage": 14080.0
+      },
+      "M4": {
+        "used_slots": 6,
+        "capacity_slots": 14,
+        "utilization_pct": 42.9,
+        "wage": 14400.0
+      },
+      "M5": {
+        "used_slots": 4,
+        "capacity_slots": 14,
+        "utilization_pct": 28.6,
+        "wage": 12720.0
+      },
+      "M6": {
+        "used_slots": 5,
+        "capacity_slots": 14,
+        "utilization_pct": 35.7,
+        "wage": 13800.0
+      },
+      "MR1": {
+        "used_slots": 1,
+        "capacity_slots": 14,
+        "utilization_pct": 7.1,
+        "wage": 3240.0
+      },
+      "MR2": {
+        "used_slots": 2,
+        "capacity_slots": 14,
+        "utilization_pct": 14.3,
+        "wage": 5720.0
+      }
+    },
+    "changeovers": 8,
+    "wage_spread": 11160.0
+  }
+}

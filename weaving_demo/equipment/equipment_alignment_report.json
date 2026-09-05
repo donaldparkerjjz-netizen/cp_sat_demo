@@ -1,0 +1,885 @@
+{
+  "report_title": "整经/织造/水洗 设备编号数据对齐报告",
+  "data_source": "益丰生产管理表单260604.xlsx",
+  "generated_by": "weaving_demo/equipment.py",
+  "equipment_type_summary": {
+    "织机(LOOM)": {
+      "equipment_type": "织机",
+      "master_count": 108,
+      "unused_in_task": 78
+    },
+    "水洗机(WASH)": {
+      "equipment_type": "水洗机",
+      "master_count": 1,
+      "unused_in_task": 0
+    },
+    "整经机(WAR)": {
+      "equipment_type": "整经机",
+      "master_count": 0,
+      "unused_in_task": 0,
+      "note": "源表无整经机编号，主档为空。"
+    }
+  },
+  "per_process": {
+    "整经": {
+      "raw_identifier_count": 30,
+      "cleaned_equipment_count": 0,
+      "merged_alias_count": 0,
+      "missing_code_count": 0,
+      "duplicate_code_count": 0,
+      "status_conflict_count": 0,
+      "unmatched_task_count": 60,
+      "note": "源表无『整经机』编号；整经任务执行机台无法确定，全部标记待确认。"
+    },
+    "织造": {
+      "raw_identifier_count": 30,
+      "cleaned_equipment_count": 108,
+      "merged_alias_count": 0,
+      "missing_code_count": 0,
+      "duplicate_code_count": 0,
+      "status_conflict_count": 0,
+      "unmatched_task_count": 0
+    },
+    "水洗": {
+      "raw_identifier_count": 1,
+      "cleaned_equipment_count": 1,
+      "merged_alias_count": 0,
+      "missing_code_count": 0,
+      "duplicate_code_count": 0,
+      "status_conflict_count": 0,
+      "unmatched_task_count": 0
+    }
+  },
+  "totals": {
+    "raw_identifier_count": 61,
+    "cleaned_equipment_count": 109,
+    "merged_alias_count": 0,
+    "missing_code_count": 0,
+    "duplicate_code_count": 0,
+    "status_conflict_count": 0,
+    "unmatched_task_count": 60
+  },
+  "reconciliation": {
+    "master_equipment_id_unique": {
+      "status": "pass",
+      "count": 109,
+      "desc": "主档 equipment_id 唯一（内部以字典归并去重，无重复主键）。"
+    },
+    "norm_code_unique_per_process": {
+      "status": "pass",
+      "count": 109,
+      "desc": "同一工序下规范化编号唯一（织机/水洗机以 equipment_id 归并去重）。",
+      "per_process": {
+        "整经": 0,
+        "织造": 108,
+        "水洗": 1
+      }
+    },
+    "task_refs_existing_equipment": {
+      "status": "exception",
+      "count": 60,
+      "desc": "未匹配/引用不存在设备进入异常清单（equipment_id 空、待确认），未随意分配。",
+      "exception_sample": [
+        {
+          "task_id": "WARP-4",
+          "process_type": "整经",
+          "source_cell": "B4",
+          "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+        },
+        {
+          "task_id": "WARP-5",
+          "process_type": "整经",
+          "source_cell": "B5",
+          "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+        },
+        {
+          "task_id": "WARP-6",
+          "process_type": "整经",
+          "source_cell": "B6",
+          "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+        },
+        {
+          "task_id": "WARP-7",
+          "process_type": "整经",
+          "source_cell": "B7",
+          "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+        },
+        {
+          "task_id": "WARP-8",
+          "process_type": "整经",
+          "source_cell": "B8",
+          "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+        }
+      ]
+    },
+    "unavailable_not_marked_normal": {
+      "status": "exception",
+      "count": 36,
+      "desc": "不可用设备(待确认/不可用)共 6 台，其关联任务数为 36，这些任务被标为已匹配，建议人工确认是否仍可排产。",
+      "exception_sample": [
+        {
+          "task_id": "WEAVE-7",
+          "process_type": "织造",
+          "equipment_type": "织机",
+          "source_sheet": "织造计划",
+          "source_cell": "B7",
+          "source_value": "#303",
+          "source_code": "#303",
+          "target_loom_id": "LOOM-303",
+          "target_loom_code": "#303",
+          "product_id": "NW44493N",
+          "beam_code": "WN449",
+          "set_length": 400.0,
+          "content": "",
+          "plan_start": null,
+          "plan_end": null,
+          "plan_quantity": 0.0,
+          "status": "0",
+          "equipment_id": "LOOM-303",
+          "assignment_status": "已匹配",
+          "reason": "",
+          "confidence": 1.0
+        },
+        {
+          "task_id": "WEAVE-12",
+          "process_type": "织造",
+          "equipment_type": "织机",
+          "source_sheet": "织造计划",
+          "source_cell": "B12",
+          "source_value": "#402",
+          "source_code": "#402",
+          "target_loom_id": "LOOM-402",
+          "target_loom_code": "#402",
+          "product_id": "NW73413N",
+          "beam_code": "#N/A",
+          "set_length": 400.0,
+          "content": "",
+          "plan_start": null,
+          "plan_end": null,
+          "plan_quantity": 0.0,
+          "status": "0",
+          "equipment_id": "LOOM-402",
+          "assignment_status": "已匹配",
+          "reason": "",
+          "confidence": 1.0
+        },
+        {
+          "task_id": "WEAVE-14",
+          "process_type": "织造",
+          "equipment_type": "织机",
+          "source_sheet": "织造计划",
+          "source_cell": "B14",
+          "source_value": "#404",
+          "source_code": "#404",
+          "target_loom_id": "LOOM-404",
+          "target_loom_code": "#404",
+          "product_id": "NW345920",
+          "beam_code": "WN359",
+          "set_length": 400.0,
+          "content": "",
+          "plan_start": null,
+          "plan_end": null,
+          "plan_quantity": 0.0,
+          "status": "0",
+          "equipment_id": "LOOM-404",
+          "assignment_status": "已匹配",
+          "reason": "",
+          "confidence": 1.0
+        },
+        {
+          "task_id": "WEAVE-26",
+          "process_type": "织造",
+          "equipment_type": "织机",
+          "source_sheet": "织造计划",
+          "source_cell": "B26",
+          "source_value": "#604",
+          "source_code": "#604",
+          "target_loom_id": "LOOM-604",
+          "target_loom_code": "#604",
+          "product_id": "PH83412N",
+          "beam_code": "#N/A",
+          "set_length": 400.0,
+          "content": "",
+          "plan_start": null,
+          "plan_end": null,
+          "plan_quantity": 0.0,
+          "status": "NULL",
+          "equipment_id": "LOOM-604",
+          "assignment_status": "已匹配",
+          "reason": "",
+          "confidence": 1.0
+        },
+        {
+          "task_id": "WEAVE-27",
+          "process_type": "织造",
+          "equipment_type": "织机",
+          "source_sheet": "织造计划",
+          "source_cell": "B27",
+          "source_value": "#605",
+          "source_code": "#605",
+          "target_loom_id": "LOOM-605",
+          "target_loom_code": "#605",
+          "product_id": "NW73413N",
+          "beam_code": "#N/A",
+          "set_length": 400.0,
+          "content": "",
+          "plan_start": null,
+          "plan_end": null,
+          "plan_quantity": 0.0,
+          "status": "0",
+          "equipment_id": "LOOM-605",
+          "assignment_status": "已匹配",
+          "reason": "",
+          "confidence": 1.0
+        }
+      ]
+    },
+    "unavailable_equipment_count": {
+      "status": "ok",
+      "count": 6,
+      "desc": "主档中 status=待确认/不可用 的设备数（源表 当前状态 为 NULL/0/未安装）。"
+    },
+    "equipment_process_matches_task": {
+      "status": "pass",
+      "count": 0,
+      "desc": "设备 equipment_type 与任务 process_type 对应（织造->织机，水洗->水洗机，整经->整经机）。未匹配(待确认)任务不计入校验。",
+      "exception_sample": []
+    },
+    "status_conflict_found": {
+      "status": "pass",
+      "count": 0,
+      "desc": "同一织机在 ②织机状态 与 织造计划 中状态不一致的数量。",
+      "detail": []
+    },
+    "capacity_unit_mismatch_not_merged": {
+      "status": "pass",
+      "count": 1,
+      "desc": "同一设备类型下产能单位不一致时不合并；织机统一为米/天。",
+      "detail": [
+        {
+          "equipment_type": "织机",
+          "capacity_unit": "米/天",
+          "count": 24
+        }
+      ]
+    },
+    "source_traceable": {
+      "status": "pass",
+      "count": 0,
+      "desc": "所有任务/主档记录均保留 source_sheet/source_cell/source_value 可溯源。",
+      "exception_sample": []
+    },
+    "raw_clean_count_reconcile": {
+      "status": "ok",
+      "raw": 61,
+      "cleaned": 109,
+      "desc": "原始编号引用数(按流程去重)与清洗后设备主档数对账。",
+      "delta": 48
+    }
+  },
+  "status_conflicts": [],
+  "duplicate_refs": [],
+  "manual_confirm_items": [
+    {
+      "task_id": "WARP-4",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B4",
+      "source_value": "#301",
+      "source_code": "#301",
+      "目标织机": "LOOM-301",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-5",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B5",
+      "source_value": "#301",
+      "source_code": "#301",
+      "目标织机": "LOOM-301",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-6",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B6",
+      "source_value": "#302",
+      "source_code": "#302",
+      "目标织机": "LOOM-302",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-7",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B7",
+      "source_value": "#302",
+      "source_code": "#302",
+      "目标织机": "LOOM-302",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-8",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B8",
+      "source_value": "#303",
+      "source_code": "#303",
+      "目标织机": "LOOM-303",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-9",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B9",
+      "source_value": "#303",
+      "source_code": "#303",
+      "目标织机": "LOOM-303",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-10",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B10",
+      "source_value": "#304",
+      "source_code": "#304",
+      "目标织机": "LOOM-304",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-11",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B11",
+      "source_value": "#304",
+      "source_code": "#304",
+      "目标织机": "LOOM-304",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-12",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B12",
+      "source_value": "#305",
+      "source_code": "#305",
+      "目标织机": "LOOM-305",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-13",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B13",
+      "source_value": "#305",
+      "source_code": "#305",
+      "目标织机": "LOOM-305",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-14",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B14",
+      "source_value": "#306",
+      "source_code": "#306",
+      "目标织机": "LOOM-306",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-15",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B15",
+      "source_value": "#306",
+      "source_code": "#306",
+      "目标织机": "LOOM-306",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-16",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B16",
+      "source_value": "#401",
+      "source_code": "#401",
+      "目标织机": "LOOM-401",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-17",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B17",
+      "source_value": "#401",
+      "source_code": "#401",
+      "目标织机": "LOOM-401",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-18",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B18",
+      "source_value": "#402",
+      "source_code": "#402",
+      "目标织机": "LOOM-402",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-19",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B19",
+      "source_value": "#402",
+      "source_code": "#402",
+      "目标织机": "LOOM-402",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-20",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B20",
+      "source_value": "#403",
+      "source_code": "#403",
+      "目标织机": "LOOM-403",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-21",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B21",
+      "source_value": "#403",
+      "source_code": "#403",
+      "目标织机": "LOOM-403",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-22",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B22",
+      "source_value": "#404",
+      "source_code": "#404",
+      "目标织机": "LOOM-404",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-23",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B23",
+      "source_value": "#404",
+      "source_code": "#404",
+      "目标织机": "LOOM-404",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-24",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B24",
+      "source_value": "#405",
+      "source_code": "#405",
+      "目标织机": "LOOM-405",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-25",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B25",
+      "source_value": "#405",
+      "source_code": "#405",
+      "目标织机": "LOOM-405",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-26",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B26",
+      "source_value": "#406",
+      "source_code": "#406",
+      "目标织机": "LOOM-406",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-27",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B27",
+      "source_value": "#406",
+      "source_code": "#406",
+      "目标织机": "LOOM-406",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-28",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B28",
+      "source_value": "#501",
+      "source_code": "#501",
+      "目标织机": "LOOM-501",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-29",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B29",
+      "source_value": "#501",
+      "source_code": "#501",
+      "目标织机": "LOOM-501",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-30",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B30",
+      "source_value": "#502",
+      "source_code": "#502",
+      "目标织机": "LOOM-502",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-31",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B31",
+      "source_value": "#502",
+      "source_code": "#502",
+      "目标织机": "LOOM-502",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-32",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B32",
+      "source_value": "#503",
+      "source_code": "#503",
+      "目标织机": "LOOM-503",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-33",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B33",
+      "source_value": "#503",
+      "source_code": "#503",
+      "目标织机": "LOOM-503",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-34",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B34",
+      "source_value": "#504",
+      "source_code": "#504",
+      "目标织机": "LOOM-504",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-35",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B35",
+      "source_value": "#504",
+      "source_code": "#504",
+      "目标织机": "LOOM-504",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-36",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B36",
+      "source_value": "#505",
+      "source_code": "#505",
+      "目标织机": "LOOM-505",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-37",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B37",
+      "source_value": "#505",
+      "source_code": "#505",
+      "目标织机": "LOOM-505",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-38",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B38",
+      "source_value": "#506",
+      "source_code": "#506",
+      "目标织机": "LOOM-506",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-39",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B39",
+      "source_value": "#506",
+      "source_code": "#506",
+      "目标织机": "LOOM-506",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-40",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B40",
+      "source_value": "#601",
+      "source_code": "#601",
+      "目标织机": "LOOM-601",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-41",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B41",
+      "source_value": "#601",
+      "source_code": "#601",
+      "目标织机": "LOOM-601",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-42",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B42",
+      "source_value": "#602",
+      "source_code": "#602",
+      "目标织机": "LOOM-602",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-43",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B43",
+      "source_value": "#602",
+      "source_code": "#602",
+      "目标织机": "LOOM-602",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-44",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B44",
+      "source_value": "#603",
+      "source_code": "#603",
+      "目标织机": "LOOM-603",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-45",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B45",
+      "source_value": "#603",
+      "source_code": "#603",
+      "目标织机": "LOOM-603",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-46",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B46",
+      "source_value": "#604",
+      "source_code": "#604",
+      "目标织机": "LOOM-604",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-47",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B47",
+      "source_value": "#604",
+      "source_code": "#604",
+      "目标织机": "LOOM-604",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-48",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B48",
+      "source_value": "#605",
+      "source_code": "#605",
+      "目标织机": "LOOM-605",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-49",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B49",
+      "source_value": "#605",
+      "source_code": "#605",
+      "目标织机": "LOOM-605",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-50",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B50",
+      "source_value": "#606",
+      "source_code": "#606",
+      "目标织机": "LOOM-606",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-51",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B51",
+      "source_value": "#606",
+      "source_code": "#606",
+      "目标织机": "LOOM-606",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-52",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B52",
+      "source_value": "#701",
+      "source_code": "#701",
+      "目标织机": "LOOM-701",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-53",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B53",
+      "source_value": "#701",
+      "source_code": "#701",
+      "目标织机": "LOOM-701",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-54",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B54",
+      "source_value": "#702",
+      "source_code": "#702",
+      "目标织机": "LOOM-702",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-55",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B55",
+      "source_value": "#702",
+      "source_code": "#702",
+      "目标织机": "LOOM-702",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-56",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B56",
+      "source_value": "#703",
+      "source_code": "#703",
+      "目标织机": "LOOM-703",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-57",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B57",
+      "source_value": "#703",
+      "source_code": "#703",
+      "目标织机": "LOOM-703",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-58",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B58",
+      "source_value": "#704",
+      "source_code": "#704",
+      "目标织机": "LOOM-704",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-59",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B59",
+      "source_value": "#704",
+      "source_code": "#704",
+      "目标织机": "LOOM-704",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-60",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B60",
+      "source_value": "#705",
+      "source_code": "#705",
+      "目标织机": "LOOM-705",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-61",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B61",
+      "source_value": "#705",
+      "source_code": "#705",
+      "目标织机": "LOOM-705",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-62",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B62",
+      "source_value": "#706",
+      "source_code": "#706",
+      "目标织机": "LOOM-706",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    },
+    {
+      "task_id": "WARP-63",
+      "process_type": "整经",
+      "source_sheet": "整经计划",
+      "source_cell": "B63",
+      "source_value": "#706",
+      "source_code": "#706",
+      "目标织机": "LOOM-706",
+      "reason": "源表整经计划以『织机』(目标织机)为主键，全表无『整经机』编号；执行机台无法唯一确定。"
+    }
+  ],
+  "conclusion": "织造(织机)与水洗(水洗机)编号可在源表中唯一确定并归一；整经机编号在源表中不存在，整经任务暂无法确定执行机台，标记为待确认。建议补充整经机编号后再进行整经排程。"
+}

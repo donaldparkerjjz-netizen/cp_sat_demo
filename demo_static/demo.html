@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>织造车间排产 Demo · 整经-穿综穿筘-织造 · CP-SAT</title>
+<style>
+:root{--bg:#0f1420;--panel:#171e2e;--panel2:#1e2740;--panel3:#141b2c;--line:#2a3550;--text:#e7ecf5;--muted:#93a2bd;--muted2:#61718e;--accent:#4e9ef5;--accent2:#4ec9a5;--warn:#ffb454;--danger:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:1500px;margin:0 auto;padding:20px 24px 70px}
+a{color:var(--accent)}
+h1{font-size:21px;margin:0}.sub{color:var(--muted);font-size:13px;margin-top:3px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:14px}
+.card h2{font-size:15px;margin:0 0 12px;color:#cdd7eb}
+.card h3{font-size:13px;margin:16px 0 8px;color:#aab7d0}
+.badge{background:var(--panel2);border:1px solid var(--line);color:var(--accent2);padding:5px 11px;border-radius:999px;font-size:12px;white-space:nowrap}
+.badge.orange{color:var(--warn)}
+.badge.red{color:var(--danger)}
+.topbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.topbar .sp{margin-left:auto}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.kpi .k{font-size:12px;color:var(--muted)}.kpi .v{font-size:22px;font-weight:700;margin-top:5px}
+.kpi .s{font-size:11px;color:var(--muted2);margin-top:3px}
+.kpi .v.good{color:var(--accent2)}.kpi .v.bad{color:var(--danger)}
+.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tab{background:var(--panel2);border:1px solid var(--line);color:var(--muted);padding:9px 16px;border-radius:10px;cursor:pointer;font-size:13px;user-select:none}
+.tab:hover{color:var(--text)}
+.tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.view-holder{display:none}
+.view-holder.active{display:block}
+.chartbox{overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-top:12px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+.lg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}.lg .sw{width:12px;height:12px;border-radius:3px}.lg b{color:var(--text)}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.controls select,.controls input,.controls button{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:9px;padding:8px 12px;font-size:13px}
+.controls button{background:var(--accent);border-color:var(--accent);color:#fff;cursor:pointer;font-weight:600}
+.controls button.ghost{background:var(--panel2);border-color:var(--line);color:var(--text)}
+.controls button:hover{filter:brightness(1.1)}
+.bar-row{display:flex;align-items:center;gap:10px;margin:7px 0}
+.bar-row .lbl{width:220px;font-size:12px;color:var(--muted);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:16px;background:var(--panel3);border-radius:8px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#4e9ef5,#4ec9a5)}
+.bar-fill.warn{background:linear-gradient(90deg,#4e9ef5,#ffb454)}
+.bar-fill.over{background:linear-gradient(90deg,#ffb454,#ff6b6b)}
+.bar-val{width:200px;font-size:12px;color:var(--text);flex-shrink:0}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;white-space:nowrap}
+td{color:#d7e0f0}
+tr:hover td{background:var(--panel3)}
+.msg{padding:18px 22px;background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-top:24px;color:var(--muted);line-height:1.8}
+.rec{background:var(--panel3);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}
+.rec .rt{font-weight:700;margin-bottom:6px}
+.pill{display:inline-block;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--muted)}
+footer{color:var(--muted2);font-size:12px;margin-top:24px;line-height:1.8;border-top:1px solid var(--line);padding-top:14px}
+#tip{position:fixed;pointer-events:none;background:#0b1017;border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:12px;display:none;z-index:50;max-width:320px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+#tip .tt{font-weight:700;margin-bottom:4px}#tip .r{color:var(--muted);display:flex;justify-content:space-between;gap:18px}#tip .r b{color:var(--text)}
+.band-zone{height:26px;background:var(--panel3);border-radius:8px;position:relative;margin:6px 0}
+.band-box{position:absolute;top:0;bottom:0;background:rgba(78,201,165,.16);border:1px dashed rgba(78,201,165,.5);border-radius:6px}
+.band-dot{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;transform:translateY(-50%)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="topbar">
+      <h1>&#127956; 织造车间排产 · 整经-穿综穿筘-织造</h1>
+      <div class="badge">OR-Tools CP-SAT 约束求解</div>
+      <div class="badge orange" id="statusBadge">加载中…</div>
+      <div class="sp"></div>
+      <div class="controls" style="margin-top:0">
+        <label style="font-size:12px;color:var(--muted)">优化目标</label>
+        <select id="objective">
+          <option value="balanced">多目标均衡</option>
+          <option value="priority">交期/优先级优先</option>
+          <option value="changeover">换型最少</option>
+          <option value="jit">经轴就绪(反向)优先</option>
+        </select>
+        <button id="solveBtn">&#9654; 重新求解</button>
+        <button class="ghost" id="resetBtn">恢复默认</button>
+      </div>
+    </div>
+    <div class="sub" id="metaSub"></div>
+    <div class="tabs">
+      <div class="tab active" data-view="gantt">&#128202; 工序甘特图</div>
+      <div class="tab" data-view="analysis">&#128200; 排产分析</div>
+      <div class="tab" data-view="insert">&#10133; 插单重排</div>
+      <div class="tab" data-view="data">&#128196; 基础数据</div>
+      <div class="tab" data-view="nlu">&#129504; 智能约束</div>
+      <div class="tab" data-view="excel">&#128229; 数据导入</div>
+    </div>
+  </div>
+
+  <div class="view-holder active" id="view-gantt">
+    <div class="card">
+      <div class="topbar">
+        <h2>&#128202; 整经 → 穿综穿筘 → 织造 工序甘特图</h2>
+        <div class="controls" style="margin-top:0">
+          <label style="font-size:12px;color:var(--muted)">视图</label>
+          <select id="ganttView">
+            <option value="process">按工序(整经/穿综/织造)</option>
+            <option value="team">按班组</option>
+          </select>
+          <button class="ghost" id="exportPngBtn">&#128444; 导出图</button>
+        </div>
+      </div>
+      <div class="hint" style="font-size:12px;color:var(--muted2);margin-top:6px">滚轮缩放 · 拖拽平移 · 悬停查看任务 · 色块=产品 · &#9668;红=交期线 · ●=经轴就绪 · 灰带=休息日</div>
+      <div class="kpis" id="ganttKpis"></div>
+      <div class="chartbox"><svg id="chart"></svg></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </div>
+
+  <div class="view-holder" id="view-analysis">
+    <div class="card"><h2>&#128200; 排产分析仪表盘</h2><div class="kpis" id="anKpis"></div></div>
+    <div class="card"><h2>工序负荷 &amp; 瓶颈（织造为瓶颈）</h2><div id="procBars"></div></div>
+    <div class="card"><h2>产能 vs 需求（按产品）</h2><div id="capDemand"></div><div class="sub" style="font-size:12px;color:var(--muted2);margin-top:6px">需求 / 可用产能(全部可用织机 × 可用小时 × 织速)，&gt;100% 表示产能不足(超载预警)</div></div>
+    <div class="card"><h2>经轴就绪 · 织机等待经轴 · 交付风险</h2><div id="beamBox"></div></div>
+    <div class="card"><h2>拖期 / 准交分析</h2><div id="tardinessBox"></div></div>
+    <div class="card"><h2>换型(改品番/原品番仕挂) · 工厂日历 · 在制</h2><div id="statsBox"></div></div>
+  </div>
+
+  <div class="view-holder" id="view-insert">
+    <div class="card">
+      <h2>&#10133; 插入一张急单并重排</h2>
+      <div class="controls">
+        <label style="font-size:12px;color:var(--muted)">产品</label><select id="ip"></select>
+        <label style="font-size:12px;color:var(--muted)">数量(米)</label><input id="iq" type="number" value="3000" min="1" style="width:90px">
+        <label style="font-size:12px;color:var(--muted)">交期(小时1-168)</label><input id="idue" type="number" value="60" min="1" max="168" style="width:90px">
+        <label style="font-size:12px;color:var(--muted)">优先级(1-10)</label><input id="ipri" type="number" value="10" min="1" max="10" style="width:80px">
+        <button id="insertBtn">&#10133; 插入并重排</button>
+      </div>
+      <div class="msg" id="insertHint">输入急单参数后点「插入并重排」，系统在硬约束下自动寻优织机与起止时间，并给出被挤任务的调剂建议（P1/P2/P3）与经轴就绪提示。</div>
+    </div>
+    <div class="card" id="insertResult" style="display:none">
+      <h2>&#8652; 插入前后对比</h2>
+      <div class="kpis" id="cmpKpis"></div>
+      <div id="newOrderBox"></div>
+      <h3>被挤 / 受影响订单</h3><div id="cmpTable"></div>
+      <h3>调剂建议（P1 同品种其他可用织机 / P2 原织机顺延 / P3 需人工确认）</h3><div id="recBox"></div>
+    </div>
+  </div>
+
+  <div class="view-holder" id="view-data">
+    <div class="card"><h2>织机台账（资源）</h2><div id="tMachines"></div></div>
+    <div class="card"><h2>产品与织速/经轴工时</h2><div id="tProducts"></div></div>
+    <div class="card"><h2>产品-织机适配</h2><div id="tElig"></div></div>
+    <div class="card"><h2>织造订单（生产单）</h2><div id="tOrders"></div></div>
+  </div>
+
+  <div class="view-holder" id="view-nlu">
+    <div class="card">
+      <h2>&#129504; 自然语言描述硬约束 / 软约束</h2>
+      <div class="sub" style="margin-bottom:10px">用日常中文描述排产要求，系统解析为结构化约束并应用。支持：订单交期、固定织机、产品-织机适配、织机停用、排产时长上限、换型最少、经轴就绪优先、优先排产等。</div>
+      <textarea id="nluText" placeholder="例如：&#10;O01必须在第3天12时前完成&#10;P3只能在L3 L4 L6上织造&#10;L1第2天全天停机&#10;L5最多织造60小时&#10;改品番尽量少&#10;经轴尽量提前就绪&#10;O01优先织" style="width:100%;min-height:170px;background:#0f1524;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px;font-size:14px;line-height:1.7"></textarea>
+      <div class="controls">
+        <button class="ghost" id="nluParseBtn">&#128269; 解析约束</button>
+        <button id="nluApplyBtn">&#10133; 应用并重排</button>
+        <span id="nluStatus" style="font-size:12px;color:var(--muted)"></span>
+      </div>
+    </div>
+    <div class="card" id="nluResult" style="display:none">
+      <h2>&#129504; 约束解析结果</h2><div id="nluParsed"></div>
+      <h3>应用结果</h3><div id="nluApplied"></div>
+      <h3>应用后排产关键指标</h3><div id="nluKpis"></div>
+    </div>
+  </div>
+
+  <div class="view-holder" id="view-excel">
+    <div class="card">
+      <h2>&#128229; 数据接入（导入基础数据与订单）</h2>
+      <div class="sub" style="margin-bottom:10px">上传您的多页 Excel/CSV，系统<b>逐页自动识别</b>：按页名/列头匹配「产品、织机、整经机、穿综工位、适配、订单、日历、换型(改品番/仕挂)」等数据并重排。</div>
+      <div class="controls">
+        <button class="ghost" id="tplBtn">&#11015; 下载模板</button>
+        <input type="file" id="excelFile" accept=".xlsx,.csv" multiple style="color:var(--muted)">
+        <button id="xlsImportBtn">&#11014; 上传解析并重排</button>
+        <button class="ghost" id="xlsExportBtn">&#11015; 导出排产结果 Excel</button>
+      </div>
+      <div class="msg" id="excelStatus">支持 .xlsx / .csv（可多选、多文件）：系统逐页自动识别产品、织机、整经机、穿综穿筘工位、适配、订单、日历、换型等；说明/结果输出页自动跳过。</div>
+    </div>
+    <div class="card" id="excelResult" style="display:none">
+      <h2>&#128229; 解析 / 导入结果</h2><div id="excelSummary"></div><div id="excelErrors"></div><div id="excelKpis"></div>
+    </div>
+  </div>
+
+  <footer>
+    参考《益丰生产管理表单(织造/后整)》结构 · 织造车间 · 时间轴: 7天×24小时=168h · 粒度 1 小时 · 滚动排产<br>
+    硬约束: 产品-织机适配 / 织机独占 / 换型·仕挂空档(改品番/原品番) / 经轴前置就绪(整经→穿综→织造) / 工厂日历(休息日)<br>
+    软目标: 交期·优先级(按期按量) / 换型·仕挂最少 / 经轴就绪·反向拉动 / 织机等待经轴最少
+  </footer>
+</div>
+<div id="tip"></div>
+
+<script>
+(function(){
+"use strict";
+var PALETTE=["#4e79a7","#f28e2b","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7","#9c755f","#bab0ac"];
+var $=function(id){return document.getElementById(id);};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+var productColors={}, productList=[];
+function pcol(p){if(productColors[p])return productColors[p];productList.push(p);productColors[p]=PALETTE[(productList.length-1)%PALETTE.length];return productColors[p];}
+var RES=null, SCEN=null, ganttView="process";
+var PROC_LABEL={warp:"整经",draw:"穿综穿筘",weave:"织造"};
+var PROC_ORDER=["warp","draw","weave"];
+
+function setBadge(text,cls){$("statusBadge").textContent=text;$("statusBadge").className="badge "+(cls||"");}
+function kpiBoxes(arr){var h="";for(var i=0;i<arr.length;i++){var b=arr[i];h+='<div class="kpi"><div class="k">'+b[0]+'</div><div class="v '+(b[2]||"")+'">'+b[1]+'</div><div class="s">'+(b[3]||"")+'</div></div>';}return h;}
+function fmtH(t,hpd){if(t==null)return "-";var day=Math.floor(t/hpd)+1,hh=t%hpd;return "D"+day+" "+("0"+hh).slice(-2)+"时";}
+
+function solve(){
+  setBadge("CP-SAT 求解中…","orange");
+  var obj=$("objective").value;
+  fetch("/api/solve?objective="+encodeURIComponent(obj)+"&max_time_s=30")
+    .then(function(r){return r.json();})
+    .then(function(res){
+      if(res.error){setBadge("求解失败","red");$("metaSub").textContent=res.error;return;}
+      RES=res;renderGantt();renderAnalysis();
+      setBadge(res.meta.status+" · "+res.meta.solve_time_s+"s","");
+      $("metaSub").textContent=res.meta.title+" · "+res.meta.data_source+" · "+res.meta.days+"天×"+res.meta.hours_per_day+"h="+res.meta.num_hours+"h · 织机"+res.meta.num_looms+"/整经"+res.meta.num_warp+"/穿综"+res.meta.num_draw+" · "+res.meta.num_orders+"订单 · 目标:"+(res.meta.objective_label||res.meta.objective);
+    })
+    .catch(function(e){setBadge("请求失败","red");$("metaSub").textContent="请先运行 python demo_server.py 启动后端。"+e;});
+}
+
+function loadData(){
+  fetch("/api/data").then(function(r){return r.json();}).then(function(sc){
+    SCEN=sc;var opts="";for(var p in sc.products){opts+='<option value="'+p+'">'+esc(p)+" · "+esc(sc.products[p].name)+"</option>";}
+    $("ip").innerHTML=opts;renderData(sc);
+  });
+}
+function renderData(sc){
+  var h="<table><tr><th>工序</th><th>资源</th><th>名称</th><th>班组</th><th>效率</th></tr>";
+  function rows(arr,proc){for(var i=0;i<arr.length;i++){var m=arr[i];h+="<tr><td>"+PROC_LABEL[proc]+"</td><td>"+esc(m.id)+"</td><td>"+esc(m.name)+"</td><td>"+esc(m.team)+"</td><td>"+(m.eff||1.0)+"</td></tr>";}}
+  rows(sc.looms,"weave");rows(sc.warp_machines,"warp");rows(sc.draw_stations,"draw");
+  h+="</table>";$("tMachines").innerHTML=h;
+  h="<table><tr><th>产品</th><th>名称</th><th>织速(米/时)</th><th>经轴长度(米)</th><th>整经(时)</th><th>穿综(时)</th></tr>";
+  for(var p in sc.products){var v=sc.products[p];h+="<tr><td>"+esc(p)+"</td><td>"+esc(v.name)+"</td><td>"+v.rate+"</td><td>"+v.beam_len+"</td><td>"+v.warp_h+"</td><td>"+v.draw_h+"</td></tr>";}
+  h+="</table>";$("tProducts").innerHTML=h;
+  h="<table><tr><th>产品</th><th>可用织机</th></tr>";
+  for(var p2 in sc.loom_eligibility){h+="<tr><td>"+esc(p2)+"</td><td>"+esc(sc.loom_eligibility[p2].join(", "))+"</td></tr>";}
+  h+="</table>";$("tElig").innerHTML=h;
+  h="<table><tr><th>订单号</th><th>产品</th><th>数量(米)</th><th>交期(时)</th><th>优先级</th><th>来源</th></tr>";
+  for(var k=0;k<sc.orders.length;k++){var o=sc.orders[k];h+="<tr><td>"+esc(o.id)+"</td><td>"+esc(o.product)+"</td><td>"+o.qty+"</td><td>"+o.due+"</td><td>"+o.pri+"</td><td>"+esc(o.source)+"</td></tr>";}
+  h+="</table>";$("tOrders").innerHTML=h;
+}
+
+function renderGantt(){
+  var d=RES;if(!d)return;var svg=$("chart");var T=d.meta.num_hours,SPD=d.meta.hours_per_day,M=d.machines;
+  productList=[];productColors={};
+  for(var s=0;s<d.schedule.length;s++){pcol(d.schedule[s].product);}
+  var occ={};for(var s2=0;s2<d.schedule.length;s2++){occ[d.schedule[s2].machine+"_"+d.schedule[s2].process]=d.schedule[s2];}
+  // build rows
+  var rows=[],rowLabel={};
+  if(ganttView==="team"){
+    var teams=["整经组","穿综组","A组","B组"];var tmSet={};
+    for(var i=0;i<M.length;i++){if(!tmSet[M[i].team]){tmSet[M[i].team]=[];teams=teams;tmSet[M[i].team].push(M[i]);}}
+    teams=Object.keys(tmSet);
+    for(var t2=0;t2<teams.length;t2++){var tm=teams[t2];var ms=[];
+      for(var i2=0;i2<M.length;i2++){if(M[i2].team===tm)ms.push(M[i2]);}
+      rows.push({key:tm,machines:ms});rowLabel[tm]=tm;}
+  } else {
+    // group by process, order warp->draw->weave
+    for(var pi=0;pi<PROC_ORDER.length;pi++){var pr=PROC_ORDER[pi];
+      rowLabel["band-"+pr]=PROC_LABEL[pr];
+      // header band row
+      rows.push({key:"band-"+pr,band:true,machines:[]});
+      for(var i3=0;i3<M.length;i3++){if(M[i3].process===pr){rows.push({key:M[i3].id,machines:[M[i3]]});rowLabel[M[i3].id]=M[i3].name;}}
+    }
+  }
+  var W=Math.max(svg.clientWidth||1200,600);
+  var PPH=6; // px per hour default (zoomable)
+  var CW=PPH,ML=230,MT=44,CH=30;
+  // SVG 宽度必须容纳整条时间轴, 供 chartbox 横向滚动
+  W=Math.max(W, ML+T*PPH+20);
+  var H=MT+rows.length*CH+24;svg.setAttribute("width",W);svg.setAttribute("height",H);
+  var p=[];
+  // header timeline
+  var dayH=T/SPD;
+  for(var t=0;t<T;t++){var x=ML+t*PPH;
+    // tick every hour, label every 6h
+    if(t%6===0){p.push('<line x1="'+x+'" y1="'+(MT-14)+'" x2="'+x+'" y2="'+MT+'" stroke="#3a4a6b" stroke-width="1"/>');p.push('<text x="'+x+'" y="'+(MT-2)+'" fill="#61718e" font-size="9" text-anchor="middle">'+fmtH(t,SPD)+'</text>');}
+  }
+  var restT={};if(d.meta.off_hours){for(var ri0=0;ri0<d.meta.off_hours.length;ri0++){restT[d.meta.off_hours[ri0]]=true;}}
+  for(var ri=0;ri<rows.length;ri++){var row=rows[ri];var y=MT+ri*CH;
+    if(row.band){p.push('<rect x="'+ML+'" y="'+y+'" width="'+((T)*PPH)+'" height="'+CH+'" fill="#1a2138"/>');p.push('<text x="'+(ML-12)+'" y="'+(y+CH/2+4)+'" fill="#8fa3c8" font-size="12" text-anchor="end" font-weight="700">'+esc(rowLabel[row.key])+'</text>');continue;}
+    p.push('<text x="'+(ML-12)+'" y="'+(y+CH/2+4)+'" fill="#c7d2e6" font-size="12" text-anchor="end" font-weight="600">'+esc(rowLabel[row.key])+'</text>');
+    // background availability
+    for(var tt2=0;tt2<T;tt2++){var x2=ML+tt2*PPH;var rest=restT[tt2];if(rest){p.push('<rect x="'+x2+'" y="'+(y+1)+'" width="'+PPH+'" height="'+(CH-2)+'" fill="#111828" stroke="#2a3550" stroke-width="0.5"/>');}}
+    // bars for this row's tasks
+    var tasks=[];for(var s3=0;s3<d.schedule.length;s3++){var it=d.schedule[s3];
+      if(ganttView==="process"){if(it.machine===row.key)tasks.push(it);}
+      else{if(it.team===row.key)tasks.push(it);}}
+    for(var ti=0;ti<tasks.length;ti++){var task=tasks[ti];
+      var xa=ML+task.start_h*PPH,wa=(task.end_h-task.start_h)*PPH;var c=pcol(task.product);
+      p.push('<g data-m="'+(task.machine||"")+'" data-p="'+task.process+'" data-job="'+esc(task.job)+'">');
+      p.push('<rect x="'+xa+'" y="'+(y+2)+'" width="'+Math.max(4,wa)+'" height="'+(CH-4)+'" rx="4" fill="'+c+'" stroke="rgba(0,0,0,0.25)"/>');
+      var label=PROC_LABEL[task.process]==="织造"?(task.job+" "+task.product):(task.job);
+      p.push('<text x="'+(xa+Math.max(4,wa)/2)+'" y="'+(y+CH/2+3)+'" fill="#fff" font-size="9" text-anchor="middle" font-weight="700">'+esc(label)+'</text>');
+      p.push('</g>');}
+    // for weaving rows: due line + beam ready marker
+    if(row.machines.length===1 && ganttView==="process"){
+      var mId=row.machines[0].id;var jobsHere=[];
+      for(var jj=0;jj<d.jobs.length;jj++){var j=d.jobs[jj];if(j.machine===mId&&j.scheduled){jobsHere.push(j);}}
+      for(var jx=0;jx<jobsHere.length;jx++){var j2=jobsHere[jx];
+        var dx=ML+j2.due*PPH+PPH/2;
+        p.push('<line x1="'+dx+'" y1="'+y+'" x2="'+dx+'" y2="'+(y+CH)+'" stroke="#ff6b6b" stroke-dasharray="3,3" stroke-width="1.4"/>');
+        p.push('<text x="'+dx+'" y="'+(y+CH/2)+'" fill="#ff6b6b" font-size="9" text-anchor="middle">&#9668;</text>');
+        if(j2.ready_h!=null){var rx=ML+j2.ready_h*PPH;if(rx>=ML)p.push('<circle cx="'+rx+'" cy="'+(y+CH/2)+'" r="3.5" fill="none" stroke="#fff" stroke-width="1.6"/>');}
+      }
+    }
+  }
+  svg.innerHTML=p.join("");
+  svg.onmousemove=function(e){var g=e.target.closest?e.target.closest("g[data-job]"):null;if(!g){$("tip").style.display="none";return;}
+    var job=g.getAttribute("data-job"),proc=g.getAttribute("data-p"),mch=g.getAttribute("data-m");
+    var jobo=null;for(var jd=0;jd<d.jobs.length;jd++){if(d.jobs[jd].id===job)jobo=d.jobs[jd];}
+    var taskArr=d.schedule.filter(function(x){return x.job===job&&x.process===proc&&x.machine===mch;});
+    var tsk=taskArr[0];var tip=$("tip");var inner='<div class="tt" style="color:'+pcol(tsk.product)+'">'+esc(job)+" · "+esc(tsk.product)+" · "+PROC_LABEL[proc]+'</div>';
+    inner+='<div class="r"><span>资源</span><b>'+esc(mch)+'</b></div>';
+    inner+='<div class="r"><span>起止</span><b>'+fmtH(tsk.start_h,SPD)+" → "+fmtH(tsk.end_h,SPD)+'</b></div>';
+    inner+='<div class="r"><span>时长</span><b>'+tsk.duration+' h</b></div>';
+    if(jobo){inner+='<div class="r"><span>数量</span><b>'+jobo.qty+' 米</b></div>';
+      inner+='<div class="r"><span>交期</span><b>'+fmtH(jobo.due,SPD)+'</b></div>';
+      inner+='<div class="r"><span>完成</span><b>'+fmtH(jobo.completion,SPD)+'</b></div>';
+      inner+='<div class="r"><span>经轴就绪</span><b>'+fmtH(jobo.ready_h,SPD)+'</b></div>';
+      inner+='<div class="r"><span>状态</span><b>'+(jobo.tardiness>0?"<span style='color:#ff6b6b'>拖期</span>":"<span style='color:#4ec9a5'>准时</span>")+'</b></div>';}
+    tip.innerHTML=inner;tip.style.display="block";tip.style.left=(e.clientX+14)+"px";tip.style.top=(e.clientY+14)+"px";};
+  svg.onmouseleave=function(){$("tip").style.display="none";};
+  svg.onwheel=function(ev){ev.preventDefault();svg.scrollLeft+=ev.deltaY>0?40:-40;};
+  var a=d.analysis;
+  var boxes=[["求解状态",d.meta.status,d.meta.status==="OPTIMAL"?"good":""],
+    ["订单数",d.meta.num_orders],["织机负荷",a.overall_utilization_pct+"%"],
+    ["准交率",a.tardiness.on_time_rate+"%",a.tardiness.on_time_rate>=90?"good":"bad"],
+    ["拖期单数",a.tardiness.total_tardy,a.tardiness.total_tardy===0?"good":"bad"],
+    ["改品番",a.changeovers],["原品番仕挂",a.same_product_setups],
+    ["经轴就绪裕量",a.beam.avg_slack_h+"h",a.beam.avg_slack_h<=5?"good":"bad","织机等经轴 "+a.beam.loom_wait_h+"h"]];
+  $("ganttKpis").innerHTML=kpiBoxes(boxes);
+  var l="";for(var i4=0;i4<productList.length;i4++){var pm=productList[i4];l+='<div class="lg"><span class="sw" style="background:'+productColors[pm]+'"></span><b>'+esc(pm)+'</b> <span style="color:#61718e">'+esc(SCEN&&SCEN.products[pm]?SCEN.products[pm].name:"")+'</span></div>';}
+  $("legend").innerHTML=l;
+}
+
+function renderAnalysis(){
+  var d=RES;if(!d)return;var a=d.analysis;
+  $("anKpis").innerHTML=kpiBoxes([["求解状态",d.meta.status,d.meta.status==="OPTIMAL"?"good":""],
+    ["织造负荷",a.overall_utilization_pct+"%"],
+    ["瓶颈织机",esc(a.bottleneck.name)],
+    ["瓶颈负荷",a.bottleneck.utilization_pct+"%"],
+    ["准交率",a.tardiness.on_time_rate+"%",a.tardiness.on_time_rate>=90?"good":"bad"],
+    ["拖期单数",a.tardiness.total_tardy,a.tardiness.total_tardy===0?"good":"bad"],
+    ["最大拖期",a.tardiness.max_tardiness+" h"],["改品番",a.changeovers]]);
+  // process util bars
+  var h="";var pu=a.process_util;
+  var procKeys=["weave","warp","draw"];
+  for(var i=0;i<procKeys.length;i++){var pk=procKeys[i];var v=pu[pk];if(!v)continue;
+    var f=v.utilization_pct>=85?"over":(v.utilization_pct>=65?"warn":"");
+    h+='<div class="bar-row"><div class="lbl">'+PROC_LABEL[pk]+'</div><div class="bar-track"><div class="bar-fill '+f+'" style="width:'+v.utilization_pct+'%"></div></div><div class="bar-val">'+v.utilization_pct+'% · <span style="color:#61718e">'+v.used_hours+"/"+v.capacity_hours+"h · "+v.resources.length+"台</span></div></div>';}
+  // per resource
+  var sortKeys=[];for(var mk in a.machine_util){sortKeys.push(mk);}
+  sortKeys.sort(function(x,y){return a.machine_util[y].used_hours-a.machine_util[x].used_hours;});
+  for(var i5=0;i5<sortKeys.length;i5++){var mk2=sortKeys[i5];var mu=a.machine_util[mk2];
+    var isBot=(mk2===a.bottleneck.machine);var f2=mu.utilization_pct>=85?"over":(mu.utilization_pct>=65?"warn":"");
+    h+='<div class="bar-row"><div class="lbl">'+esc(mu.name)+" ("+esc(mk2)+")"+' <span class="pill">'+PROC_LABEL[mu.process]+'</span>'+(isBot?' <span class="pill" style="color:#ff6b6b">瓶颈</span>':"")+'</div><div class="bar-track"><div class="bar-fill '+f2+'" style="width:'+mu.utilization_pct+'%"></div></div><div class="bar-val">'+mu.utilization_pct+'% · <span style="color:#61718e">'+mu.used_hours+"/"+mu.capacity_hours+"h</span></div></div>";}
+  $("procBars").innerHTML=h;
+  // capacity vs demand per product
+  h="";var sc=SCEN||d.scenario;
+  for(var p in sc.products){var v=sc.products[p];var el=(sc.loom_eligibility[p]||[]).length;
+    var demand=0;for(var oi=0;oi<sc.orders.length;oi++){if(sc.orders[oi].product===p)demand+=sc.orders[oi].qty;}
+    var cap=el*(d.meta.num_hours-(d.meta.off_hours||[]).length)*v.rate;
+    var pct=cap?Math.round(demand/cap*100):0;var cls=pct>=100?"over":(pct>=80?"warn":"");
+    h+='<div class="bar-row"><div class="lbl">'+esc(p)+" · "+esc(v.name)+'</div><div class="bar-track"><div class="bar-fill '+cls+'" style="width:'+Math.min(100,pct)+'%"></div></div><div class="bar-val">'+pct+'%<br><span style="color:#61718e">需求'+demand+" / 产能"+Math.round(cap)+"米</span></div></div>";}
+  $("capDemand").innerHTML=h;
+  // beam readiness
+  var bm=a.beam;var tb='<div class="sub" style="margin-bottom:10px">经轴就绪率 '+bm.ready_before_weave+"/"+bm.scheduled_orders+" · 平均就绪裕量 "+bm.avg_slack_h+"h · 最大裕量 "+bm.max_slack_h+"h · 织机等经轴 "+bm.loom_wait_h+"h</div>";
+  tb+="<table><tr><th>订单</th><th>产品</th><th>织机</th><th>织造开始</th><th>经轴就绪</th><th>裕量(h)</th><th>交期</th><th>状态</th></tr>";
+  for(var bi=0;bi<d.jobs.length;bi++){var bj=d.jobs[bi];if(!bj.scheduled)continue;
+    var slack=bj.start_h-bj.ready_h;
+    tb+="<tr><td>"+esc(bj.id)+"</td><td>"+esc(bj.product)+"</td><td>"+esc(bj.machine)+"</td><td>"+fmtH(bj.start_h,SPD)+"</td><td>"+fmtH(bj.ready_h,SPD)+"</td><td style='color:"+(slack<0?"#ff6b6b":"#4ec9a5")+"'>"+slack+"</td><td>"+fmtH(bj.due,SPD)+"</td><td style='color:"+(bj.tardiness>0?"#ff6b6b":"#4ec9a5")+"'>"+(bj.tardiness>0?"拖期":"准时")+"</td></tr>";}
+  tb+="</table>";
+  if(bm.unscheduled_orders>0){tb+='<div class="sub" style="color:#ffb454;margin-top:8px">未排产订单 '+bm.unscheduled_orders+' 单(产能不足或交期冲突)。</div>';}
+  $("beamBox").innerHTML=tb;
+  // tardiness
+  var td=a.tardiness;var tb2='<div class="sub" style="margin-bottom:10px">准交率 '+td.on_time_rate+'% · 拖期订单 '+td.total_tardy+' 单 · 最大拖期 '+td.max_tardiness+'h</div>';
+  if(td.tardy_orders&&td.tardy_orders.length>0){tb2+="<table><tr><th>订单</th><th>产品</th><th>织机</th><th>优先级</th><th>交期</th><th>完成</th><th>拖期</th></tr>";
+    for(var ti=0;ti<td.tardy_orders.length;ti++){var to=td.tardy_orders[ti];tb2+="<tr><td>"+esc(to.id)+"</td><td>"+esc(to.product)+"</td><td>"+esc(to.machine)+"</td><td>"+to.priority+"</td><td>"+fmtH(to.due,SPD)+"</td><td>"+fmtH(to.completion,SPD)+"</td><td style='color:#ff6b6b'>+"+to.tardiness+"</td></tr>";}
+    tb2+="</table>";}else{tb2+='<div class="sub" style="color:#4ec9a5">全部织造订单按期完成。</div>';}
+  $("tardinessBox").innerHTML=tb2;
+  renderStats(d);
+}
+function renderStats(d){
+  if(!d)return;var a=d.analysis;var cal=a.calendar;var wip=a.wip;var ts=a.type_stats||{};
+  var h='<div class="kpis">';
+  h+='<div class="kpi"><div class="k">工厂日历</div><div class="v">'+cal.num_hours+'h</div><div class="s">'+cal.days+'天×'+cal.hours_per_day+'h · 休息日'+(cal.rest_days&&cal.rest_days.length?cal.rest_days.join("、"):"无")+'</div></div>';
+  h+='<div class="kpi"><div class="k">可用小时</div><div class="v">'+cal.avail_hours+'</div><div class="s">已扣除休息日</div></div>';
+  h+='<div class="kpi"><div class="k">平均在织</div><div class="v">'+(wip.avg_wip||0)+'</div><div class="s">台/时</div></div>';
+  h+='<div class="kpi"><div class="k">在织峰值</div><div class="v">'+(wip.peak_wip||0)+'</div><div class="s">织造总量 '+(wip.total_in_process_qty||0)+'米</div></div>';
+  h+='<div class="kpi"><div class="k">换型</div><div class="v">'+a.changeovers+'</div><div class="s">改品番 '+a.changeovers+' · 仕挂 '+a.same_product_setups+'</div></div>';
+  h+="</div>";
+  h+='<div class="sub" style="margin-bottom:8px">排产类型分布</div>';
+  h+="<table><tr><th>类型</th><th>单数</th><th>数量(米)</th><th>织造时长(h)</th></tr>";
+  for(var k in ts){var v=ts[k];var label=(k==="normal"?"正常":(k==="rework"?"返工":(k==="outsource"?"委外":k)));
+    h+="<tr><td>"+esc(label)+"</td><td>"+v.count+"</td><td>"+v.qty.toLocaleString()+"</td><td>"+v.hours+"</td></tr>";}
+  h+="</table>";
+  $("statsBox").innerHTML=h;
+}
+
+function doInsert(){
+  var order={id:"N"+Date.now().toString().slice(-5),product:$("ip").value,qty:parseInt($("iq").value,10)||2000,
+    due:parseInt($("idue").value,10)||60,pri:parseInt($("ipri").value,10)||5,type:"normal",source:"急单"};
+  $("insertBtn").disabled=true;$("insertHint").textContent="正在求解重排…";
+  fetch("/api/insert",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({order:order,max_time_s:30})})
+    .then(function(r){return r.json();})
+    .then(function(res){
+      $("insertBtn").disabled=false;if(res.error){$("insertHint").textContent="插入失败: "+res.error;return;}
+      $("insertResult").style.display="block";
+      $("insertHint").textContent="插入成功：急单 "+order.id+" 在硬约束下自动寻优织机与起止时间，已给出调剂建议与经轴就绪提示。";
+      var b=res.kpi_compare.before,a2=res.kpi_compare.after;
+      $("cmpKpis").innerHTML=kpiBoxes([["插入前 准交率",b.on_time_rate+"%",b.on_time_rate>=90?"good":"bad"],
+        ["插入后 准交率",a2.on_time_rate+"%",a2.on_time_rate>=90?"good":"bad"],
+        ["插入前 拖期",b.tardy_count,b.tardy_count===0?"good":"bad"],["插入后 拖期",a2.tardy_count,a2.tardy_count===0?"good":"bad"],
+        ["插入前 织机负荷",b.utilization+"%"],["插入后 织机负荷",a2.utilization+"%"],
+        ["插入前 改品番",b.changeovers],["插入后 改品番",a2.changeovers]]);
+      var nj="";var fnd=res.result.jobs.filter(function(j){return j.id===order.id;});
+      if(fnd.length){var j=fnd[0];
+        nj='<div class="badge orange" style="margin-bottom:8px;display:inline-block">急单 '+esc(j.id)+' 已排：'+esc(j.product)+" × "+j.qty+"米 · 织机 "+esc(j.machine)+"("+esc(j.machine_name)+") · "+(j.start_h!=null?fmtH(j.start_h,SPD):"-")+"→"+(j.completion!=null?fmtH(j.completion,SPD):"-")+" · 经轴就绪 "+(j.ready_h!=null?fmtH(j.ready_h,SPD):"-")+" · "+(j.tardiness>0?"<span style='color:#ff6b6b'>拖期 "+j.tardiness+"</span>":"<span style='color:#4ec9a5'>准时</span>")+"</div>";}
+      $("newOrderBox").innerHTML=nj;
+      var cmp=res.comparison;var ct="";
+      if(cmp.length===0){ct='<div class="sub">未挤动任何订单(有充分富余产能)。</div>';}
+      else{ct="<table><tr><th>订单</th><th>产品</th><th>优先级</th><th>交期</th><th>织机(前→后)</th><th>完成(前→后)</th><th>拖期(前→后)</th></tr>";
+        for(var ci=0;ci<cmp.length;ci++){var c=cmp[ci];ct+="<tr><td>"+esc(c.id)+"</td><td>"+esc(c.product)+"</td><td>"+c.priority+"</td><td>"+fmtH(c.due,SPD)+"</td><td>"+esc(c.machine_before)+"→"+esc(c.machine_after)+"</td><td>"+fmtH(c.completion_before,SPD)+"→"+fmtH(c.completion_after,SPD)+"</td><td style='color:#ff6b6b'>+"+c.delta_completion+"</td></tr>";}
+        ct+="</table>";}
+      $("cmpTable").innerHTML=ct;
+      var recs=res.recommendation;var rb='<div class="sub" style="margin-bottom:8px">'+esc(recs.summary)+'</div>';
+      for(var ri=0;ri<recs.items.length;ri++){var it=recs.items[ri];
+        rb+='<div class="rec"><div class="rt">'+esc(it.id)+" · "+esc(it.product)+" · 优先级"+it.priority+" · 交期"+fmtH(it.due,SPD)+"</div>";
+        rb+='<div class="sub" style="margin-bottom:6px">当前: '+esc(it.machine)+" "+fmtH(it.completion,SPD)+(it.tardiness>0?" <span style='color:#ff6b6b'>拖期 "+it.tardiness+"</span>":" <span style='color:#4ec9a5'>准时</span>")+"</div>";
+        rb+='<div><span class="pill">P1 同品种其他可用织机</span> ';
+        if(it.P1.length){for(var pi=0;pi<it.P1.length;pi++){rb+='<span class="pill" style="color:'+(it.P1[pi].need_conf_ok?"#4ec9a5":"#ffb454")+'">'+esc(it.P1[pi].machine)+"("+esc(it.P1[pi].name)+") 空"+it.P1[pi].free_hours+"h</span> ";}}
+        else{rb+='<span class="pill" style="color:#61718e">无</span>';}
+        rb+="</div><div style=\"margin-top:6px\"><span class=\"pill\">P2 原织机顺延</span> <span class=\"pill\">"+esc(it.P2.machine)+"("+esc(it.P2.name)+")</span></div>";
+        if(it.P3&&it.P3.need_confirm){rb+='<div style="margin-top:6px"><span class="pill" style="color:#ffb454">P3 跨机台跨日期 · 需人工确认</span></div>';}
+        rb+="</div>";}
+      $("recBox").innerHTML=rb;
+      RES=res.result;renderGantt();renderAnalysis();switchTab("gantt");
+    })
+    .catch(function(e){$("insertBtn").disabled=false;$("insertHint").textContent="请求失败: "+e;});
+}
+function resetAll(){
+  fetch("/api/reset",{method:"POST"}).then(function(r){return r.json();}).then(function(){solve();loadData();$("insertResult").style.display="none";$("insertHint").textContent="输入急单参数后点「插入并重排」，系统在硬约束下自动寻优织机与起止时间，并给出被挤任务的调剂建议（P1/P2/P3）与经轴就绪提示。";});
+}
+function switchTab(name){
+  var tabs=document.querySelectorAll(".tab");for(var i=0;i<tabs.length;i++){tabs[i].className="tab";}
+  var views=document.querySelectorAll(".view-holder");for(var j=0;j<views.length;j++){views[j].className="view-holder";}
+  var tb=document.querySelector(".tab[data-view='"+name+"']");if(tb)tb.className="tab active";
+  var v=$("view-"+name);if(v)v.className="view-holder active";
+}
+function parseNL(){
+  var text=$("nluText").value;if(!text){$("nluStatus").textContent="请先输入约束描述";return;}
+  $("nluStatus").textContent="解析中…";
+  fetch("/api/nlu",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:text})})
+    .then(function(r){return r.json();})
+    .then(function(res){
+      $("nluStatus").textContent="解析到 "+res.count+" 条"+(res.errors&&res.errors.length?" · 未识别 "+res.errors.length:"");
+      var h="";
+      for(var i=0;i<res.parsed.length;i++){var c=res.parsed[i];h+='<div class="rec"><div class="rt">'+(c.hard?'<span class="pill" style="color:#ff6b6b">硬约束</span>':'<span class="pill" style="color:#4ec9a5">软约束</span>')+" "+esc(c.desc)+'</div></div>';}
+      if(res.errors&&res.errors.length){h+='<div class="rec"><div class="rt" style="color:#ffb454">未识别('+res.errors.length+')</div>';for(var e=0;e<res.errors.length;e++){h+='<div style="font-size:12px;color:#ffb454">'+esc(res.errors[e].raw)+"</div>";}h+="</div>";}
+      $("nluParsed").innerHTML=h||"<div class=\"sub\">没有解析到约束。</div>";
+    }).catch(function(e){$("nluStatus").textContent="解析失败: "+e;});
+}
+function applyNL(){
+  var text=$("nluText").value;if(!text){$("nluStatus").textContent="请先输入约束描述";return;}
+  $("nluStatus").textContent="解析并重排中…";
+  fetch("/api/apply",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:text,objective:$("objective").value,max_time_s:30})})
+    .then(function(r){return r.json();})
+    .then(function(res){
+      if(res.error){$("nluStatus").textContent="应用失败: "+res.error;return;}
+      $("nluResult").style.display="block";$("nluStatus").textContent="已应用并重排完成";
+      var a=res.applied||[];var h="";for(var i=0;i<a.length;i++){var s=a[i];h+='<div class="rec"><div class="rt" style="color:'+(s.ok?"#4ec9a5":"#ff6b6b")+'">'+(s.ok?"✓ ":"✗ ")+esc(s.msg)+"</div></div>";}
+      $("nluApplied").innerHTML=h;
+      var sum=res.summary;if(sum&&sum.text){$("nluStatus").textContent=sum.text;}
+      if(res.result){var rb=res.result,rj=rb.analysis;
+        $("nluKpis").innerHTML=kpiBoxes([["求解状态",rb.meta.status,rb.meta.status==="OPTIMAL"?"good":""],
+          ["准交率",rj.tardiness.on_time_rate+"%",rj.tardiness.on_time_rate>=90?"good":"bad"],
+          ["拖期单数",rj.tardiness.total_tardy,rj.tardiness.total_tardy===0?"good":"bad"],
+          ["改品番",rj.changeovers],["原品番仕挂",rj.same_product_setups],
+          ["织造负荷",rj.overall_utilization_pct+"%"]]);
+        $("metaSub").textContent=rb.meta.title+" · 目标:"+(rb.meta.objective_label||rb.meta.objective)+" · 已应用 NL 约束";
+        RES=rb;renderGantt();renderAnalysis();switchTab("gantt");}
+    }).catch(function(e){$("nluStatus").textContent="请求失败: "+e;});
+}
+function exportPNG(){
+  var svg=$("chart");var w=svg.clientWidth||1200,h=+(svg.getAttribute("height"))||600;
+  var s=new XMLSerializer().serializeToString(svg);
+  var img=new Image();img.onload=function(){var c=document.createElement("canvas");c.width=w;c.height=h;
+    var ctx=c.getContext("2d");ctx.fillStyle="#0f1420";ctx.fillRect(0,0,w,h);ctx.drawImage(img,0,0,w,h);
+    var a=document.createElement("a");a.download="weaving_gantt.png";a.href=c.toDataURL("image/png");a.click();};
+  img.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(s);
+}
+function downloadTemplate(){var a=document.createElement("a");a.href="/api/excel/template";a.download="aps_template.xlsx";document.body.appendChild(a);a.click();a.remove();}
+function importExcel(){
+  var files=$("excelFile").files;if(!files||files.length===0){$("excelStatus").textContent="请先选择 .xlsx/.csv 文件";return;}
+  $("excelStatus").textContent="正在逐页解析 "+files.length+" 个文件…";
+  function readOne(i){return new Promise(function(resolve){var f=files[i];var r=new FileReader();r.onload=function(){resolve({name:f.name,data_base64:String(r.result).split(",")[1]});};r.onerror=function(){resolve(null);};r.readAsDataURL(f);});}
+  var ps=[];for(var k=0;k<files.length;k++){ps.push(readOne(k));}
+  Promise.all(ps).then(function(arr){var payload=arr.filter(Boolean);
+    fetch("/api/ingest",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({files:payload,objective:$("objective").value,max_time_s:30})})
+      .then(function(r){return r.json();}).then(function(res){
+        if(res.error){$("excelStatus").textContent="导入失败: "+res.error;return;}
+        $("excelResult").style.display="block";
+        var rep=res.report||{};var sb='<div class="sub">'+esc(rep.text||"")+'</div>';
+        sb+='<div class="kpis"><div class="kpi"><div class="k">产品</div><div class="v">'+(rep.products||0)+'</div></div><div class="kpi"><div class="k">资源</div><div class="v">'+(rep.resources||0)+'</div></div><div class="kpi"><div class="k">订单</div><div class="v">'+(rep.orders||0)+'</div></div></div>';
+        if(rep.files){for(var fi=0;fi<rep.files.length;fi++){var f2=rep.files[fi];sb+='<div style="margin-top:10px;font-weight:700">📄 文件：'+esc(f2.name)+'</div><table><tr><th>工作表</th><th>类型</th><th>记录数</th><th>说明</th></tr>';
+          for(var si=0;si<f2.sheets.length;si++){var sh=f2.sheets[si];sb+='<tr><td>'+esc(sh.sheet)+'</td><td>'+esc(sh.kind)+'</td><td>'+(sh.records||0)+'</td><td style="color:'+(sh.skipped?"#ffb454":"#4ec9a5")+'">'+esc(sh.note||"")+'</td></tr>';}
+          sb+="</table>";}}
+        $("excelSummary").innerHTML=sb;
+        var err="";if(rep.errors&&rep.errors.length){err='<div class="sub" style="color:#ffb454">'+(rep.errors.length)+' 条错误：'+esc(rep.errors.join("；"))+'</div>';}
+        $("excelErrors").innerHTML=err;$("excelStatus").textContent="导入完成："+(rep.text||"");
+        if(res.result){var rb=res.result,rj=rb.analysis;$("excelKpis").innerHTML=kpiBoxes([["求解状态",rb.meta.status,rb.meta.status==="OPTIMAL"?"good":""],
+          ["订单数",rb.meta.num_orders],["准交率",rj.tardiness.on_time_rate+"%",rj.tardiness.on_time_rate>=90?"good":"bad"],
+          ["改品番",rj.changeovers],["织造负荷",rj.overall_utilization_pct+"%"]]);
+          $("metaSub").textContent=rb.meta.title+" · 已从 Excel/CSV 导入并重排";RES=rb;renderGantt();renderAnalysis();switchTab("gantt");}
+      }).catch(function(e){$("excelStatus").textContent="请求失败: "+e;});
+  });
+}
+function exportExcelFile(){fetch("/api/excel/export",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({objective:$("objective").value,max_time_s:30})})
+  .then(function(r){return r.blob();}).then(function(blob){var u=URL.createObjectURL(blob);var a=document.createElement("a");a.href=u;a.download="weaving_schedule.xlsx";a.click();URL.revokeObjectURL(u);});}
+function bind(){
+  var tabs=document.querySelectorAll(".tab");for(var i=0;i<tabs.length;i++){tabs[i].addEventListener("click",function(){switchTab(this.getAttribute("data-view"));});}
+  $("solveBtn").addEventListener("click",solve);$("resetBtn").addEventListener("click",resetAll);
+  $("insertBtn").addEventListener("click",doInsert);$("objective").addEventListener("change",solve);
+  $("ganttView").addEventListener("change",function(){ganttView=this.value;renderGantt();});
+  $("nluParseBtn").addEventListener("click",parseNL);$("nluApplyBtn").addEventListener("click",applyNL);
+  $("exportPngBtn").addEventListener("click",exportPNG);
+  $("tplBtn").addEventListener("click",downloadTemplate);$("xlsImportBtn").addEventListener("click",importExcel);
+  $("xlsExportBtn").addEventListener("click",exportExcelFile);
+}
+var SPD=24; // used in closure helpers
+window.addEventListener("resize",function(){if(RES)renderGantt();});
+bind();loadData();solve();
+})();
+</script>
+</body>
+</html>

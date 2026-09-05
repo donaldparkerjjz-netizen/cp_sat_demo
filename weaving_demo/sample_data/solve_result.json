@@ -1,0 +1,952 @@
+{
+  "status": "FEASIBLE",
+  "solver_status": "FEASIBLE",
+  "solve_time_s": 4.052,
+  "schedule_start": "2026-04-01T00:00:00",
+  "schedule_end": "2026-08-31T00:00:00",
+  "model_stats": {
+    "num_variables": 10212,
+    "num_constraints": 8405,
+    "num_boolean": 0,
+    "solver": "ortools-cp-sat",
+    "num_workers": 1,
+    "time_limit_s": 8.0,
+    "per_layer_time_s": 1.0,
+    "num_layers": 8
+  },
+  "assignments": [
+    {
+      "task_id": "T-PH555120",
+      "part_index": 0,
+      "loom_id": "#101",
+      "product_id": "PH555120",
+      "beam_id": "WB-PH555120-001",
+      "start": "2026-05-24T23:20:00",
+      "end": "2026-06-14T05:00:00",
+      "start_minute": 77720,
+      "end_minute": 106860,
+      "scheduled_quantity": 7200.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 20460
+    },
+    {
+      "task_id": "T-PH54512B",
+      "part_index": 0,
+      "loom_id": "#101",
+      "product_id": "PH54512B",
+      "beam_id": "WB-PH54512B-001",
+      "start": "2026-04-27T21:40:00",
+      "end": "2026-05-24T23:20:00",
+      "start_minute": 38740,
+      "end_minute": 77720,
+      "scheduled_quantity": 9660.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 0
+    },
+    {
+      "task_id": "T-PH54462M",
+      "part_index": 0,
+      "loom_id": "#101",
+      "product_id": "PH54462M",
+      "beam_id": "WB-PH54462M-001",
+      "start": "2026-08-03T16:20:00",
+      "end": "2026-08-30T18:00:00",
+      "start_minute": 179540,
+      "end_minute": 218520,
+      "scheduled_quantity": 9660.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 132120
+    },
+    {
+      "task_id": "T-PH555140",
+      "part_index": 0,
+      "loom_id": "#101",
+      "product_id": "PH555140",
+      "beam_id": "WB-PH555140-001",
+      "start": "2026-04-01T00:00:00",
+      "end": "2026-04-27T21:40:00",
+      "start_minute": 0,
+      "end_minute": 38740,
+      "scheduled_quantity": 9600.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 0
+    },
+    {
+      "task_id": "T-PH54513N",
+      "part_index": 0,
+      "loom_id": "#101",
+      "product_id": "PH54513N",
+      "beam_id": "WB-PH54513N-001",
+      "start": "2026-07-07T18:40:00",
+      "end": "2026-08-03T16:20:00",
+      "start_minute": 140800,
+      "end_minute": 179540,
+      "scheduled_quantity": 9600.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 93140
+    },
+    {
+      "task_id": "T-PH545140",
+      "part_index": 0,
+      "loom_id": "#102",
+      "product_id": "PH545140",
+      "beam_id": "WB-PH545140-001",
+      "start": "2026-04-01T00:00:00",
+      "end": "2026-04-26T19:00:00",
+      "start_minute": 0,
+      "end_minute": 37140,
+      "scheduled_quantity": 9200.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 0
+    },
+    {
+      "task_id": "T-PH545320",
+      "part_index": 0,
+      "loom_id": "#102",
+      "product_id": "PH545320",
+      "beam_id": "WB-PH545320-001",
+      "start": "2026-05-22T00:40:00",
+      "end": "2026-06-14T14:20:00",
+      "start_minute": 73480,
+      "end_minute": 107420,
+      "scheduled_quantity": 8400.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 21020
+    },
+    {
+      "task_id": "T-PH54513L",
+      "part_index": 0,
+      "loom_id": "#101",
+      "product_id": "PH54513L",
+      "beam_id": "WB-PH54513L-001",
+      "start": "2026-06-14T05:00:00",
+      "end": "2026-07-07T18:40:00",
+      "start_minute": 106860,
+      "end_minute": 140800,
+      "scheduled_quantity": 8400.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 54400
+    },
+    {
+      "task_id": "T-PH54463M",
+      "part_index": 0,
+      "loom_id": "#102",
+      "product_id": "PH54463M",
+      "beam_id": "WB-PH54463M-001",
+      "start": "2026-04-26T19:00:00",
+      "end": "2026-05-22T00:40:00",
+      "start_minute": 37140,
+      "end_minute": 73480,
+      "scheduled_quantity": 9000.0,
+      "locked": false,
+      "lock_reason": null,
+      "changeover_type": "beam_change",
+      "lateness_minutes": 0
+    }
+  ],
+  "unscheduled": [
+    {
+      "task_id": "T-PH555120",
+      "required_quantity": 7200.0,
+      "scheduled_quantity": 7200.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    },
+    {
+      "task_id": "T-NW44463N",
+      "required_quantity": 7200.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 7200.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-NW44493N",
+      "required_quantity": 7200.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 7200.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-PH54512B",
+      "required_quantity": 9660.0,
+      "scheduled_quantity": 9660.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    },
+    {
+      "task_id": "T-PH54462M",
+      "required_quantity": 9660.0,
+      "scheduled_quantity": 9660.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    },
+    {
+      "task_id": "T-NW445340",
+      "required_quantity": 7200.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 7200.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-PH44553M",
+      "required_quantity": 8400.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 8400.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-NW345920",
+      "required_quantity": 9600.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 9600.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-PH55463N",
+      "required_quantity": 9600.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 9600.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-PH555140",
+      "required_quantity": 9600.0,
+      "scheduled_quantity": 9600.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    },
+    {
+      "task_id": "T-PH54513N",
+      "required_quantity": 9600.0,
+      "scheduled_quantity": 9600.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    },
+    {
+      "task_id": "T-PH44513C",
+      "required_quantity": 9000.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 9000.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-NW44493C",
+      "required_quantity": 8400.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 8400.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-PH545140",
+      "required_quantity": 9200.0,
+      "scheduled_quantity": 9200.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    },
+    {
+      "task_id": "T-PH83412N",
+      "required_quantity": 8400.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 8400.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-NW73413N",
+      "required_quantity": 8400.0,
+      "scheduled_quantity": 0.0,
+      "unscheduled_quantity": 8400.0,
+      "reason_codes": [
+        "capacity_material_or_priority"
+      ]
+    },
+    {
+      "task_id": "T-PH545320",
+      "required_quantity": 8400.0,
+      "scheduled_quantity": 8400.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    },
+    {
+      "task_id": "T-PH54513L",
+      "required_quantity": 8400.0,
+      "scheduled_quantity": 8400.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    },
+    {
+      "task_id": "T-PH54463M",
+      "required_quantity": 9000.0,
+      "scheduled_quantity": 9000.0,
+      "unscheduled_quantity": 0.0,
+      "reason_codes": []
+    }
+  ],
+  "objective_levels": [
+    {
+      "level": 1,
+      "name": "unscheduled_quantity",
+      "best_value": 100800,
+      "status": "FEASIBLE",
+      "solve_time_s": 4.052
+    },
+    {
+      "level": 2,
+      "name": "weighted_tardiness",
+      "best_value": 300120000,
+      "status": "FEASIBLE",
+      "solve_time_s": 4.052
+    },
+    {
+      "level": 3,
+      "name": "max_tardiness",
+      "best_value": 132120,
+      "status": "FEASIBLE",
+      "solve_time_s": 4.052
+    },
+    {
+      "level": 4,
+      "name": "task_split_count",
+      "best_value": 0,
+      "status": "FEASIBLE",
+      "solve_time_s": 4.052
+    },
+    {
+      "level": 5,
+      "name": "machine_spread_count",
+      "best_value": 2,
+      "status": "FEASIBLE",
+      "solve_time_s": 4.052
+    },
+    {
+      "level": 6,
+      "name": "changeover_count",
+      "best_value": 9,
+      "status": "FEASIBLE",
+      "solve_time_s": 4.052
+    },
+    {
+      "level": 7,
+      "name": "plan_change_count",
+      "best_value": 0,
+      "status": "FEASIBLE",
+      "solve_time_s": 4.052
+    },
+    {
+      "level": 8,
+      "name": "utilization",
+      "best_value": 322880,
+      "status": "FEASIBLE",
+      "solve_time_s": 4.052
+    }
+  ],
+  "kpi": {
+    "required_quantity": 164120.0,
+    "scheduled_quantity": 80720.0,
+    "unscheduled_quantity": 83400.0,
+    "on_time_quantity": 37460.0,
+    "late_quantity": 43260.0,
+    "total_lateness_minutes": 321140.0,
+    "max_lateness_minutes": 132120,
+    "changeover_count": 0,
+    "beam_change_count": 9,
+    "threading_count": 0,
+    "plan_change_count": 0,
+    "utilization": 0.014,
+    "scheduled_machine_minutes": 325940.0,
+    "available_machine_minutes": 23201280,
+    "demand_coverage_rate": 0.4918,
+    "on_time_rate": 0.4641,
+    "on_time_demand_rate": 0.2282,
+    "total_delay_minutes": 321140.0,
+    "max_delay_task_id": "T-PH54462M",
+    "used_loom_count": 2,
+    "task_fragment_count": 9,
+    "single_task_loom_count": 0,
+    "average_tasks_per_used_loom": 4.5,
+    "total_idle_gap_minutes": 0.0
+  },
+  "issues": [
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-NW44463N",
+      "loom_id": null,
+      "message": "任务 T-NW44463N 未排数量 7200.0（需求 7200.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-NW44493N",
+      "loom_id": null,
+      "message": "任务 T-NW44493N 未排数量 7200.0（需求 7200.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-NW445340",
+      "loom_id": null,
+      "message": "任务 T-NW445340 未排数量 7200.0（需求 7200.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-PH44553M",
+      "loom_id": null,
+      "message": "任务 T-PH44553M 未排数量 8400.0（需求 8400.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-NW345920",
+      "loom_id": null,
+      "message": "任务 T-NW345920 未排数量 9600.0（需求 9600.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-PH55463N",
+      "loom_id": null,
+      "message": "任务 T-PH55463N 未排数量 9600.0（需求 9600.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-PH44513C",
+      "loom_id": null,
+      "message": "任务 T-PH44513C 未排数量 9000.0（需求 9000.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-NW44493C",
+      "loom_id": null,
+      "message": "任务 T-NW44493C 未排数量 8400.0（需求 8400.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-PH83412N",
+      "loom_id": null,
+      "message": "任务 T-PH83412N 未排数量 8400.0（需求 8400.0）"
+    },
+    {
+      "severity": "WARNING",
+      "code": "unscheduled",
+      "task_id": "T-NW73413N",
+      "loom_id": null,
+      "message": "任务 T-NW73413N 未排数量 8400.0（需求 8400.0）"
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "checks": [
+      {
+        "check": "loom_no_overlap",
+        "pass": true,
+        "message": "无机台时间重叠"
+      },
+      {
+        "check": "beam_no_overlap",
+        "pass": true,
+        "message": "无经轴时间重叠"
+      },
+      {
+        "check": "quantity_reconcile",
+        "pass": true,
+        "message": "已排+未排=需求 对账通过"
+      }
+    ]
+  },
+  "diagnostics": {
+    "demand_coverage_rate": 0.4918,
+    "available_loom_count": 106,
+    "candidate_loom_count": 105,
+    "used_loom_count": 2,
+    "unused_loom_count": 104,
+    "horizon_total_minutes": 218880,
+    "available_machine_minutes": 23201280,
+    "scheduled_machine_minutes": 325940.0,
+    "utilization_formula": "325940 / 23201280",
+    "utilization": 0.014,
+    "task_count": 19,
+    "scheduled_task_count": 9,
+    "fully_unscheduled_task_count": 10,
+    "partially_unscheduled_task_count": 0,
+    "unscheduled_reason_summary": [
+      {
+        "reason_code": "CAPACITY_SHORTAGE",
+        "task_count": 5,
+        "quantity": 45000.0
+      },
+      {
+        "reason_code": "MATERIAL_SHORTAGE",
+        "task_count": 5,
+        "quantity": 38400.0
+      }
+    ],
+    "task_diagnostics": [
+      {
+        "task_id": "T-PH555120",
+        "product_id": "PH555120",
+        "required_quantity": 7200.0,
+        "scheduled_quantity": 7200.0,
+        "unscheduled_quantity": 7200.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      },
+      {
+        "task_id": "T-NW44463N",
+        "product_id": "NW44463N",
+        "required_quantity": 7200.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 7200.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "MATERIAL_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-NW44493N",
+        "product_id": "NW44493N",
+        "required_quantity": 7200.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 7200.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "MATERIAL_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-PH54512B",
+        "product_id": "PH54512B",
+        "required_quantity": 9660.0,
+        "scheduled_quantity": 9660.0,
+        "unscheduled_quantity": 9660.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      },
+      {
+        "task_id": "T-PH54462M",
+        "product_id": "PH54462M",
+        "required_quantity": 9660.0,
+        "scheduled_quantity": 9660.0,
+        "unscheduled_quantity": 9660.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      },
+      {
+        "task_id": "T-NW445340",
+        "product_id": "NW445340",
+        "required_quantity": 7200.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 7200.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 104,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 1,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "MATERIAL_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-PH44553M",
+        "product_id": "PH44553M",
+        "required_quantity": 8400.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 8400.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "CAPACITY_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-NW345920",
+        "product_id": "NW345920",
+        "required_quantity": 9600.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 9600.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "CAPACITY_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-PH55463N",
+        "product_id": "PH55463N",
+        "required_quantity": 9600.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 9600.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "CAPACITY_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-PH555140",
+        "product_id": "PH555140",
+        "required_quantity": 9600.0,
+        "scheduled_quantity": 9600.0,
+        "unscheduled_quantity": 9600.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      },
+      {
+        "task_id": "T-PH54513N",
+        "product_id": "PH54513N",
+        "required_quantity": 9600.0,
+        "scheduled_quantity": 9600.0,
+        "unscheduled_quantity": 9600.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      },
+      {
+        "task_id": "T-PH44513C",
+        "product_id": "PH44513C",
+        "required_quantity": 9000.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 9000.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "CAPACITY_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-NW44493C",
+        "product_id": "NW44493C",
+        "required_quantity": 8400.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 8400.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "MATERIAL_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-PH545140",
+        "product_id": "PH545140",
+        "required_quantity": 9200.0,
+        "scheduled_quantity": 9200.0,
+        "unscheduled_quantity": 9200.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 104,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 1,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      },
+      {
+        "task_id": "T-PH83412N",
+        "product_id": "PH83412N",
+        "required_quantity": 8400.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 8400.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "CAPACITY_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-NW73413N",
+        "product_id": "NW73413N",
+        "required_quantity": 8400.0,
+        "scheduled_quantity": 0.0,
+        "unscheduled_quantity": 8400.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": [
+          "MATERIAL_SHORTAGE"
+        ]
+      },
+      {
+        "task_id": "T-PH545320",
+        "product_id": "PH545320",
+        "required_quantity": 8400.0,
+        "scheduled_quantity": 8400.0,
+        "unscheduled_quantity": 8400.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      },
+      {
+        "task_id": "T-PH54513L",
+        "product_id": "PH54513L",
+        "required_quantity": 8400.0,
+        "scheduled_quantity": 8400.0,
+        "unscheduled_quantity": 8400.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      },
+      {
+        "task_id": "T-PH54463M",
+        "product_id": "PH54463M",
+        "required_quantity": 9000.0,
+        "scheduled_quantity": 9000.0,
+        "unscheduled_quantity": 9000.0,
+        "due_date": "2026-05-31T00:00:00",
+        "due_minute": 86400,
+        "compatible_loom_count": 105,
+        "all_loom_count": 106,
+        "rejected_by_product_rule": 1,
+        "rejected_by_tooling_rule": 0,
+        "rejected_by_calendar": 0,
+        "rejected_by_lock": 0,
+        "rejected_by_beam": 0,
+        "rejected_by_material": 0,
+        "rejected_by_horizon": 0,
+        "candidate_loom_ids": [],
+        "main_rejection_reason": "product_rule",
+        "final_reason_codes": []
+      }
+    ],
+    "compatibility_mode": "balanced"
+  },
+  "business_status": "HIGH_RISK",
+  "risk_reasons": [
+    "未排比例高(覆盖率 49.2%)",
+    "使用临时参数(上轴330/穿筘480/落布10分钟)",
+    "交期为推导值/月度预测",
+    "经轴为虚拟实体(WB-XX-001)",
+    "工装库存未建档"
+  ]
+}

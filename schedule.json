@@ -1,0 +1,676 @@
+{
+  "meta": {
+    "type": "job",
+    "num_jobs": 6,
+    "num_machines": 5,
+    "seed": 42,
+    "objective": "makespan",
+    "generated_time": "2026-08-25 09:58:38"
+  },
+  "statistics": {
+    "status": "OPTIMAL",
+    "objective_value": 41.0,
+    "best_objective_bound": 41.0,
+    "solve_time_s": 0.0273,
+    "num_operations": 30,
+    "num_jobs": 6,
+    "num_machines": 5,
+    "num_conflicts": 0,
+    "num_branches": 0,
+    "makespan": 41,
+    "total_wall_time_s": 0.029
+  },
+  "machines": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "jobs": [
+    {
+      "id": 0,
+      "name": "工单 0",
+      "due_date": null,
+      "weight": 1,
+      "operations": [
+        {
+          "job": 0,
+          "op": 0,
+          "machine": 3,
+          "duration": 5,
+          "start": 8,
+          "end": 13
+        },
+        {
+          "job": 0,
+          "op": 1,
+          "machine": 1,
+          "duration": 5,
+          "start": 13,
+          "end": 18
+        },
+        {
+          "job": 0,
+          "op": 2,
+          "machine": 2,
+          "duration": 4,
+          "start": 18,
+          "end": 22
+        },
+        {
+          "job": 0,
+          "op": 3,
+          "machine": 4,
+          "duration": 3,
+          "start": 33,
+          "end": 36
+        },
+        {
+          "job": 0,
+          "op": 4,
+          "machine": 0,
+          "duration": 3,
+          "start": 36,
+          "end": 39
+        }
+      ],
+      "completion": 39
+    },
+    {
+      "id": 1,
+      "name": "工单 1",
+      "due_date": null,
+      "weight": 2,
+      "operations": [
+        {
+          "job": 1,
+          "op": 0,
+          "machine": 1,
+          "duration": 3,
+          "start": 0,
+          "end": 3
+        },
+        {
+          "job": 1,
+          "op": 1,
+          "machine": 2,
+          "duration": 5,
+          "start": 6,
+          "end": 11
+        },
+        {
+          "job": 1,
+          "op": 2,
+          "machine": 0,
+          "duration": 5,
+          "start": 26,
+          "end": 31
+        },
+        {
+          "job": 1,
+          "op": 3,
+          "machine": 3,
+          "duration": 2,
+          "start": 31,
+          "end": 33
+        },
+        {
+          "job": 1,
+          "op": 4,
+          "machine": 4,
+          "duration": 5,
+          "start": 36,
+          "end": 41
+        }
+      ],
+      "completion": 41
+    },
+    {
+      "id": 2,
+      "name": "工单 2",
+      "due_date": null,
+      "weight": 3,
+      "operations": [
+        {
+          "job": 2,
+          "op": 0,
+          "machine": 2,
+          "duration": 6,
+          "start": 0,
+          "end": 6
+        },
+        {
+          "job": 2,
+          "op": 1,
+          "machine": 1,
+          "duration": 2,
+          "start": 11,
+          "end": 13
+        },
+        {
+          "job": 2,
+          "op": 2,
+          "machine": 0,
+          "duration": 4,
+          "start": 14,
+          "end": 18
+        },
+        {
+          "job": 2,
+          "op": 3,
+          "machine": 3,
+          "duration": 8,
+          "start": 18,
+          "end": 26
+        },
+        {
+          "job": 2,
+          "op": 4,
+          "machine": 4,
+          "duration": 7,
+          "start": 26,
+          "end": 33
+        }
+      ],
+      "completion": 33
+    },
+    {
+      "id": 3,
+      "name": "工单 3",
+      "due_date": null,
+      "weight": 1,
+      "operations": [
+        {
+          "job": 3,
+          "op": 0,
+          "machine": 4,
+          "duration": 3,
+          "start": 0,
+          "end": 3
+        },
+        {
+          "job": 3,
+          "op": 1,
+          "machine": 3,
+          "duration": 3,
+          "start": 5,
+          "end": 8
+        },
+        {
+          "job": 3,
+          "op": 2,
+          "machine": 0,
+          "duration": 8,
+          "start": 18,
+          "end": 26
+        },
+        {
+          "job": 3,
+          "op": 3,
+          "machine": 1,
+          "duration": 3,
+          "start": 26,
+          "end": 29
+        },
+        {
+          "job": 3,
+          "op": 4,
+          "machine": 2,
+          "duration": 7,
+          "start": 29,
+          "end": 36
+        }
+      ],
+      "completion": 36
+    },
+    {
+      "id": 4,
+      "name": "工单 4",
+      "due_date": null,
+      "weight": 2,
+      "operations": [
+        {
+          "job": 4,
+          "op": 0,
+          "machine": 3,
+          "duration": 3,
+          "start": 0,
+          "end": 3
+        },
+        {
+          "job": 4,
+          "op": 1,
+          "machine": 1,
+          "duration": 8,
+          "start": 3,
+          "end": 11
+        },
+        {
+          "job": 4,
+          "op": 2,
+          "machine": 0,
+          "duration": 3,
+          "start": 11,
+          "end": 14
+        },
+        {
+          "job": 4,
+          "op": 3,
+          "machine": 4,
+          "duration": 6,
+          "start": 14,
+          "end": 20
+        },
+        {
+          "job": 4,
+          "op": 4,
+          "machine": 2,
+          "duration": 7,
+          "start": 22,
+          "end": 29
+        }
+      ],
+      "completion": 29
+    },
+    {
+      "id": 5,
+      "name": "工单 5",
+      "due_date": null,
+      "weight": 3,
+      "operations": [
+        {
+          "job": 5,
+          "op": 0,
+          "machine": 3,
+          "duration": 2,
+          "start": 3,
+          "end": 5
+        },
+        {
+          "job": 5,
+          "op": 1,
+          "machine": 0,
+          "duration": 5,
+          "start": 5,
+          "end": 10
+        },
+        {
+          "job": 5,
+          "op": 2,
+          "machine": 2,
+          "duration": 6,
+          "start": 11,
+          "end": 17
+        },
+        {
+          "job": 5,
+          "op": 3,
+          "machine": 1,
+          "duration": 3,
+          "start": 18,
+          "end": 21
+        },
+        {
+          "job": 5,
+          "op": 4,
+          "machine": 4,
+          "duration": 5,
+          "start": 21,
+          "end": 26
+        }
+      ],
+      "completion": 26
+    }
+  ],
+  "schedule": [
+    {
+      "job": 0,
+      "op": 0,
+      "machine": 3,
+      "duration": 5,
+      "start": 8,
+      "end": 13
+    },
+    {
+      "job": 0,
+      "op": 1,
+      "machine": 1,
+      "duration": 5,
+      "start": 13,
+      "end": 18
+    },
+    {
+      "job": 0,
+      "op": 2,
+      "machine": 2,
+      "duration": 4,
+      "start": 18,
+      "end": 22
+    },
+    {
+      "job": 0,
+      "op": 3,
+      "machine": 4,
+      "duration": 3,
+      "start": 33,
+      "end": 36
+    },
+    {
+      "job": 0,
+      "op": 4,
+      "machine": 0,
+      "duration": 3,
+      "start": 36,
+      "end": 39
+    },
+    {
+      "job": 1,
+      "op": 0,
+      "machine": 1,
+      "duration": 3,
+      "start": 0,
+      "end": 3
+    },
+    {
+      "job": 1,
+      "op": 1,
+      "machine": 2,
+      "duration": 5,
+      "start": 6,
+      "end": 11
+    },
+    {
+      "job": 1,
+      "op": 2,
+      "machine": 0,
+      "duration": 5,
+      "start": 26,
+      "end": 31
+    },
+    {
+      "job": 1,
+      "op": 3,
+      "machine": 3,
+      "duration": 2,
+      "start": 31,
+      "end": 33
+    },
+    {
+      "job": 1,
+      "op": 4,
+      "machine": 4,
+      "duration": 5,
+      "start": 36,
+      "end": 41
+    },
+    {
+      "job": 2,
+      "op": 0,
+      "machine": 2,
+      "duration": 6,
+      "start": 0,
+      "end": 6
+    },
+    {
+      "job": 2,
+      "op": 1,
+      "machine": 1,
+      "duration": 2,
+      "start": 11,
+      "end": 13
+    },
+    {
+      "job": 2,
+      "op": 2,
+      "machine": 0,
+      "duration": 4,
+      "start": 14,
+      "end": 18
+    },
+    {
+      "job": 2,
+      "op": 3,
+      "machine": 3,
+      "duration": 8,
+      "start": 18,
+      "end": 26
+    },
+    {
+      "job": 2,
+      "op": 4,
+      "machine": 4,
+      "duration": 7,
+      "start": 26,
+      "end": 33
+    },
+    {
+      "job": 3,
+      "op": 0,
+      "machine": 4,
+      "duration": 3,
+      "start": 0,
+      "end": 3
+    },
+    {
+      "job": 3,
+      "op": 1,
+      "machine": 3,
+      "duration": 3,
+      "start": 5,
+      "end": 8
+    },
+    {
+      "job": 3,
+      "op": 2,
+      "machine": 0,
+      "duration": 8,
+      "start": 18,
+      "end": 26
+    },
+    {
+      "job": 3,
+      "op": 3,
+      "machine": 1,
+      "duration": 3,
+      "start": 26,
+      "end": 29
+    },
+    {
+      "job": 3,
+      "op": 4,
+      "machine": 2,
+      "duration": 7,
+      "start": 29,
+      "end": 36
+    },
+    {
+      "job": 4,
+      "op": 0,
+      "machine": 3,
+      "duration": 3,
+      "start": 0,
+      "end": 3
+    },
+    {
+      "job": 4,
+      "op": 1,
+      "machine": 1,
+      "duration": 8,
+      "start": 3,
+      "end": 11
+    },
+    {
+      "job": 4,
+      "op": 2,
+      "machine": 0,
+      "duration": 3,
+      "start": 11,
+      "end": 14
+    },
+    {
+      "job": 4,
+      "op": 3,
+      "machine": 4,
+      "duration": 6,
+      "start": 14,
+      "end": 20
+    },
+    {
+      "job": 4,
+      "op": 4,
+      "machine": 2,
+      "duration": 7,
+      "start": 22,
+      "end": 29
+    },
+    {
+      "job": 5,
+      "op": 0,
+      "machine": 3,
+      "duration": 2,
+      "start": 3,
+      "end": 5
+    },
+    {
+      "job": 5,
+      "op": 1,
+      "machine": 0,
+      "duration": 5,
+      "start": 5,
+      "end": 10
+    },
+    {
+      "job": 5,
+      "op": 2,
+      "machine": 2,
+      "duration": 6,
+      "start": 11,
+      "end": 17
+    },
+    {
+      "job": 5,
+      "op": 3,
+      "machine": 1,
+      "duration": 3,
+      "start": 18,
+      "end": 21
+    },
+    {
+      "job": 5,
+      "op": 4,
+      "machine": 4,
+      "duration": 5,
+      "start": 21,
+      "end": 26
+    }
+  ],
+  "problem_details": {
+    "meta": {
+      "type": "job",
+      "num_jobs": 6,
+      "num_machines": 5,
+      "seed": 42,
+      "objective": "makespan",
+      "generated_time": "2026-08-25 09:58:38"
+    },
+    "jobs": [
+      {
+        "order": [
+          3,
+          1,
+          2,
+          4,
+          0
+        ],
+        "durations": [
+          5,
+          5,
+          4,
+          3,
+          3
+        ]
+      },
+      {
+        "order": [
+          1,
+          2,
+          0,
+          3,
+          4
+        ],
+        "durations": [
+          3,
+          5,
+          5,
+          2,
+          5
+        ]
+      },
+      {
+        "order": [
+          2,
+          1,
+          0,
+          3,
+          4
+        ],
+        "durations": [
+          6,
+          2,
+          4,
+          8,
+          7
+        ]
+      },
+      {
+        "order": [
+          4,
+          3,
+          0,
+          1,
+          2
+        ],
+        "durations": [
+          3,
+          3,
+          8,
+          3,
+          7
+        ]
+      },
+      {
+        "order": [
+          3,
+          1,
+          0,
+          4,
+          2
+        ],
+        "durations": [
+          3,
+          8,
+          3,
+          6,
+          7
+        ]
+      },
+      {
+        "order": [
+          3,
+          0,
+          2,
+          1,
+          4
+        ],
+        "durations": [
+          2,
+          5,
+          6,
+          3,
+          5
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "generated_by": "weaving_demo/warping.py",
+  "count": 7,
+  "note": "经轴实例来自推导(源表无实体经轴编号)，is_derived=True。",
+  "beam_instances": [
+    {
+      "beam_instance_id": "BEAM-WP551-2026-04-03-01",
+      "warp_beam_sku": "WP551",
+      "plan_date": "2026-04-03",
+      "instance_meters": 4800.0,
+      "target_loom_id": [
+        "LOOM-502",
+        "LOOM-603"
+      ],
+      "warping_machine_id": "",
+      "is_derived": true,
+      "data_source": "推导数据(源表无实体经轴编号)",
+      "status": "整经计划"
+    },
+    {
+      "beam_instance_id": "BEAM-WP550-2026-06-15-01",
+      "warp_beam_sku": "WP550",
+      "plan_date": "2026-06-15",
+      "instance_meters": 9660.0,
+      "target_loom_id": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "warping_machine_id": "",
+      "is_derived": true,
+      "data_source": "推导数据(源表无实体经轴编号)",
+      "status": "整经计划"
+    },
+    {
+      "beam_instance_id": "BEAM-WP550-2026-06-15-02",
+      "warp_beam_sku": "WP550",
+      "plan_date": "2026-06-15",
+      "instance_meters": 9660.0,
+      "target_loom_id": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "warping_machine_id": "",
+      "is_derived": true,
+      "data_source": "推导数据(源表无实体经轴编号)",
+      "status": "整经计划"
+    },
+    {
+      "beam_instance_id": "BEAM-WP550-2026-06-16-01",
+      "warp_beam_sku": "WP550",
+      "plan_date": "2026-06-16",
+      "instance_meters": 9660.0,
+      "target_loom_id": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "warping_machine_id": "",
+      "is_derived": true,
+      "data_source": "推导数据(源表无实体经轴编号)",
+      "status": "整经计划"
+    },
+    {
+      "beam_instance_id": "BEAM-WP550-2026-06-16-02",
+      "warp_beam_sku": "WP550",
+      "plan_date": "2026-06-16",
+      "instance_meters": 9660.0,
+      "target_loom_id": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "warping_machine_id": "",
+      "is_derived": true,
+      "data_source": "推导数据(源表无实体经轴编号)",
+      "status": "整经计划"
+    },
+    {
+      "beam_instance_id": "BEAM-WP550-2026-06-17-01",
+      "warp_beam_sku": "WP550",
+      "plan_date": "2026-06-17",
+      "instance_meters": 4830.0,
+      "target_loom_id": [
+        "LOOM-305",
+        "LOOM-306",
+        "LOOM-505",
+        "LOOM-506"
+      ],
+      "warping_machine_id": "",
+      "is_derived": true,
+      "data_source": "推导数据(源表无实体经轴编号)",
+      "status": "整经计划"
+    },
+    {
+      "beam_instance_id": "BEAM-WP451-2026-06-18-01",
+      "warp_beam_sku": "WP451",
+      "plan_date": "2026-06-18",
+      "instance_meters": 4500.0,
+      "target_loom_id": [
+        "LOOM-504"
+      ],
+      "warping_machine_id": "",
+      "is_derived": true,
+      "data_source": "推导数据(源表无实体经轴编号)",
+      "status": "整经计划"
+    }
+  ]
+}
